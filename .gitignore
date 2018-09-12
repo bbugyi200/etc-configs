@@ -2,3 +2,13 @@
 
 !.gitignore
 !sudoers
+
+!portage/
+!portage/package.use
+!portage/package.accept_keywords
+!portage/make.shared
+!portage/patches/
+!portage/patches/*/
+!portage/patches/*/*/
+!portage/patches/*/*/*
+!portage/sets/*
