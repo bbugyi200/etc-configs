@@ -1,7 +1,7 @@
 ################################
 #  Package-specific USE Flags  #
 ################################
-app-editors/vim lua python terminal vim-pager
+app-editors/vim lua python terminal vim-pager pig
 app-portage/layman sync-plugin-portage git
 app-text/poppler -qt5
 dev-python/ipython -nbconvert -notebook -qt5
