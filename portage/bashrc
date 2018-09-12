@@ -1,0 +1,5 @@
+if [ "${EBUILD_PHASE}" == "postinst" ] || [ "${EBUILD_PHASE}" == "postrm" ];
+then
+  echo ":: Calling updatedb to update its database"
+  updatedb
+fi

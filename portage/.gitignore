@@ -1,6 +1,7 @@
 *
 
 !.gitignore
+!bashrc
 !package.use
 !package.accept_keywords
 !make.shared
