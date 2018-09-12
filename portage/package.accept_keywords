@@ -1,0 +1,376 @@
+###########################################
+#  Per-Package ACCEPT_KEYWORD Statements  #
+###########################################
+net-misc/dropbox ~amd64
+=dev-qt/qtwebengine-5.11.1 ~amd64
+=app-portage/euscan-9999 **
+app-shells/localalias ~amd64
+=app-shells/localalias-9999 **
+=app-vim/fugitive-9999 **
+
+###################################################################
+#  Automatically Generated Per-Package ACCEPT_KEYWORD Statements  #
+###################################################################
+# package.accept_keywords# required by qutebrowser (argument)
+=www-client/qutebrowser-1.4.1 ~amd64
+# required by www-client/qutebrowser-1.4.1::gentoo
+# required by qutebrowser (argument)
+=dev-python/pypeg2-2.15.2 ~amd64
+# required by stow (argument)
+=app-admin/stow-2.2.2-r1 ~amd64
+# required by fontawesome (argument)
+=media-fonts/fontawesome-5.1.0 ~amd64
+# required by app-misc/khal (argument)
+=app-misc/khal-0.9.9-r1 ~amd64
+# required by app-misc/khal-0.9.9-r1::gentoo
+# required by app-misc/khal (argument)
+=dev-python/icalendar-3.11.7 ~amd64
+# required by app-misc/khal-0.9.9-r1::gentoo
+# required by app-misc/khal (argument)
+=dev-python/click-log-0.3.2 ~amd64
+# required by timew (argument)
+=app-misc/timew-1.1.1 ~amd64
+# required by safe-rm (argument)
+=sys-apps/safe-rm-0.8 ~amd64
+# required by sunwait (argument)
+=app-misc/sunwait-20041208 ~amd64
+# required by tldextract (argument)
+=dev-python/tldextract-2.2.0 ~amd64
+# required by clipster (argument)
+=x11-misc/clipster-2.0.1 ~amd64
+# required by dev-python/tldextract-2.2.0::local
+# required by tldextract (argument)
+=dev-python/requests-file-1.4.3 ~amd64
+# required by jrnl (argument)
+=app-misc/jrnl-9999 ~amd64
+# required by app-misc/jrnl-9999::local
+# required by jrnl (argument)
+=dev-python/keyrings_alt-2.3 ~amd64
+# required by shellcheck (argument)
+=dev-util/shellcheck-0.5.0-r1 ~amd64
+# required by app-emacs/ghc-mod-5.7.0.0::gentoo
+# required by ghc-mod (argument)
+=dev-haskell/cabal-helper-0.7.3.0 ~amd64
+# required by dev-haskell/monad-journal-0.7.2::gentoo
+# required by app-emacs/ghc-mod-5.7.0.0::gentoo
+# required by ghc-mod (argument)
+=dev-haskell/either-4.4.1.1 ~amd64
+# required by dev-haskell/djinn-ghc-0.0.2.3::gentoo
+# required by app-emacs/ghc-mod-5.7.0.0::gentoo
+# required by ghc-mod (argument)
+=dev-haskell/djinn-lib-0.0.1.2 ~amd64
+# required by dev-haskell/cabal-helper-0.7.3.0::gentoo
+# required by app-emacs/ghc-mod-5.7.0.0::gentoo
+# required by ghc-mod (argument)
+=dev-haskell/utf8-string-1.0.1.1 ~amd64
+# required by dev-haskell/either-4.4.1.1::gentoo
+# required by dev-haskell/monad-journal-0.7.2::gentoo
+# required by app-emacs/ghc-mod-5.7.0.0::gentoo
+# required by ghc-mod (argument)
+=dev-haskell/monadrandom-0.4.2.3 ~amd64
+# required by ghc-mod (argument)
+=app-emacs/ghc-mod-5.7.0.0 ~amd64
+# required by app-emacs/ghc-mod-5.7.0.0::gentoo
+# required by ghc-mod (argument)
+=dev-haskell/pipes-4.1.9 ~amd64
+# required by dev-haskell/hlint-1.9.35::gentoo
+# required by app-emacs/ghc-mod-5.7.0.0::gentoo
+# required by ghc-mod (argument)
+=dev-haskell/haskell-src-exts-1.17.1 ~amd64
+# required by app-emacs/ghc-mod-5.7.0.0::gentoo
+# required by ghc-mod (argument)
+=dev-haskell/hlint-1.9.35 ~amd64
+# required by app-emacs/ghc-mod-5.7.0.0::gentoo
+# required by ghc-mod (argument)
+=dev-haskell/syb-0.5.1 ~amd64
+# required by app-emacs/ghc-mod-5.7.0.0::gentoo
+# required by ghc-mod (argument)
+=dev-haskell/djinn-ghc-0.0.2.3 ~amd64
+# required by dev-haskell/hlint-1.9.35::gentoo
+# required by app-emacs/ghc-mod-5.7.0.0::gentoo
+# required by ghc-mod (argument)
+=dev-haskell/refact-0.3.0.2 ~amd64
+# required by app-emacs/ghc-mod-5.7.0.0::gentoo
+# required by ghc-mod (argument)
+=dev-haskell/ghc-syb-utils-0.2.3 ~amd64
+# required by app-emacs/ghc-mod-5.7.0.0::gentoo
+# required by ghc-mod (argument)
+=dev-haskell/monad-journal-0.7.2 ~amd64
+# required by dev-haskell/hlint-1.9.35::gentoo
+# required by app-emacs/ghc-mod-5.7.0.0::gentoo
+# required by ghc-mod (argument)
+=dev-haskell/cpphs-1.20.2 ~amd64
+# required by app-emacs/ghc-mod-5.7.0.0::gentoo
+# required by ghc-mod (argument)
+=dev-haskell/fclabels-2.0.3.1 ~amd64
+# required by app-misc/weather (argument)
+=app-misc/weather-2.3 ~amd64
+# required by ix (argument)
+=dev-util/ix-1.0 ~amd64
+# required by bumpversion (argument)
+=dev-util/bumpversion-0.5.3 ~amd64
+# required by shell-safe-rm (argument)
+=sys-apps/shell-safe-rm-1.0.7 ~amd64
+# required by flake8-per-file-ignores (argument)
+=dev-python/flake8-per-file-ignores-0.6 ~amd64
+# required by transmission-remote-cli (argument)
+=net-p2p/transmission-remote-cli-1.7.1 ~amd64
+# required by twmail (argument)
+=dev-ruby/twmail-0.0.6 ~amd64
+# required by dev-ruby/twmail-0.0.6::bbugyi200[ruby_targets_ruby23]
+# required by twmail (argument)
+=dev-ruby/mail-2.7.0 ~amd64
+# required by wkhtmltopdf (argument)
+=media-gfx/wkhtmltopdf-0.12.4-r1 ~amd64
+# required by dev-qt/qtwidgets-5.11.1::gentoo
+# required by dev-qt/qtdeclarative-5.11.1::gentoo[widgets]
+# required by dev-qt/qtwebchannel-5.11.1::gentoo[qml]
+# required by dev-qt/qtwebengine-5.11.1::gentoo
+# required by qtwebengine (argument)
+=dev-qt/qtgui-5.11.1 ~amd64
+# required by dev-qt/qtwebengine-5.11.1::gentoo
+# required by qtwebengine (argument)
+=dev-qt/qtprintsupport-5.11.1 ~amd64
+# required by dev-qt/qtwebchannel-5.11.1::gentoo
+# required by dev-qt/qtwebengine-5.11.1::gentoo
+# required by qtwebengine (argument)
+=dev-qt/qtcore-5.11.1 ~amd64
+# required by dev-qt/qtwebengine-5.11.1::gentoo
+# required by qtwebengine (argument)
+=dev-qt/qtwebchannel-5.11.1 ~amd64
+# required by dev-qt/qtgui-5.11.1::gentoo[dbus]
+# required by dev-qt/qtdeclarative-5.11.1::gentoo
+# required by dev-qt/qtwebchannel-5.11.1::gentoo[qml]
+# required by dev-qt/qtwebengine-5.11.1::gentoo
+# required by qtwebengine (argument)
+=dev-qt/qtdbus-5.11.1 ~amd64
+# required by dev-qt/qtdeclarative-5.11.1::gentoo[xml]
+# required by dev-qt/qtwebchannel-5.11.1::gentoo[qml]
+# required by dev-qt/qtwebengine-5.11.1::gentoo
+# required by qtwebengine (argument)
+=dev-qt/qtnetwork-5.11.1 ~amd64
+# required by dev-qt/qtdeclarative-5.11.1::gentoo[-test]
+# required by dev-qt/qtwebchannel-5.11.1::gentoo[qml]
+# required by dev-qt/qtwebengine-5.11.1::gentoo
+# required by qtwebengine (argument)
+=dev-qt/qttest-5.11.1 ~amd64
+# required by dev-qt/qtwebengine-5.11.1::gentoo[widgets]
+# required by qtwebengine (argument)
+=dev-qt/qtdeclarative-5.11.1 ~amd64
+# required by dev-qt/qtdeclarative-5.11.1::gentoo[widgets]
+# required by dev-qt/qtwebchannel-5.11.1::gentoo[qml]
+# required by dev-qt/qtwebengine-5.11.1::gentoo
+# required by qtwebengine (argument)
+=dev-qt/qtwidgets-5.11.1 ~amd64
+# required by dev-qt/qtdeclarative-5.11.1::gentoo[xml]
+# required by dev-qt/qtwebchannel-5.11.1::gentoo[qml]
+# required by dev-qt/qtwebengine-5.11.1::gentoo
+# required by qtwebengine (argument)
+=dev-qt/qtxmlpatterns-5.11.1 ~amd64
+# required by app-text/poppler-0.62.0-r1::gentoo[qt5]
+# required by app-text/texlive-core-2017-r4::gentoo
+# required by dev-texlive/texlive-basic-2017-r1::gentoo
+# required by dev-texlive/texlive-fontsextra-2017::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-qt/qtxml-5.11.1 ~amd64
+# required by dev-qt/qtwebkit-5.9.1::gentoo[opengl]
+# required by media-gfx/wkhtmltopdf-0.12.4-r1::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-qt/qtopengl-5.11.1 ~amd64
+# required by dev-qt/qtwebkit-5.9.1::gentoo
+# required by net-misc/dropbox-48.3.56::gentoo[X]
+# required by @selected
+# required by @world (argument)
+=dev-qt/qtsql-5.11.1-r1 ~amd64
+# required by dev-python/PyQt5-5.10.1-r1::gentoo[svg]
+# required by dev-python/qtconsole-4.3.1::gentoo
+# required by dev-python/ipython-5.4.1-r1::gentoo[qt5]
+# required by @selected
+# required by @world (argument)
+=dev-qt/qtsvg-5.11.1 ~amd64
+# required by dev-python/PyQt5-5.10.1-r1::gentoo[bluetooth]
+# required by www-client/qutebrowser-1.4.1::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-qt/qtbluetooth-5.11.1 ~amd64
+# required by dev-qt/qtbluetooth-5.11.1::gentoo
+# required by dev-python/PyQt5-5.10.1-r1::gentoo[bluetooth]
+# required by www-client/qutebrowser-1.4.1::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-qt/qtconcurrent-5.11.1 ~amd64
+# required by twmail (argument)
+=dev-ruby/twmail-0.0.5 ~amd64
+# required by dev-python/flake8-per-file-ignores-0.6::bbugyi200
+# required by flake8-per-file-ignores (argument)
+=dev-python/py-pathmatch-0.2.1 ~amd64
+# required by tmuxinator (argument)
+=dev-ruby/tmuxinator-0.12.0 ~amd64
+# required by dev-ruby/tmuxinator-0.12.0::bbugyi200[ruby_targets_ruby23]
+# required by tmuxinator (argument)
+=dev-ruby/xdg-2.2.3 ~amd64
+# required by tldr (argument)
+=dev-python/tldr-0.4.4 ~amd64
+# required by tldr-python-client (argument)
+=dev-python/tldr-python-client-0.4.4 ~amd64
+# required by castnow (argument)
+=media-video/castnow-0.6.0 ~amd64
+# required by bugwarrior (argument)
+=app-misc/bugwarrior-1.6.0 ~amd64
+# required by app-misc/bugwarrior-1.6.0::bbugyi200
+# required by bugwarrior (argument)
+=dev-python/taskw-1.2.0 ~amd64
+# required by dev-python/taskw-1.2.0::bbugyi200
+# required by app-misc/bugwarrior-1.6.0::bbugyi200
+# required by bugwarrior (argument)
+=dev-python/kitchen-1.2.5 ~amd64
+# required by ghi (argument)
+=dev-vcs/ghi-1.2.0 ~amd64
+# required by dev-vcs/ghi-1.2.0::bbugyi200[ruby_targets_ruby23]
+# required by ghi (argument)
+=dev-ruby/pygments_rb-1.2.1 ~amd64
+# required by twilio (argument)
+=dev-python/twilio-3.6.9 ~amd64
+# required by oh-my-zsh (argument)
+=app-shells/oh-my-zsh-9999 **
+# required by zsh-autosuggestions (argument)
+=app-shells/zsh-autosuggestions-9999 **
+# required by vdirsyncer (argument)
+=dev-python/vdirsyncer-0.16.7 ~amd64
+# required by dev-python/vdirsyncer-0.16.7::gentoo
+# required by vdirsyncer (argument)
+=dev-python/click-threading-0.4.4 ~amd64
+# required by tasklib (argument)
+=dev-python/tasklib-1.1.0 ~amd64
+# required by dev-python/pockyt-1.2::bbugyi200
+# required by pockyt (argument)
+=dev-python/parse-1.6.6 ~amd64
+# required by pockyt (argument)
+=dev-python/pockyt-1.2 ~amd64
+# required by tasklib (argument)
+=dev-python/tasklib-1.0.0 ~amd64
+# required by app-editors/neovim-0.3.1::gentoo
+# required by neovim (argument)
+=dev-libs/msgpack-1.1.0 ~amd64
+# required by neovim (argument)
+=app-editors/neovim-0.3.1 ~amd64
+# required by app-editors/neovim-0.3.1::gentoo[python]
+# required by @shared
+# required by @selected
+# required by @world (argument)
+=dev-python/neovim-python-client-0.2.6 ~amd64
+# required by dev-python/neovim-python-client-0.2.6::gentoo
+# required by app-editors/neovim-0.3.1::gentoo[python]
+# required by @shared
+# required by @selected
+# required by @world (argument)
+=dev-python/msgpack-0.5.6 ~amd64
+# required by youcompleteme (argument)
+=app-vim/youcompleteme-20130910 ~amd64
+# required by vim-commentary (argument)
+=app-vim/vim-commentary-1.3_p20180530 ~amd64
+# required by vim-unimpaired (argument)
+=app-vim/vim-unimpaired-2.0 ~amd64
+# required by deoplete (argument)
+=app-vim/deoplete-4.0 ~amd64
+# required by app-vim/deoplete-4.0::bbugyi200
+# required by deoplete (argument)
+=app-vim/nvim-yarp-9999 **
+# required by app-vim/deoplete-4.0::bbugyi200
+# required by deoplete (argument)
+=app-vim/neoinclude-9999 ~amd64
+# required by app-vim/deoplete-4.0::bbugyi200
+# required by deoplete (argument)
+=app-vim/vim-hug-neovim-rpc-9999 **
+# required by deoplete (argument)
+=app-vim/deoplete-9999 ~amd64
+# required by taskwiki (argument)
+=app-vim/taskwiki-9999 **
+# required by app-vim/taskwiki-9999::bbugyi200
+# required by taskwiki (argument)
+=app-vim/vimwiki-2.3 ~amd64
+# required by vim-taskwarrior (argument)
+=app-vim/vim-taskwarrior-9999 **
+# required by ghcmod-vim (argument)
+=app-vim/ghcmod-vim-1.3.1 ~amd64
+# required by app-vim/ghcmod-vim-1.3.1::bbugyi200
+# required by ghcmod-vim (argument)
+=app-vim/vimproc-9999 **
+# required by neco-ghc (argument)
+=app-vim/neco-ghc-9999 **
+# required by haskell-vim (argument)
+=app-vim/haskell-vim-9999 **
+# required by app-vim/vim-livedown-9999::bbugyi200
+# required by vim-livedown (argument)
+=app-misc/livedown-2.1.1 ~amd64
+# required by app-vim/rename (argument)
+=app-vim/rename-9999 **
+# required by vim-livedown (argument)
+=app-vim/vim-livedown-9999 **
+# required by clang_complete (argument)
+=app-vim/clang_complete-9999 **
+# required by delimitMate (argument)
+=app-vim/delimitMate-9999 **
+# required by app-vim/jedi (argument)
+=app-vim/jedi-0.8_p20171015 ~amd64
+# required by vim-localvimrc (argument)
+=app-vim/vim-localvimrc-3.0.1 ~amd64
+# required by vim-colors-solarized (argument)
+=app-vim/vim-colors-solarized-9999 **
+# required by ctrlsf (argument)
+=app-vim/ctrlsf-2.1.2 ~amd64
+# required by ctrlsf (argument)
+=app-vim/ctrlsf-9999 **
+# required by vim-localvimrc (argument)
+=app-vim/vim-localvimrc-9999 **
+# required by app-vim/riv (argument)
+=app-vim/riv-9999 **
+# required by vim-buftabline (argument)
+=app-vim/vim-buftabline-9999 **
+# required by vim-python-pep8-indent (argument)
+=app-vim/vim-python-pep8-indent-9999 **
+# required by vim-cmake-syntax (argument)
+=app-vim/vim-cmake-syntax-9999 **
+# required by vim-easytags (argument)
+=app-vim/vim-easytags-9999 **
+# required by ultisnips (argument)
+=app-vim/ultisnips-9999 **
+# required by vim-snippets (argument)
+=app-vim/vim-snippets-9999 **
+# required by vim-superman (argument)
+=app-vim/vim-superman-9999 **
+# required by imv (argument)
+=media-gfx/imv-2.1.3 ~amd64
+# required by dev-python/pynacl-1.1.2::gentoo
+# required by dev-python/paramiko-2.4.1::gentoo
+# required by dev-db/mysql-workbench-6.3.4-r1::gentoo
+# required by mysql-workbench (argument)
+=dev-libs/libsodium-1.0.14 ~amd64
+# required by dev-python/pynacl-1.1.2::gentoo
+# required by dev-python/paramiko-2.4.1::gentoo
+# required by dev-db/mysql-workbench-6.3.4-r1::gentoo
+# required by mysql-workbench (argument)
+=dev-libs/libsodium-1.0.13 ~amd64
+# required by dev-python/paramiko-2.4.1::gentoo
+# required by dev-db/mysql-workbench-6.3.4-r1::gentoo
+# required by mysql-workbench (argument)
+=dev-python/pynacl-1.2.1 ~amd64
+# required by dev-python/cli_helpers-1.0.1::gentoo
+# required by dev-db/mycli-1.15.0-r2::gentoo
+# required by mycli (argument)
+=dev-python/terminaltables-3.1.0 ~amd64
+# required by dev-python/cli_helpers-1.0.1::gentoo
+# required by dev-db/mycli-1.15.0-r2::gentoo
+# required by mycli (argument)
+=dev-python/tabulate-0.8.1 ~amd64
+# required by dev-python/cli_helpers-1.0.1::gentoo
+# required by dev-db/mycli-1.15.0-r2::gentoo
+# required by mycli (argument)
+=dev-python/backports-csv-1.0.5 ~amd64
+# required by mycli (argument)
+=dev-db/mycli-1.15.0-r2 ~amd64
+# required by dev-db/mycli-1.15.0-r2::gentoo
+# required by mycli (argument)
+=dev-python/cli_helpers-1.0.1 ~amd64
