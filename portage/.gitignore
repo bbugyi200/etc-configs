@@ -10,3 +10,5 @@
 !patches/*/*/*
 !sets/
 !sets/*
+!postsync.d/
+!postsync.d/*
