@@ -1,0 +1,13 @@
+diff --git a/setup.py b/setup.py
+index c2ad788..217c39f 100644
+--- a/setup.py
++++ b/setup.py
+@@ -38,7 +38,7 @@ setup(name='bugwarrior',
+           "dogpile.cache>=0.5.3",
+           "lockfile>=0.9.1",
+           "click",
+-          "future!=0.16.0",
++          "future",
+       ],
+       extras_require=dict(
+           keyring=["keyring"],

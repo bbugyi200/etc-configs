@@ -1,0 +1,19 @@
+##########################################################################
+#  Gentoo make.conf Configurations that are Shared by Multiple Machines  #
+##########################################################################
+
+# luajit:: neovim
+# icu:: qtwebengine
+USE="alsa icu luajit sqlite -qt5 unicode vim-syntax webchannel xinerama zsh-completion $USE"
+
+# Logging
+PORTAGE_ELOG_CLASSES="warn error log"
+PORTAGE_ELOG_SYSTEM="save"
+
+FEATURES=""
+
+EMERGE_DEFAULT_OPTS="--ask-enter-invalid"
+
+CLEAN_DELAY=0
+
+GENTOO_MIRRORS="http://gentoo.mirrors.pair.com/ http://mirrors.rit.edu/gentoo/ http://gentoo.mirrors.tds.net/gentoo"
