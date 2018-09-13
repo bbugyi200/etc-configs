@@ -90,6 +90,7 @@ dev-ruby/pygments_rb
 dev-ruby/tmuxinator
 dev-texlive/texlive-fontsextra
 dev-texlive/texlive-fontsrecommended
+dev-texlive/texlive-latexextra
 dev-util/bumpversion
 dev-util/ctags
 dev-util/ix
