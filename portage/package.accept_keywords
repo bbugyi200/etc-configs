@@ -376,3 +376,5 @@ app-shells/localalias ~amd64
 =dev-python/cli_helpers-1.0.1 ~amd64
 # required by vimux (argument)
 =app-vim/vimux-9999 **
+# required by anki (argument)
+=app-misc/anki-2.1.0_beta27 ~amd64

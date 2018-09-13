@@ -8,6 +8,7 @@ app-admin/sudo
 app-admin/sysklogd
 app-crypt/pinentry
 app-editors/nano
+app-misc/anki
 app-misc/bugwarrior
 app-misc/jrnl
 app-misc/khal
