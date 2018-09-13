@@ -374,3 +374,5 @@ app-shells/localalias ~amd64
 # required by dev-db/mycli-1.15.0-r2::gentoo
 # required by mycli (argument)
 =dev-python/cli_helpers-1.0.1 ~amd64
+# required by vimux (argument)
+=app-vim/vimux-9999 **

@@ -68,6 +68,7 @@ app-vim/vim-snippets
 app-vim/vim-superman
 app-vim/vim-taskwarrior
 app-vim/vim-unimpaired
+app-vim/vimux
 dev-haskell/hostname
 dev-libs/openssl
 dev-python/beautifulsoup
