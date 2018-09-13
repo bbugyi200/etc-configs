@@ -2,7 +2,6 @@
 #  Per-Package ACCEPT_KEYWORD Statements  #
 ###########################################
 net-misc/dropbox ~amd64
-=dev-qt/qtwebengine-5.11.1 ~amd64
 =app-portage/euscan-9999 **
 app-shells/localalias ~amd64
 =app-shells/localalias-9999 **
@@ -122,86 +121,6 @@ app-shells/localalias ~amd64
 =dev-ruby/mail-2.7.0 ~amd64
 # required by wkhtmltopdf (argument)
 =media-gfx/wkhtmltopdf-0.12.4-r1 ~amd64
-# required by dev-qt/qtwidgets-5.11.1::gentoo
-# required by dev-qt/qtdeclarative-5.11.1::gentoo[widgets]
-# required by dev-qt/qtwebchannel-5.11.1::gentoo[qml]
-# required by dev-qt/qtwebengine-5.11.1::gentoo
-# required by qtwebengine (argument)
-=dev-qt/qtgui-5.11.1 ~amd64
-# required by dev-qt/qtwebengine-5.11.1::gentoo
-# required by qtwebengine (argument)
-=dev-qt/qtprintsupport-5.11.1 ~amd64
-# required by dev-qt/qtwebchannel-5.11.1::gentoo
-# required by dev-qt/qtwebengine-5.11.1::gentoo
-# required by qtwebengine (argument)
-=dev-qt/qtcore-5.11.1 ~amd64
-# required by dev-qt/qtwebengine-5.11.1::gentoo
-# required by qtwebengine (argument)
-=dev-qt/qtwebchannel-5.11.1 ~amd64
-# required by dev-qt/qtgui-5.11.1::gentoo[dbus]
-# required by dev-qt/qtdeclarative-5.11.1::gentoo
-# required by dev-qt/qtwebchannel-5.11.1::gentoo[qml]
-# required by dev-qt/qtwebengine-5.11.1::gentoo
-# required by qtwebengine (argument)
-=dev-qt/qtdbus-5.11.1 ~amd64
-# required by dev-qt/qtdeclarative-5.11.1::gentoo[xml]
-# required by dev-qt/qtwebchannel-5.11.1::gentoo[qml]
-# required by dev-qt/qtwebengine-5.11.1::gentoo
-# required by qtwebengine (argument)
-=dev-qt/qtnetwork-5.11.1 ~amd64
-# required by dev-qt/qtdeclarative-5.11.1::gentoo[-test]
-# required by dev-qt/qtwebchannel-5.11.1::gentoo[qml]
-# required by dev-qt/qtwebengine-5.11.1::gentoo
-# required by qtwebengine (argument)
-=dev-qt/qttest-5.11.1 ~amd64
-# required by dev-qt/qtwebengine-5.11.1::gentoo[widgets]
-# required by qtwebengine (argument)
-=dev-qt/qtdeclarative-5.11.1 ~amd64
-# required by dev-qt/qtdeclarative-5.11.1::gentoo[widgets]
-# required by dev-qt/qtwebchannel-5.11.1::gentoo[qml]
-# required by dev-qt/qtwebengine-5.11.1::gentoo
-# required by qtwebengine (argument)
-=dev-qt/qtwidgets-5.11.1 ~amd64
-# required by dev-qt/qtdeclarative-5.11.1::gentoo[xml]
-# required by dev-qt/qtwebchannel-5.11.1::gentoo[qml]
-# required by dev-qt/qtwebengine-5.11.1::gentoo
-# required by qtwebengine (argument)
-=dev-qt/qtxmlpatterns-5.11.1 ~amd64
-# required by app-text/poppler-0.62.0-r1::gentoo[qt5]
-# required by app-text/texlive-core-2017-r4::gentoo
-# required by dev-texlive/texlive-basic-2017-r1::gentoo
-# required by dev-texlive/texlive-fontsextra-2017::gentoo
-# required by @selected
-# required by @world (argument)
-=dev-qt/qtxml-5.11.1 ~amd64
-# required by dev-qt/qtwebkit-5.9.1::gentoo[opengl]
-# required by media-gfx/wkhtmltopdf-0.12.4-r1::gentoo
-# required by @selected
-# required by @world (argument)
-=dev-qt/qtopengl-5.11.1 ~amd64
-# required by dev-qt/qtwebkit-5.9.1::gentoo
-# required by net-misc/dropbox-48.3.56::gentoo[X]
-# required by @selected
-# required by @world (argument)
-=dev-qt/qtsql-5.11.1-r1 ~amd64
-# required by dev-python/PyQt5-5.10.1-r1::gentoo[svg]
-# required by dev-python/qtconsole-4.3.1::gentoo
-# required by dev-python/ipython-5.4.1-r1::gentoo[qt5]
-# required by @selected
-# required by @world (argument)
-=dev-qt/qtsvg-5.11.1 ~amd64
-# required by dev-python/PyQt5-5.10.1-r1::gentoo[bluetooth]
-# required by www-client/qutebrowser-1.4.1::gentoo
-# required by @selected
-# required by @world (argument)
-=dev-qt/qtbluetooth-5.11.1 ~amd64
-# required by dev-qt/qtbluetooth-5.11.1::gentoo
-# required by dev-python/PyQt5-5.10.1-r1::gentoo[bluetooth]
-# required by www-client/qutebrowser-1.4.1::gentoo
-# required by @selected
-# required by @world (argument)
-=dev-qt/qtconcurrent-5.11.1 ~amd64
-# required by twmail (argument)
 =dev-ruby/twmail-0.0.5 ~amd64
 # required by dev-python/flake8-per-file-ignores-0.6::bbugyi200
 # required by flake8-per-file-ignores (argument)
@@ -376,5 +295,7 @@ app-shells/localalias ~amd64
 =dev-python/cli_helpers-1.0.1 ~amd64
 # required by vimux (argument)
 =app-vim/vimux-9999 **
+# required by anki (argument)
+=app-misc/anki-2.1.4 ~amd64
 # required by anki (argument)
 =app-misc/anki-2.1.0_beta27 ~amd64
