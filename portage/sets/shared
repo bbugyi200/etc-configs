@@ -16,8 +16,6 @@ app-misc/task
 app-misc/timew
 app-misc/tmux
 app-misc/weather
-app-office/abiword
-app-office/gnumeric
 app-portage/eix
 app-portage/elogv
 app-portage/euscan
