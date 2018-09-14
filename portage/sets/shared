@@ -48,7 +48,6 @@ app-vim/ghcmod-vim
 app-vim/gnupg
 app-vim/haskell-vim
 app-vim/jedi
-app-vim/log
 app-vim/neco-ghc
 app-vim/rename
 app-vim/repeat
