@@ -87,6 +87,7 @@ dev-python/tldextract
 dev-python/tldr-python-client
 dev-python/twilio
 dev-python/virtualenvwrapper
+dev-qt/qtwebengine
 dev-qt/qtwebkit
 dev-ruby/pygments_rb
 dev-ruby/tmuxinator
