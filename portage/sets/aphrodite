@@ -1,0 +1,10 @@
+app-office/abiword
+app-office/gnumeric
+media-video/motion
+net-wireless/iw
+net-wireless/wpa_supplicant
+sys-kernel/linux-firmware
+sys-power/acpid
+sys-power/pm-utils
+sys-power/suspend
+sys-power/upower
