@@ -1,4 +1,5 @@
 app-office/libreoffice
+app-office/unoconv
 dev-db/mycli
 dev-db/mysql
 dev-python/requests-oauthlib
