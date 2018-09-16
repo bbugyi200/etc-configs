@@ -1,16 +1,8 @@
 diff --git a/notify_send.py b/notify_send.py
-index 6c10a5c..1fb65ac 100644
+index 6c10a5c..5483ace 100644
 --- a/notify_send.py
 +++ b/notify_send.py
-@@ -27,6 +27,7 @@
- # SOFTWARE.
- #
- 
-+import getpass
- import os
- import subprocess
- import sys
-@@ -283,12 +284,48 @@ def notification_should_be_sent_disregarding_time(buffer, tags, nick,
+@@ -283,12 +283,48 @@ def notification_should_be_sent_disregarding_time(buffer, tags, nick,
      if is_highlight:
          return notify_on_highlights()
  
@@ -41,7 +33,7 @@ index 6c10a5c..1fb65ac 100644
 +        is_buddy.buddylist = []
 +        is_buddy.count = 1
 +
-+        for line in open('/home/{}/.weechat/buddylist.txt'.format(getpass.getuser()), 'r'):
++        for line in open('/home/bryan/.weechat/buddylist.txt', 'r'):
 +            buddy = line.split('.', maxsplit=1)[-1].strip()
 +            is_buddy.buddylist.append(buddy)
 +        buddylist = is_buddy.buddylist

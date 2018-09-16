@@ -137,7 +137,6 @@ net-irc/weechat-autosort
 net-irc/weechat-buddylist
 net-irc/weechat-buffer-autoclose
 net-irc/weechat-colorize-lines
-net-irc/weechat-go
 net-irc/weechat-highmon
 net-irc/weechat-iset
 net-irc/weechat-notify-send
