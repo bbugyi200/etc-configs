@@ -134,6 +134,7 @@ media-video/ffmpeg
 media-video/mpv
 net-firewall/ipset
 net-irc/weechat
+net-irc/weechat-notify-send
 net-libs/nodejs
 net-misc/dhcpcd
 net-misc/dropbox
