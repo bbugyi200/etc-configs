@@ -1,8 +1,8 @@
 diff --git a/notify_send.py b/notify_send.py
-index 6c10a5c..6c4c7c0 100644
+index 6c10a5c..c01dcd7 100644
 --- a/notify_send.py
 +++ b/notify_send.py
-@@ -283,12 +283,33 @@ def notification_should_be_sent_disregarding_time(buffer, tags, nick,
+@@ -283,12 +283,56 @@ def notification_should_be_sent_disregarding_time(buffer, tags, nick,
      if is_highlight:
          return notify_on_highlights()
  
@@ -18,14 +18,37 @@ index 6c10a5c..6c4c7c0 100644
 +def is_buddy(nick):
 +    import getpass
 +
-+    for line in open('/home/{}/.weechat/buddylist.txt'.format(getpass.getuser()), 'r'):
-+        buddy = line.split('.', maxsplit=1)[-1].strip()
-+        is_buddy.buddylist.append(buddy)
-+    buddylist = is_buddy.buddylist
++    buddylist = getattr(is_buddy, 'buddylist', None)
++    count = getattr(is_buddy, 'count', None)
++
++    predicates = [
++        buddylist is None,
++        count is None,
++    ]
++
++    if count is not None:
++        predicates.append(count >= 5)
++
++    load_buddylist = any(predicates)
++
++    if load_buddylist:
++        is_buddy.buddylist = []
++        is_buddy.count = 1
++
++        for line in open('/home/{}/.weechat/buddylist.txt'.format(getpass.getuser()), 'r'):
++            buddy = line.split('.', maxsplit=1)[-1].strip()
++            is_buddy.buddylist.append(buddy)
++        buddylist = is_buddy.buddylist
++        with open('/var/tmp/notify_send.log', 'a+') as f:
++            f.write('BUDDY LIST:: {}\n\n'.format(buddylist))
++    else:
++        is_buddy.count += 1
 +
 +    with open('/var/tmp/notify_send.log', 'a+') as f:
-+        f.write('BUDDY LIST:: {}\n'.format(buddylist))
-+        f.write('NICK:: {}\n\n'.format(nick))
++        f.write('NICK:: {}\n'.format(nick))
++        f.write('COUNT:: {}\n'.format(count))
++        f.write('PREDICATES:: {}\n'.format(predicates))
++        f.write('\n')
 +
 +    if nick in buddylist:
 +        return True
