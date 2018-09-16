@@ -78,7 +78,6 @@ dev-python/ipython
 dev-python/keyring
 dev-python/pip
 dev-python/pockyt
-dev-python/pygobject
 dev-python/pytest
 dev-python/tldextract
 dev-python/tldr-python-client
@@ -134,7 +133,15 @@ media-video/ffmpeg
 media-video/mpv
 net-firewall/ipset
 net-irc/weechat
+net-irc/weechat-autosort
+net-irc/weechat-buddylist
+net-irc/weechat-buffer-autoclose
+net-irc/weechat-colorize-lines
+net-irc/weechat-go
+net-irc/weechat-highmon
+net-irc/weechat-iset
 net-irc/weechat-notify-send
+net-irc/weechat-vimode
 net-libs/nodejs
 net-misc/dhcpcd
 net-misc/dropbox

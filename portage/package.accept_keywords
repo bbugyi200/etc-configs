@@ -299,3 +299,21 @@ app-shells/localalias ~amd64
 =app-misc/anki-2.1.0_beta27 ~amd64
 # required by weechat-notify-send (argument)
 =net-irc/weechat-notify-send-9999 ~amd64
+# required by weechat-go (argument)
+=net-irc/weechat-go-9999 **
+# required by weechat-autosort (argument)
+=net-irc/weechat-autosort-9999 **
+# required by weechat-buffer-autoclose (argument)
+=net-irc/weechat-buffer-autoclose-9999 **
+# required by weechat-vimode (argument)
+=net-irc/weechat-vimode-9999 **
+# required by weechat-notify-send (argument)
+=net-irc/weechat-notify-send-9999 **
+# required by weechat-buddylist (argument)
+=net-irc/weechat-buddylist-9999 **
+# required by weechat-colorize-lines (argument)
+=net-irc/weechat-colorize-lines-9999 **
+# required by weechat-highmon (argument)
+=net-irc/weechat-highmon-9999 **
+# required by weechat-iset (argument)
+=net-irc/weechat-iset-9999 **
