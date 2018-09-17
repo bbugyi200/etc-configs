@@ -317,3 +317,5 @@ app-shells/localalias ~amd64
 =net-irc/weechat-highmon-9999 **
 # required by weechat-iset (argument)
 =net-irc/weechat-iset-9999 **
+# required by dev-vcs/hub (argument)
+=dev-vcs/hub-2.2.9 ~amd64

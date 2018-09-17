@@ -96,6 +96,7 @@ dev-util/ix
 dev-util/shellcheck
 dev-vcs/ghi
 dev-vcs/git
+dev-vcs/hub
 dev-vcs/rcs
 mail-client/neomutt
 mail-mta/sendmail
