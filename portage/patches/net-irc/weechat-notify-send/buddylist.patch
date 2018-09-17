@@ -1,8 +1,8 @@
 diff --git a/notify_send.py b/notify_send.py
-index 6c10a5c..5483ace 100644
+index 6c10a5c..61d6583 100644
 --- a/notify_send.py
 +++ b/notify_send.py
-@@ -283,12 +283,48 @@ def notification_should_be_sent_disregarding_time(buffer, tags, nick,
+@@ -283,12 +283,46 @@ def notification_should_be_sent_disregarding_time(buffer, tags, nick,
      if is_highlight:
          return notify_on_highlights()
  
@@ -19,17 +19,15 @@ index 6c10a5c..5483ace 100644
 +    buddylist = getattr(is_buddy, 'buddylist', None)
 +    count = getattr(is_buddy, 'count', None)
 +
-+    predicates = [
++    load_conditions = [
 +        buddylist is None,
 +        count is None,
 +    ]
 +
 +    if count is not None:
-+        predicates.append(count >= 100)
++        load_conditions.append(count >= 100)
 +
-+    load_buddylist = any(predicates)
-+
-+    if load_buddylist:
++    if any(load_conditions):
 +        is_buddy.buddylist = []
 +        is_buddy.count = 1
 +
