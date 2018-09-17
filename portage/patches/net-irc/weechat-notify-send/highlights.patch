@@ -1,12 +1,11 @@
 diff --git a/notify_send.py b/notify_send.py
-index 6c10a5c..0e71b04 100644
+index 6c10a5c..e43c5dd 100644
 --- a/notify_send.py
 +++ b/notify_send.py
-@@ -228,6 +228,16 @@ def message_printed_callback(data, buffer, date, tags, is_displayed,
-     tags = parse_tags(tags)
+@@ -229,6 +229,15 @@ def message_printed_callback(data, buffer, date, tags, is_displayed,
      nick = nick_that_sent_message(tags, prefix)
  
-+    if is_interesting(buffer, tags, nick, is_displayed, is_highlight, nick=nick):
+     if notification_should_be_sent(buffer, tags, nick, is_displayed, is_highlight):
 +        import datetime as dt
 +
 +        highlight_filename = '/home/bryan/.weechat/highlights.txt'
@@ -16,17 +15,6 @@ index 6c10a5c..0e71b04 100644
 +            now = dt.datetime.now()
 +            f.write('[{}] ({}) {}: {}\n'.format(now.strftime('%Y-%m-%d %H:%M:%S'), source, nick, message))
 +
-     if notification_should_be_sent(buffer, tags, nick, is_displayed, is_highlight):
          notification = prepare_notification(buffer, nick, message)
          send_notification(notification)
-@@ -235,6 +245,10 @@ def message_printed_callback(data, buffer, date, tags, is_displayed,
-     return weechat.WEECHAT_RC_OK
  
- 
-+def is_interesting(*args, nick):
-+    return notification_should_be_sent(*args) or nick in ['bbugyi200', 'bbugyi201', 'bbugyi202']
-+
-+
- def notification_should_be_sent(buffer, tags, nick, is_displayed, is_highlight):
-     """Should a notification be sent?"""
-     if notification_should_be_sent_disregarding_time(buffer, tags, nick,
