@@ -1,14 +1,19 @@
 diff --git a/notify_send.py b/notify_send.py
-index 6c10a5c..ccd1068 100644
+index 6c10a5c..32d3047 100644
 --- a/notify_send.py
 +++ b/notify_send.py
-@@ -229,6 +229,10 @@ def message_printed_callback(data, buffer, date, tags, is_displayed,
+@@ -229,6 +229,15 @@ def message_printed_callback(data, buffer, date, tags, is_displayed,
      nick = nick_that_sent_message(tags, prefix)
  
      if notification_should_be_sent(buffer, tags, nick, is_displayed, is_highlight):
 +        if is_highlight:
-+            with open('/home/bryan/.weechat/highlights.txt', 'a+') as f:
-+                f.write('[#{}] ({}) {}: {}'.format(buffer, date, nick, message))
++            import subprocess as sp
++            highlight_filename = '/home/bryan/.weechat/highlights.txt'
++            with open(highlight_filename, 'a+') as f:
++                source = (weechat.buffer_get_string(buffer, 'short_name') or
++                          weechat.buffer_get_string(buffer, 'name'))
++                f.write('({}) {}: {}\n'.format(source, nick, message))
++            sp.call('printf "$(uniq {0})\n" > {0}'.format(highlight_filename), shell=True)
 +
          notification = prepare_notification(buffer, nick, message)
          send_notification(notification)
