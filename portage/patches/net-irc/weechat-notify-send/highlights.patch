@@ -1,39 +1,32 @@
 diff --git a/notify_send.py b/notify_send.py
-index 6c10a5c..b40400e 100644
+index 6c10a5c..0e71b04 100644
 --- a/notify_send.py
 +++ b/notify_send.py
-@@ -229,6 +229,34 @@ def message_printed_callback(data, buffer, date, tags, is_displayed,
+@@ -228,6 +228,16 @@ def message_printed_callback(data, buffer, date, tags, is_displayed,
+     tags = parse_tags(tags)
      nick = nick_that_sent_message(tags, prefix)
  
-     if notification_should_be_sent(buffer, tags, nick, is_displayed, is_highlight):
-+        if is_highlight:
-+            import datetime as dt
++    if is_interesting(buffer, tags, nick, is_displayed, is_highlight, nick=nick):
++        import datetime as dt
 +
-+            highlight_filename = '/home/bryan/.weechat/highlights.txt'
-+            with open(highlight_filename, 'a+') as f:
-+                source = (weechat.buffer_get_string(buffer, 'short_name') or
-+                          weechat.buffer_get_string(buffer, 'name'))
-+                f.write('({}) {}: {}\n'.format(source, nick, message))
-+
-+            startup_time = getattr(message_printed_callback, 'startup', None)
-+            uniqify_conditions = [startup_time is None]
-+
++        highlight_filename = '/home/bryan/.weechat/highlights.txt'
++        with open(highlight_filename, 'a+') as f:
++            source = (weechat.buffer_get_string(buffer, 'short_name') or
++                      weechat.buffer_get_string(buffer, 'name'))
 +            now = dt.datetime.now()
-+            if startup_time is not None:
-+                delta = now - startup_time
-+                uniqify_conditions.append(delta.seconds <= 15)
++            f.write('[{}] ({}) {}: {}\n'.format(now.strftime('%Y-%m-%d %H:%M:%S'), source, nick, message))
 +
-+            if any(uniqify_conditions):
-+                if startup_time is None:
-+                    message_printed_callback.startup_time = now
-+                lines = []
-+                for L in open(highlight_filename, 'r'):
-+                    if L not in lines:
-+                        lines.append(L)
-+
-+                with open(highlight_filename, 'w') as f:
-+                    f.writelines(lines)
-+
+     if notification_should_be_sent(buffer, tags, nick, is_displayed, is_highlight):
          notification = prepare_notification(buffer, nick, message)
          send_notification(notification)
+@@ -235,6 +245,10 @@ def message_printed_callback(data, buffer, date, tags, is_displayed,
+     return weechat.WEECHAT_RC_OK
  
+ 
++def is_interesting(*args, nick):
++    return notification_should_be_sent(*args) or nick in ['bbugyi200', 'bbugyi201', 'bbugyi202']
++
++
+ def notification_should_be_sent(buffer, tags, nick, is_displayed, is_highlight):
+     """Should a notification be sent?"""
+     if notification_should_be_sent_disregarding_time(buffer, tags, nick,
