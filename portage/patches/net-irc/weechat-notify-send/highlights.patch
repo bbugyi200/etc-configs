@@ -1,20 +1,28 @@
 diff --git a/notify_send.py b/notify_send.py
-index 6c10a5c..e43c5dd 100644
+index 6c10a5c..47e44e6 100644
 --- a/notify_send.py
 +++ b/notify_send.py
-@@ -229,6 +229,15 @@ def message_printed_callback(data, buffer, date, tags, is_displayed,
+@@ -228,9 +228,20 @@ def message_printed_callback(data, buffer, date, tags, is_displayed,
+     tags = parse_tags(tags)
      nick = nick_that_sent_message(tags, prefix)
  
-     if notification_should_be_sent(buffer, tags, nick, is_displayed, is_highlight):
+-    if notification_should_be_sent(buffer, tags, nick, is_displayed, is_highlight):
+-        notification = prepare_notification(buffer, nick, message)
+-        send_notification(notification)
++    highlight_filename = '/home/bryan/.weechat/highlights.txt'
++    my_usernames = ['bbugyi200', 'bbugyi201', 'bbugyi202']
++    if notification_should_be_sent(buffer, tags, nick, is_displayed, is_highlight) or nick in my_usernames:
 +        import datetime as dt
 +
-+        highlight_filename = '/home/bryan/.weechat/highlights.txt'
 +        with open(highlight_filename, 'a+') as f:
 +            source = (weechat.buffer_get_string(buffer, 'short_name') or
 +                      weechat.buffer_get_string(buffer, 'name'))
 +            now = dt.datetime.now()
 +            f.write('[{}] ({}) {}: {}\n'.format(now.strftime('%Y-%m-%d %H:%M:%S'), source, nick, message))
 +
-         notification = prepare_notification(buffer, nick, message)
-         send_notification(notification)
++            if nick not in my_usernames:
++                notification = prepare_notification(buffer, nick, message)
++                send_notification(notification)
+ 
+     return weechat.WEECHAT_RC_OK
  
