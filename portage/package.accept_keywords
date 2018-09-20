@@ -319,3 +319,5 @@ app-shells/localalias ~amd64
 =net-irc/weechat-iset-9999 **
 # required by dev-vcs/hub (argument)
 =dev-vcs/hub-2.2.9 ~amd64
+# required by torrench (argument)
+=app-misc/torrench-9999 ~amd64
