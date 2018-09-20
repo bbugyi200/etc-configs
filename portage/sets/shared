@@ -32,6 +32,7 @@ app-shells/zsh
 app-shells/zsh-autosuggestions
 app-shells/zsh-completions
 app-text/texlive
+app-text/wgetpaste
 app-text/zathura
 app-text/zathura-djvu
 app-text/zathura-pdf-mupdf
