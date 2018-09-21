@@ -1,0 +1,39 @@
+diff --git a/vimode.py b/vimode.py
+index 06f9c28..e08b3fe 100755
+--- a/vimode.py
++++ b/vimode.py
+@@ -44,6 +44,7 @@ SCRIPT_AUTHOR = "GermainZ <germanosz@gmail.com>"
+ SCRIPT_VERSION = "0.7"
+ SCRIPT_LICENSE = "GPL3"
+ SCRIPT_DESC = ("Add vi/vim-like modes and keybindings to WeeChat.")
++DEBUG = True
+ 
+ 
+ # Global variables.
+@@ -1679,6 +1680,8 @@ def get_keys_and_count(combo):
+             we should handle. User mappings are also expanded.
+         count (int): count for `combo`.
+     """
++
++    debug(repr(combo))
+     # Look for a potential match (e.g. "d" might become "dw" or "dd" so we
+     # accept it, but "d9" is invalid).
+     matched = False
+@@ -1747,6 +1750,17 @@ def get_keys_and_count(combo):
+ # Other helpers.
+ # --------------
+ 
++def debug(msg):
++    logfile = '/var/tmp/weechat-vimode.log'
++
++    if DEBUG:
++        if not hasattr(debug, 'init'):
++            debug.init = True
++            with open(logfile, 'w') as f:
++                f.write('')
++        with open(logfile, 'a+') as f:
++            f.write(msg + '\n')
++
+ def set_mode(arg):
+     """Set the current mode and update the bar mode indicator."""
+     global mode
