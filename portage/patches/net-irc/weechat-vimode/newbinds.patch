@@ -1,5 +1,5 @@
 diff --git a/vimode.py b/vimode.py
-index 06f9c28..f93ace0 100755
+index 06f9c28..71211ac 100755
 --- a/vimode.py
 +++ b/vimode.py
 @@ -190,7 +190,7 @@ def cmd_nmap(args):
@@ -11,7 +11,7 @@ index 06f9c28..f93ace0 100755
      if not args:
          mappings = vimode_settings['user_mappings']
          if mappings:
-@@ -1044,6 +1044,136 @@ VI_KEYS = {'j': "/window scroll_down",
+@@ -1044,6 +1044,137 @@ VI_KEYS = {'j': "/window scroll_down",
  for i in range(10, 99):
      VI_KEYS['\x01[j%s' % i] = "/buffer %s" % i
  
@@ -25,19 +25,20 @@ index 06f9c28..f93ace0 100755
 +        self.count = 1
 +
 +    def __call__(self, buf, input_line, cur, count):
-+        for action in self.get_cmd_actions(self.cmd, first_call=True):
-+            debug_print('action', action)
-+            debug_print('buf', buf)
-+            debug_print('input_line', input_line)
-+            debug_print('cur', cur)
-+            debug_print('count', count)
++        for _ in range(max(count, 1)):
++            for action in self.get_cmd_actions(self.cmd, first_call=True):
++                debug_print('action', action)
++                debug_print('buf', buf)
++                debug_print('input_line', input_line)
++                debug_print('cur', cur)
++                debug_print('count', count)
 +
-+            action(buf, input_line, cur, self.count)
++                action(buf, input_line, cur, self.count)
 +
-+            self.count = 1
-+            buf = weechat.current_buffer()
-+            input_line = weechat.buffer_get_string(buf, "input")
-+            cur = weechat.buffer_get_integer(buf, "input_pos")
++                self.count = 1
++                buf = weechat.current_buffer()
++                input_line = weechat.buffer_get_string(buf, "input")
++                cur = weechat.buffer_get_integer(buf, "input_pos")
 +
 +    def get_cmd_actions(self, cmd, *, first_call=False):
 +        """Returns List of Callable Actions"""
@@ -148,7 +149,7 @@ index 06f9c28..f93ace0 100755
  
  # Key handling.
  # =============
-@@ -1298,21 +1428,13 @@ def cb_key_combo_default(data, signal, signal_data):
+@@ -1298,21 +1429,13 @@ def cb_key_combo_default(data, signal, signal_data):
          if vi_keys not in ['u', '\x01R']:
              add_undo_history(buf, input_line)
          if isinstance(VI_KEYS[vi_keys], str):
@@ -172,7 +173,7 @@ index 06f9c28..f93ace0 100755
      # It's an operator + motion (e.g. "dw") — call `motion_X()` (where X is
      # the motion), then we call `operator_Y()` (where Y is the operator)
      # with the position `motion_X()` returned. `operator_Y()` should then
-@@ -1462,6 +1584,8 @@ def load_user_mappings():
+@@ -1462,6 +1585,8 @@ def load_user_mappings():
      if vimode_settings['user_mappings']:
          mappings.update(json.loads(vimode_settings['user_mappings']))
      vimode_settings['user_mappings'] = mappings
@@ -181,7 +182,7 @@ index 06f9c28..f93ace0 100755
  
  
  # Command-line execution.
-@@ -1582,6 +1706,21 @@ def cb_vimode_cmd(data, buf, args):
+@@ -1582,6 +1707,21 @@ def cb_vimode_cmd(data, buf, args):
  
  # Motions/keys helpers.
  # ---------------------
@@ -203,7 +204,7 @@ index 06f9c28..f93ace0 100755
  
  def get_pos(data, regex, cur, ignore_cur=False, count=0):
      """Return the position of `regex` match in `data`, starting at `cur`.
-@@ -1679,6 +1818,7 @@ def get_keys_and_count(combo):
+@@ -1679,6 +1819,7 @@ def get_keys_and_count(combo):
              we should handle. User mappings are also expanded.
          count (int): count for `combo`.
      """
@@ -211,7 +212,7 @@ index 06f9c28..f93ace0 100755
      # Look for a potential match (e.g. "d" might become "dw" or "dd" so we
      # accept it, but "d9" is invalid).
      matched = False
-@@ -1695,9 +1835,6 @@ def get_keys_and_count(combo):
+@@ -1695,9 +1836,6 @@ def get_keys_and_count(combo):
                  break
          combo = combo.replace(count, "", 1)
          count = int(count)
@@ -221,7 +222,7 @@ index 06f9c28..f93ace0 100755
      # It's a WeeChat command.
      if not matched and combo.startswith("/"):
          matched = True
-@@ -1746,6 +1883,14 @@ def get_keys_and_count(combo):
+@@ -1746,6 +1884,14 @@ def get_keys_and_count(combo):
  
  # Other helpers.
  # --------------
