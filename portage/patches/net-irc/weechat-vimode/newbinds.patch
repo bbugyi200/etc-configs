@@ -1,0 +1,97 @@
+diff --git a/vimode.py b/vimode.py
+index cba6504..c3f843b 100755
+--- a/vimode.py
++++ b/vimode.py
+@@ -1045,6 +1045,47 @@ VI_KEYS = {'j': "/window scroll_down",
+ for i in range(10, 99):
+     VI_KEYS['\x01[j%s' % i] = "/buffer %s" % i
+ 
++class UserMap:
++    """Wraps User Mapping
++
++    Enables multiple actions to be defined by a single mapping.
++    """
++    def __init__(self, cmd):
++        self.cmd = cmd
++
++    def __call__(self, *args):
++        for action in self.get_cmd_actions(self.cmd):
++            action(*args)
++
++    @classmethod
++    def parse_cmd(cls, cmd):
++        """Returns List of Callable Actions"""
++        for keys, command in VI_KEYS.items():
++            if cmd.startswith(keys):
++                cmd = cmd[len(keys):]
++                if isinstance(command, str):
++                    yield cls.command_to_action(command[1:])
++                else:
++                    yield command
++                yield cls.parse_cmd(cmd[len(keys):])
++
++                break
++
++        match = re.match(':.*<CR>', cmd)
++        if match:
++            end = match.end()
++            yield cls.command_to_action(cmd[1:end - 3])
++            yield cls.parse_cmd(cmd[match.end():])
++        else:
++            yield cls.parse_cmd(cmd[1:])
++
++    @classmethod
++    def command_to_action(cls, cmd):
++        """Action Factory"""
++        def action(*args):
++            run_command(cmd, *args)
++        return action
++
+ 
+ # Key handling.
+ # =============
+@@ -1299,10 +1340,7 @@ def cb_key_combo_default(data, signal, signal_data):
+         if vi_keys not in ['u', '\x01R']:
+             add_undo_history(buf, input_line)
+         if isinstance(VI_KEYS[vi_keys], str):
+-            for _ in range(max(count, 1)):
+-                weechat.command("", VI_KEYS[vi_keys])
+-                current_cur = weechat.buffer_get_integer(buf, "input_pos")
+-                set_cur(buf, input_line, current_cur)
++            run_command(VI_KEYS[vi_keys])
+         else:
+             VI_KEYS[vi_keys](buf, input_line, cur, count)
+     # It's a motion (e.g. "w") — call `motion_X()` where X is the motion, then
+@@ -1463,6 +1501,8 @@ def load_user_mappings():
+     if vimode_settings['user_mappings']:
+         mappings.update(json.loads(vimode_settings['user_mappings']))
+     vimode_settings['user_mappings'] = mappings
++    for k, v in mappings.items():
++        VI_KEYS[k] = UserMap(v)
+ 
+ 
+ # Command-line execution.
+@@ -1584,6 +1624,13 @@ def cb_vimode_cmd(data, buf, args):
+ # Motions/keys helpers.
+ # ---------------------
+ 
++def run_command(cmd, buf, input_line, cur, count):
++    """Execute WeeChat Command"""
++    for _ in range(max(count, 1)):
++        weechat.command("", cmd)
++        current_cur = weechat.buffer_get_integer(buf, "input_pos")
++        set_cur(buf, input_line, current_cur)
++
+ def get_pos(data, regex, cur, ignore_cur=False, count=0):
+     """Return the position of `regex` match in `data`, starting at `cur`.
+ 
+@@ -1697,9 +1744,6 @@ def get_keys_and_count(combo):
+                 break
+         combo = combo.replace(count, "", 1)
+         count = int(count)
+-    # It's a user defined key. Expand it.
+-    if combo in vimode_settings['user_mappings']:
+-        combo = vimode_settings['user_mappings'][combo]
+     # It's a WeeChat command.
+     if not matched and combo.startswith("/"):
+         matched = True
