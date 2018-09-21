@@ -1,0 +1,24 @@
+diff --git a/vimode.py b/vimode.py
+index 06f9c28..d039c7a 100755
+--- a/vimode.py
++++ b/vimode.py
+@@ -972,6 +972,9 @@ def key_ctrl_r(buf, input_line, cur, count):
+ # Vi key bindings.
+ # ================
+ 
++insert_mode_binding_fmt = "/eval -s /input insert {};" \
++                          "/exec -bg -sh sleep 0.2 && xdotool type 'i '"
++
+ # String values will be executed as normal WeeChat commands.
+ # For functions, see `key_base()` for reference.
+ VI_KEYS = {'j': "/window scroll_down",
+@@ -999,6 +1002,9 @@ VI_KEYS = {'j': "/window scroll_down",
+            '~': key_tilda,
+            'nt': "/bar scroll nicklist * -100%",
+            'nT': "/bar scroll nicklist * +100%",
++           ',b': insert_mode_binding_fmt.format('/buddylist add'),
++           ',f': insert_mode_binding_fmt.format('/fset'),
++           ',r': insert_mode_binding_fmt.format('/script reload'),
+            '\x01[[A': "/input history_previous",
+            '\x01[[B': "/input history_next",
+            '\x01[[C': "/input move_next_char",

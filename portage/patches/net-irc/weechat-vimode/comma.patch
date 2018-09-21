@@ -1,0 +1,13 @@
+diff --git a/vimode.py b/vimode.py
+index 06f9c28..a2d45b0 100755
+--- a/vimode.py
++++ b/vimode.py
+@@ -1036,7 +1036,7 @@ VI_KEYS = {'j': "/window scroll_down",
+            '\x01Wv': "/window splitv",
+            '\x01Wq': "/window merge",
+            ';': key_semicolon,
+-           ',': key_comma,
++           '\\': key_comma,
+            'u': key_u,
+            '\x01R': key_ctrl_r}
+ 
