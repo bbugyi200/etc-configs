@@ -1,5 +1,5 @@
 diff --git a/vimode.py b/vimode.py
-index 06f9c28..71067f4 100755
+index 06f9c28..bc7ebb1 100755
 --- a/vimode.py
 +++ b/vimode.py
 @@ -190,7 +190,7 @@ def cmd_nmap(args):
@@ -56,7 +56,7 @@ index 06f9c28..71067f4 100755
 +            yield from self.get_cmd_actions(cmd[end:], first_call=first_call)
 +            return
 +
-+        command_pttrn = '[:/].*<cr>'
++        command_pttrn = '[:/].*?<cr>'
 +        old_style_cmd_conditions = [
 +            first_call,
 +            cmd[0] == '/',
