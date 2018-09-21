@@ -1,0 +1,41 @@
+diff --git a/vimode.py b/vimode.py
+index 06f9c28..e3127a9 100755
+--- a/vimode.py
++++ b/vimode.py
+@@ -1036,7 +1036,7 @@ VI_KEYS = {'j': "/window scroll_down",
+            '\x01Wv': "/window splitv",
+            '\x01Wq': "/window merge",
+            ';': key_semicolon,
+-           ',': key_comma,
++           '\\': key_comma,
+            'u': key_u,
+            '\x01R': key_ctrl_r}
+ 
+@@ -1044,6 +1044,27 @@ VI_KEYS = {'j': "/window scroll_down",
+ for i in range(10, 99):
+     VI_KEYS['\x01[j%s' % i] = "/buffer %s" % i
+ 
++class InsertModeBind:
++    """
++    Used for key bindings that should set the text in the command line and
++    leave the user in INSERT Mode.
++    """
++    def __init__(self, text):
++        self.text = text
++
++    def __call__(self, buf, input_line, cur, count):
++        set_mode("INSERT")
++        weechat.buffer_set(buf, "input", self.text)
++        weechat.buffer_set(buf, "input_pos", str(len(self.text)))
++
++CUSTOM_VI_BINDS = {
++    ',b': InsertModeBind('/buddylist add '),
++    ',f': InsertModeBind('/fset '),
++    ',r': InsertModeBind('/script reload '),
++}
++
++VI_KEYS.update(CUSTOM_VI_BINDS)
++
+ 
+ # Key handling.
+ # =============
