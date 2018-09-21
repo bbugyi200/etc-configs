@@ -1,5 +1,5 @@
 diff --git a/vimode.py b/vimode.py
-index 06f9c28..fbf5b04 100755
+index 06f9c28..71067f4 100755
 --- a/vimode.py
 +++ b/vimode.py
 @@ -190,7 +190,7 @@ def cmd_nmap(args):
@@ -11,7 +11,7 @@ index 06f9c28..fbf5b04 100755
      if not args:
          mappings = vimode_settings['user_mappings']
          if mappings:
-@@ -1044,6 +1044,156 @@ VI_KEYS = {'j': "/window scroll_down",
+@@ -1044,6 +1044,158 @@ VI_KEYS = {'j': "/window scroll_down",
  for i in range(10, 99):
      VI_KEYS['\x01[j%s' % i] = "/buffer %s" % i
  
@@ -22,7 +22,7 @@ index 06f9c28..fbf5b04 100755
 +    """
 +    def __init__(self, cmd):
 +        self.cmd = cmd
-+        self.count = 1
++        self.count = 0
 +
 +    def __call__(self, buf, input_line, cur, count):
 +        for _ in range(max(count, 1)):
@@ -35,7 +35,7 @@ index 06f9c28..fbf5b04 100755
 +
 +                action(buf, input_line, cur, self.count)
 +
-+                self.count = 1
++                self.count = 0
 +                buf = weechat.current_buffer()
 +                input_line = weechat.buffer_get_string(buf, "input")
 +                cur = weechat.buffer_get_integer(buf, "input_pos")
@@ -49,9 +49,11 @@ index 06f9c28..fbf5b04 100755
 +        if cmd == '':
 +            return
 +
-+        if re.match('^[1-9]', cmd):
-+            self.count += int(cmd[0])
-+            yield from self.get_cmd_actions(cmd[1:])
++        match = re.match('^[1-9][0-9]*', cmd)
++        if match:
++            end = match.end()
++            self.count += int(cmd[:end])
++            yield from self.get_cmd_actions(cmd[end:], first_call=first_call)
 +            return
 +
 +        command_pttrn = '[:/].*<cr>'
@@ -168,7 +170,7 @@ index 06f9c28..fbf5b04 100755
  
  # Key handling.
  # =============
-@@ -1298,21 +1448,13 @@ def cb_key_combo_default(data, signal, signal_data):
+@@ -1298,21 +1450,13 @@ def cb_key_combo_default(data, signal, signal_data):
          if vi_keys not in ['u', '\x01R']:
              add_undo_history(buf, input_line)
          if isinstance(VI_KEYS[vi_keys], str):
@@ -192,7 +194,7 @@ index 06f9c28..fbf5b04 100755
      # It's an operator + motion (e.g. "dw") — call `motion_X()` (where X is
      # the motion), then we call `operator_Y()` (where Y is the operator)
      # with the position `motion_X()` returned. `operator_Y()` should then
-@@ -1320,19 +1462,7 @@ def cb_key_combo_default(data, signal, signal_data):
+@@ -1320,19 +1464,7 @@ def cb_key_combo_default(data, signal, signal_data):
      elif (len(vi_keys) > 1 and
            vi_keys[0] in VI_OPERATORS and
            vi_keys[1:] in VI_MOTIONS):
@@ -213,7 +215,7 @@ index 06f9c28..fbf5b04 100755
      else:
          return weechat.WEECHAT_RC_OK_EAT
  
-@@ -1462,6 +1592,8 @@ def load_user_mappings():
+@@ -1462,6 +1594,8 @@ def load_user_mappings():
      if vimode_settings['user_mappings']:
          mappings.update(json.loads(vimode_settings['user_mappings']))
      vimode_settings['user_mappings'] = mappings
@@ -222,7 +224,7 @@ index 06f9c28..fbf5b04 100755
  
  
  # Command-line execution.
-@@ -1582,6 +1714,35 @@ def cb_vimode_cmd(data, buf, args):
+@@ -1582,6 +1716,35 @@ def cb_vimode_cmd(data, buf, args):
  
  # Motions/keys helpers.
  # ---------------------
@@ -258,7 +260,7 @@ index 06f9c28..fbf5b04 100755
  
  def get_pos(data, regex, cur, ignore_cur=False, count=0):
      """Return the position of `regex` match in `data`, starting at `cur`.
-@@ -1679,6 +1840,7 @@ def get_keys_and_count(combo):
+@@ -1679,6 +1842,7 @@ def get_keys_and_count(combo):
              we should handle. User mappings are also expanded.
          count (int): count for `combo`.
      """
@@ -266,7 +268,7 @@ index 06f9c28..fbf5b04 100755
      # Look for a potential match (e.g. "d" might become "dw" or "dd" so we
      # accept it, but "d9" is invalid).
      matched = False
-@@ -1695,9 +1857,6 @@ def get_keys_and_count(combo):
+@@ -1695,9 +1859,6 @@ def get_keys_and_count(combo):
                  break
          combo = combo.replace(count, "", 1)
          count = int(count)
@@ -276,7 +278,7 @@ index 06f9c28..fbf5b04 100755
      # It's a WeeChat command.
      if not matched and combo.startswith("/"):
          matched = True
-@@ -1746,6 +1905,14 @@ def get_keys_and_count(combo):
+@@ -1746,6 +1907,14 @@ def get_keys_and_count(combo):
  
  # Other helpers.
  # --------------
