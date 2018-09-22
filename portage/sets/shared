@@ -180,6 +180,7 @@ x11-misc/dunst
 x11-misc/i3lock
 x11-misc/numlockx
 x11-misc/rofi
+x11-misc/x11vnc
 x11-misc/xbindkeys
 x11-misc/xclip
 x11-misc/xdotool
