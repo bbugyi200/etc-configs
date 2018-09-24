@@ -1,7 +1,6 @@
 app-admin/haskell-updater
 app-admin/lastpass-cli
 app-admin/logrotate
-app-admin/mcelog
 app-admin/pass
 app-admin/stow
 app-admin/sudo
@@ -71,7 +70,6 @@ app-vim/vim-taskwarrior
 app-vim/vim-unimpaired
 app-vim/vimux
 dev-haskell/hostname
-dev-libs/openssl
 dev-python/beautifulsoup
 dev-python/beautifulsoup:python-2
 dev-python/flake8
@@ -100,7 +98,6 @@ dev-util/shellcheck
 dev-vcs/ghi
 dev-vcs/git
 dev-vcs/hub
-dev-vcs/rcs
 mail-client/neomutt
 mail-mta/sendmail
 media-fonts/arphicfonts
@@ -134,9 +131,7 @@ media-gfx/imv
 media-gfx/scrot
 media-gfx/wkhtmltopdf
 media-sound/alsa-utils
-media-video/ffmpeg
 media-video/mpv
-net-firewall/ipset
 net-irc/weechat
 net-irc/weechat-autosort
 net-irc/weechat-buddylist
@@ -150,12 +145,10 @@ net-libs/nodejs
 net-misc/dhcpcd
 net-misc/dropbox
 net-misc/dropbox-cli
-net-misc/netifrc
 net-misc/ntp
 net-misc/youtube-dl
 net-print/epson-inkjet-printer
 sys-apps/mlocate
-sys-apps/pciutils
 sys-apps/shell-safe-rm
 sys-apps/the_silver_searcher
 sys-apps/usbutils
@@ -169,18 +162,15 @@ sys-process/htop
 www-client/elinks
 www-client/google-chrome
 www-client/qutebrowser
-x11-apps/xdpyinfo
 x11-apps/xlsfonts
 x11-apps/xmodmap
 x11-apps/xrandr
-x11-base/xorg-server
 x11-misc/clipster
 x11-misc/dmenu
 x11-misc/dunst
 x11-misc/i3lock
 x11-misc/numlockx
 x11-misc/rofi
-x11-misc/x11vnc
 x11-misc/xbindkeys
 x11-misc/xclip
 x11-misc/xdotool
