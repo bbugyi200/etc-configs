@@ -137,6 +137,7 @@ net-irc/weechat-iset
 net-irc/weechat-notify-send
 net-irc/weechat-vimode
 net-irc/weechat-zerotab
+net-libs/nodejs
 net-misc/dhcpcd
 net-misc/dropbox
 net-misc/dropbox-cli
