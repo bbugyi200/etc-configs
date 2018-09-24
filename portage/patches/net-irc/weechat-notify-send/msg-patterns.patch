@@ -1,5 +1,5 @@
 diff --git a/notify_send.py b/notify_send.py
-index 6c10a5c..554e276 100644
+index 6c10a5c..cdd01d0 100644
 --- a/notify_send.py
 +++ b/notify_send.py
 @@ -28,6 +28,7 @@
@@ -14,7 +14,7 @@ index 6c10a5c..554e276 100644
          'A comma-separated list of buffers for which you want to receive '
          'notifications on all messages that appear in them.'
      ),
-+    'notify_on_all_messages_that_match': (
++    'notify_on_messages_that_match': (
 +        '',
 +        'A comma-separated list of regex patterns that you want to receive '
 +        'notifications on when message body matches.'
@@ -56,7 +56,7 @@ index 6c10a5c..554e276 100644
      if is_highlight:
          return notify_on_highlights()
  
-+    if notify_on_all_messages_that_match(message):
++    if notify_on_messages_that_match(message):
 +        return True
 +
      if notify_on_all_messages_in_buffer(buffer):
@@ -65,8 +65,8 @@ index 6c10a5c..554e276 100644
      return False
  
  
-+def notify_on_all_messages_that_match(msg):
-+    msg_pttrns = split_option_value('notify_on_all_messages_that_match')
++def notify_on_messages_that_match(msg):
++    msg_pttrns = split_option_value('notify_on_messages_that_match')
 +    for pttrn in msg_pttrns:
 +        if pttrn != '' and re.search(pttrn, msg):
 +            return True
