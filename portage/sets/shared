@@ -79,6 +79,7 @@ dev-python/ipython
 dev-python/pip
 dev-python/pockyt
 dev-python/pytest
+dev-python/pytest-cov
 dev-python/tldextract
 dev-python/tldr-python-client
 dev-python/twilio
