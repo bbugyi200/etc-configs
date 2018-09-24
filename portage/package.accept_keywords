@@ -2,6 +2,8 @@
 #  Per-Package ACCEPT_KEYWORD Statements  #
 ###########################################
 app-portage/euscan **
+# drops unnecessary openrc blocker (a44f9462) 
+app-shells/gentoo-zsh-completions ~amd64
 app-shells/localalias **
 app-shells/localalias ~amd64
 app-vim/fugitive **
