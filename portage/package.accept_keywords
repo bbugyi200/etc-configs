@@ -4,7 +4,7 @@
 net-misc/dropbox ~amd64
 =app-portage/euscan-9999 **
 app-shells/localalias ~amd64
-=app-shells/localalias-9999 **
+app-shells/localalias **
 =app-vim/fugitive-9999 **
 
 ###################################################################

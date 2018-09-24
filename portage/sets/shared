@@ -1,4 +1,3 @@
-app-admin/haskell-updater
 app-admin/lastpass-cli
 app-admin/logrotate
 app-admin/pass
@@ -76,7 +75,6 @@ dev-python/flake8
 dev-python/flake8-per-file-ignores
 dev-python/ipdb
 dev-python/ipython
-dev-python/keyring
 dev-python/pip
 dev-python/pockyt
 dev-python/pytest
@@ -84,16 +82,12 @@ dev-python/tldextract
 dev-python/tldr-python-client
 dev-python/twilio
 dev-python/virtualenvwrapper
-dev-qt/qtwebengine
-dev-qt/qtwebkit
-dev-ruby/pygments_rb
 dev-ruby/tmuxinator
 dev-texlive/texlive-fontsextra
 dev-texlive/texlive-fontsrecommended
 dev-texlive/texlive-latexextra
 dev-util/bumpversion
 dev-util/ctags
-dev-util/ix
 dev-util/shellcheck
 dev-vcs/ghi
 dev-vcs/git
@@ -141,7 +135,6 @@ net-irc/weechat-highmon
 net-irc/weechat-iset
 net-irc/weechat-notify-send
 net-irc/weechat-vimode
-net-libs/nodejs
 net-misc/dhcpcd
 net-misc/dropbox
 net-misc/dropbox-cli
@@ -154,7 +147,6 @@ sys-apps/the_silver_searcher
 sys-apps/usbutils
 sys-boot/grub:2
 sys-devel/gdb
-sys-fs/dosfstools
 sys-fs/ncdu
 sys-kernel/gentoo-sources
 sys-process/cronie
