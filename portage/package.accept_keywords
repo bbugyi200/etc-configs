@@ -7,6 +7,7 @@ app-shells/gentoo-zsh-completions ~amd64
 app-shells/localalias **
 app-shells/localalias ~amd64
 app-vim/fugitive **
+net-libs/nodejs ~amd64
 net-misc/dropbox ~amd64
 
 ###################################################################
@@ -360,3 +361,6 @@ net-misc/dropbox ~amd64
 # required by app-misc/livedown-2.1.1::bbugyi200
 # required by livedown (argument)
 =dev-nodejs/body-parser-1.9.2 ~amd64
+# required by net-libs/nodejs-9.11.2::gentoo[icu]
+# required by nodejs (argument)
+=dev-libs/icu-62.1 ~amd64
