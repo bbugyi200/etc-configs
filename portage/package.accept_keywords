@@ -325,3 +325,5 @@ net-misc/dropbox ~amd64
 =app-misc/torrench-9999 ~amd64
 # required by livedown (argument)
 =app-misc/livedown-2.1.1-r1 ~amd64
+# required by weechat-zerotab (argument)
+=net-irc/weechat-zerotab-9999 **
