@@ -1,11 +1,11 @@
 ###########################################
 #  Per-Package ACCEPT_KEYWORD Statements  #
 ###########################################
-net-misc/dropbox ~amd64
-=app-portage/euscan-9999 **
-app-shells/localalias ~amd64
+app-portage/euscan **
 app-shells/localalias **
-=app-vim/fugitive-9999 **
+app-shells/localalias ~amd64
+app-vim/fugitive **
+net-misc/dropbox ~amd64
 
 ###################################################################
 #  Automatically Generated Per-Package ACCEPT_KEYWORD Statements  #
@@ -321,3 +321,5 @@ app-shells/localalias **
 =dev-vcs/hub-2.2.9 ~amd64
 # required by torrench (argument)
 =app-misc/torrench-9999 ~amd64
+# required by livedown (argument)
+=app-misc/livedown-2.1.1-r1 ~amd64

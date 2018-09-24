@@ -12,7 +12,7 @@ PORTAGE_ELOG_SYSTEM="save"
 
 FEATURES=""
 
-EMERGE_DEFAULT_OPTS="--ask-enter-invalid --autounmask-write=n"
+EMERGE_DEFAULT_OPTS="--ask-enter-invalid"
 
 CLEAN_DELAY=0
 
