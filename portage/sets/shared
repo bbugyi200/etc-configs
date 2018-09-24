@@ -10,7 +10,6 @@ app-misc/anki
 app-misc/bugwarrior
 app-misc/jrnl
 app-misc/khal
-app-misc/livedown
 app-misc/ranger
 app-misc/rlwrap
 app-misc/task
@@ -90,6 +89,7 @@ dev-texlive/texlive-fontsrecommended
 dev-texlive/texlive-latexextra
 dev-util/bumpversion
 dev-util/ctags
+dev-util/ix
 dev-util/shellcheck
 dev-vcs/ghi
 dev-vcs/git
@@ -138,7 +138,6 @@ net-irc/weechat-iset
 net-irc/weechat-notify-send
 net-irc/weechat-vimode
 net-irc/weechat-zerotab
-net-libs/nodejs
 net-misc/dhcpcd
 net-misc/dropbox
 net-misc/dropbox-cli
