@@ -366,3 +366,5 @@ net-misc/dropbox ~amd64
 =dev-libs/icu-62.1 ~amd64
 # required by vim-instant-markdown (argument)
 =app-vim/vim-instant-markdown-9999 **
+# required by xprintidle (argument)
+=x11-misc/xprintidle-2.1 ~amd64
