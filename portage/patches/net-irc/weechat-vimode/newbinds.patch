@@ -83,7 +83,7 @@ index cce0d81..492164c 100644
  # History:
  * version 0.1:      initial release
 diff --git a/vimode.py b/vimode.py
-index 06f9c28..dc93664 100755
+index 06f9c28..cf85501 100755
 --- a/vimode.py
 +++ b/vimode.py
 @@ -22,6 +22,7 @@
@@ -139,7 +139,7 @@ index 06f9c28..dc93664 100755
          else:
              weechat.prnt("", "nmap: no mapping found.")
      elif " " not in args:
-@@ -1044,6 +1062,181 @@ VI_KEYS = {'j': "/window scroll_down",
+@@ -1044,6 +1062,177 @@ VI_KEYS = {'j': "/window scroll_down",
  for i in range(10, 99):
      VI_KEYS['\x01[j%s' % i] = "/buffer %s" % i
  
@@ -152,6 +152,7 @@ index 06f9c28..dc93664 100755
 +    def __call__(self, buf, input_line, cur, count):
 +        rhs, count = self.process_count(count)
 +        self.count = 0
++        self.index = 0
 +        self.bad_sequence = ""
 +        for _ in range(count):
 +            bad_seq_list = []
@@ -211,7 +212,7 @@ index 06f9c28..dc93664 100755
 +        """
 +        old_style_cmd_conditions = [
 +            vi_keys[0] == '/',
-+            re.match('<cr>', vi_keys.lower()) is None,
++            re.search('<cr>', vi_keys.lower()) is None,
 +        ]
 +
 +        if all(old_style_cmd_conditions):
@@ -222,85 +223,76 @@ index 06f9c28..dc93664 100755
 +                yield action
 +
 +    def new_style(self, vi_keys):
-+        match = re.match('^[1-9][0-9]*', vi_keys)
-+        if match:
-+            end = match.end()
-+            self.count += int(vi_keys[:end])
-+            vi_keys = vi_keys[end:]
-+        yield from self.action_spec(vi_keys)
++        while self.index < (len(vi_keys) - 1):
++            match = re.match('^[1-9][0-9]*', vi_keys)
++            if match:
++                end = match.end()
++                self.count += int(vi_keys[:end])
++                self.index += end
++
++            action = self.action_spec(vi_keys[self.index:])
++            debug('Running %s command.', vi_keys[:self.index])
++            if action is None:
++                continue
++            else:
++                yield action
 +
 +    def action_spec(self, vi_keys):
 +        # >>> ENTER
 +        if vi_keys.lower().startswith('<cr>'):
-+            yield functools.partial(do_command, '/input return')
-+            yield from self.new_style(vi_keys[4:])
-+            return
++            self.index += 4
++            set_mode('NORMAL')
++            return functools.partial(do_command, '/input return')
 +
 +        # >>> INSERT MODE SEQUENCE
 +        if mode == 'INSERT':
-+            match = re.search('<(esc|cr)>', vi_keys.lower())
++            match = re.search('<esc>', vi_keys.lower())
 +            end = match.start() if match else len(vi_keys)
 +
-+            # an INSERT action only works with a count if terminated with <Esc>
-+            if not match or match.group() != '<esc>':
-+                self.count = 0
-+
-+            yield self.imode_sequence(vi_keys[:end])
-+
 +            if match:
-+                group = match.group()
-+                if group == '<esc>':
-+                    start = match.end()
-+                elif group == '<cr>':
-+                    start = match.start()
-+
 +                set_mode('NORMAL')
-+                yield from self.new_style(vi_keys[start:])
 +
-+            return
++            self.index += end
++            return self.imode_sequence(vi_keys[:end])
 +
 +        # >>> VI_KEY
 +        for keys, command in VI_KEYS.items():
 +            if vi_keys.startswith(keys):
++                self.index += len(keys)
 +                if isinstance(command, str):
-+                    yield functools.partial(do_command, command)
++                    return functools.partial(do_command, command)
 +                else:
-+                    yield command
-+                yield from self.new_style(vi_keys[len(keys):])
-+                return
++                    return command
 +
 +        # >>> VI_MOTION
 +        for motion in VI_MOTIONS:
 +            if vi_keys.startswith(motion):
-+                yield functools.partial(do_motion, motion)
-+                yield from self.new_style(vi_keys[len(motion):])
-+                return
++                self.index += len(motion)
++                return functools.partial(do_motion, motion)
 +
 +        # >>> VI_OPERATOR
 +        if len(vi_keys) > 1 and vi_keys[0] in VI_OPERATORS:
 +            for motion in VI_MOTIONS:
 +                if vi_keys[1:].startswith(motion):
-+                    yield functools.partial(do_operator,
-+                                            vi_keys[:len(motion) + 1])
-+                    yield from self.new_style(vi_keys[len(motion) + 1:])
-+                    return
++                    self.index += len(motion) + 1
++                    return functools.partial(do_operator,
++                                             vi_keys[:len(motion) + 1])
 +
 +        # >>> COMMAND
 +        match = re.match('[:/].*?<cr>', vi_keys.lower())
 +        if match:
 +            end = match.end()
-+            yield functools.partial(do_command,
-+                                    '/{}'.format(vi_keys[1:end - 4]))
-+            yield from self.new_style(vi_keys[end:])
-+            return
++            self.index += end
++            return functools.partial(do_command,
++                                     '/{}'.format(vi_keys[1:end - 4]))
 +
 +        # >>> PARSING ERROR
 +        if vi_keys[0] in (':', '/'):
 +            self.bad_sequence += vi_keys
-+            return
-+
-+        self.bad_sequence += vi_keys[0]
-+        yield from self.new_style(vi_keys[1:])
++            self.index += len(vi_keys)
++        else:
++            self.bad_sequence += vi_keys[0]
++            self.index += 1
 +
 +    def imode_sequence(self, new_input):
 +        """Factory for Action that Sends Input to Command-Line"""
@@ -318,10 +310,14 @@ index 06f9c28..dc93664 100755
 +                cur = weechat.buffer_get_integer(buf, "input_pos")
 +        return action
 +
++
++def debug(msg, *values):
++    print(msg % values)
++
  
  # Key handling.
  # =============
-@@ -1298,21 +1491,13 @@ def cb_key_combo_default(data, signal, signal_data):
+@@ -1298,21 +1487,13 @@ def cb_key_combo_default(data, signal, signal_data):
          if vi_keys not in ['u', '\x01R']:
              add_undo_history(buf, input_line)
          if isinstance(VI_KEYS[vi_keys], str):
@@ -345,7 +341,7 @@ index 06f9c28..dc93664 100755
      # It's an operator + motion (e.g. "dw") — call `motion_X()` (where X is
      # the motion), then we call `operator_Y()` (where Y is the operator)
      # with the position `motion_X()` returned. `operator_Y()` should then
-@@ -1320,19 +1505,7 @@ def cb_key_combo_default(data, signal, signal_data):
+@@ -1320,19 +1501,7 @@ def cb_key_combo_default(data, signal, signal_data):
      elif (len(vi_keys) > 1 and
            vi_keys[0] in VI_OPERATORS and
            vi_keys[1:] in VI_MOTIONS):
@@ -366,7 +362,7 @@ index 06f9c28..dc93664 100755
      else:
          return weechat.WEECHAT_RC_OK_EAT
  
-@@ -1462,6 +1635,8 @@ def load_user_mappings():
+@@ -1462,6 +1631,8 @@ def load_user_mappings():
      if vimode_settings['user_mappings']:
          mappings.update(json.loads(vimode_settings['user_mappings']))
      vimode_settings['user_mappings'] = mappings
@@ -375,7 +371,7 @@ index 06f9c28..dc93664 100755
  
  
  # Command-line execution.
-@@ -1582,6 +1757,35 @@ def cb_vimode_cmd(data, buf, args):
+@@ -1582,6 +1753,35 @@ def cb_vimode_cmd(data, buf, args):
  
  # Motions/keys helpers.
  # ---------------------
@@ -411,7 +407,7 @@ index 06f9c28..dc93664 100755
  
  def get_pos(data, regex, cur, ignore_cur=False, count=0):
      """Return the position of `regex` match in `data`, starting at `cur`.
-@@ -1695,9 +1899,6 @@ def get_keys_and_count(combo):
+@@ -1695,9 +1895,6 @@ def get_keys_and_count(combo):
                  break
          combo = combo.replace(count, "", 1)
          count = int(count)
@@ -421,7 +417,7 @@ index 06f9c28..dc93664 100755
      # It's a WeeChat command.
      if not matched and combo.startswith("/"):
          matched = True
-@@ -1746,7 +1947,6 @@ def get_keys_and_count(combo):
+@@ -1746,7 +1943,6 @@ def get_keys_and_count(combo):
  
  # Other helpers.
  # --------------
