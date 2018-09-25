@@ -60,7 +60,7 @@ app-vim/vim-cmake-syntax
 app-vim/vim-colors-solarized
 app-vim/vim-commentary
 app-vim/vim-easytags
-app-vim/vim-livedown
+app-vim/vim-instant-markdown
 app-vim/vim-localvimrc
 app-vim/vim-python-pep8-indent
 app-vim/vim-snippets

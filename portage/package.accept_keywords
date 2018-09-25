@@ -364,3 +364,5 @@ net-misc/dropbox ~amd64
 # required by net-libs/nodejs-9.11.2::gentoo[icu]
 # required by nodejs (argument)
 =dev-libs/icu-62.1 ~amd64
+# required by vim-instant-markdown (argument)
+=app-vim/vim-instant-markdown-9999 **
