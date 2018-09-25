@@ -83,7 +83,7 @@ index cce0d81..492164c 100644
  # History:
  * version 0.1:      initial release
 diff --git a/vimode.py b/vimode.py
-index 06f9c28..d695d10 100755
+index 06f9c28..d428f70 100755
 --- a/vimode.py
 +++ b/vimode.py
 @@ -22,6 +22,7 @@
@@ -139,38 +139,32 @@ index 06f9c28..d695d10 100755
          else:
              weechat.prnt("", "nmap: no mapping found.")
      elif " " not in args:
-@@ -1044,6 +1062,163 @@ VI_KEYS = {'j': "/window scroll_down",
+@@ -1044,6 +1062,152 @@ VI_KEYS = {'j': "/window scroll_down",
  for i in range(10, 99):
      VI_KEYS['\x01[j%s' % i] = "/buffer %s" % i
  
 +class UserMapping:
 +    """Wraps User Mapping Defined by :nmap Command"""
-+    def __init__(self, keys, full_cmd):
-+        self.keys = keys
-+        self.full_cmd = full_cmd
++    def __init__(self, lhs, rhs):
++        self.lhs = lhs
++        self.rhs = rhs
 +        self.count = 0
 +        self.bad_sequence = ""
 +
 +    def __call__(self, buf, input_line, cur, count):
-+        if re.search('#{\d+}', self.full_cmd) is not None:
++        if re.search('#{\d+}', self.rhs) is not None:
 +            if count:
-+                full_cmd = re.sub('#{\d+}', str(count), self.full_cmd)
++                rhs = re.sub('#{\d+}', str(count), self.rhs)
 +            else:
-+                full_cmd = re.sub('#{(\d+)}', r'\1', self.full_cmd)
++                rhs = re.sub('#{(\d+)}', r'\1', self.rhs)
 +            count = 1
 +        else:
-+            full_cmd = self.full_cmd
++            rhs = self.rhs
 +            count = max(count, 1)
 +
 +        for _ in range(count):
 +            bad_sequence_list = []
-+            for action in self.get_cmd_actions(full_cmd, first_call=True):
-+                debug_print('action', action)
-+                debug_print('buf', buf)
-+                debug_print('input_line', input_line)
-+                debug_print('cur', cur)
-+                debug_print('count', count)
-+
++            for action in self.parse(rhs, first_call=True):
 +                if self.bad_sequence:
 +                    bad_sequence_list.append(self.bad_sequence)
 +
@@ -190,50 +184,48 @@ index 06f9c28..d695d10 100755
 +            for bad_seq in bad_sequence_list:
 +                error_msg = 'Failed to parse "{}" sequence ' \
 +                    'in the following user mapping: ' \
-+                    '({}, {}).'.format(bad_seq, self.keys, self.full_cmd)
++                    '({}, {}).'.format(bad_seq, self.lhs, self.rhs)
 +                print_warning(error_msg)
 +
-+    def get_cmd_actions(self, cmd, *, first_call=False):
++    def parse(self, vi_keys, *, first_call=False):
 +        """Generator for Callable Actions
 +
 +        Yields:
 +            Callable object: func(buf, input_line, cur, count)
 +        """
-+        if cmd == '':
++        if vi_keys == '':
 +            return
 +
-+        match = re.match('^[1-9][0-9]*', cmd)
-+        if match:
-+            end = match.end()
-+            self.count += int(cmd[:end])
-+            yield from self.get_cmd_actions(cmd[end:])
-+            return
-+
-+        lcmd = cmd.lower()
++        lower_vi_keys = vi_keys.lower()
 +
 +        command_pttrn = '[:/].*?<cr>'
 +        old_style_cmd_conditions = [
 +            first_call,
-+            cmd[0] == '/',
-+            re.match(command_pttrn, lcmd) is None,
++            vi_keys[0] == '/',
++            re.match(command_pttrn, lower_vi_keys) is None,
 +        ]
 +
 +        if all(old_style_cmd_conditions):
-+            yield functools.partial(do_command, cmd)
++            yield functools.partial(do_command, vi_keys)
 +            return
 +
-+        debug_print('cmd', cmd)
++        match = re.match('^[1-9][0-9]*', vi_keys)
++        if match:
++            end = match.end()
++            self.count += int(vi_keys[:end])
++            yield from self.parse(vi_keys[end:])
++            return
 +
-+        if lcmd.startswith('<cr>'):
++        if lower_vi_keys.startswith('<cr>'):
 +            yield functools.partial(do_command, '/input return')
-+            yield from self.get_cmd_actions(cmd[4:])
++            yield from self.parse(vi_keys[4:])
 +            return
 +
 +        if mode == 'INSERT':
-+            match = re.search('<(esc|cr)>', lcmd)
-+            end = match.start() if match else len(cmd)
++            match = re.search('<(esc|cr)>', lower_vi_keys)
++            end = match.start() if match else len(vi_keys)
 +
-+            yield self.insert_input_action(cmd[:end])
++            yield self.insert_input_action(vi_keys[:end])
 +
 +            if match:
 +                group = match.group()
@@ -243,50 +235,47 @@ index 06f9c28..d695d10 100755
 +                    start = match.start()
 +
 +                set_mode('NORMAL')
-+                yield from self.get_cmd_actions(cmd[start:])
++                yield from self.parse(vi_keys[start:])
 +
 +            return
 +
 +        for keys, command in VI_KEYS.items():
-+            if cmd.startswith(keys):
-+                debug_print('keys', keys)
-+                debug_print('command', command)
-+
++            if vi_keys.startswith(keys):
 +                if isinstance(command, str):
 +                    yield functools.partial(do_command, command)
 +                else:
 +                    yield command
-+                debug_print('cmd[len(keys)', cmd[len(keys):])
-+                yield from self.get_cmd_actions(cmd[len(keys):])
++                yield from self.parse(vi_keys[len(keys):])
 +                return
 +
 +        for motion in VI_MOTIONS:
-+            if cmd.startswith(motion):
++            if vi_keys.startswith(motion):
 +                yield functools.partial(do_motion, motion)
-+                yield from self.get_cmd_actions(cmd[len(motion):])
++                yield from self.parse(vi_keys[len(motion):])
 +                return
 +
-+        if len(cmd) > 1 and cmd[0] in VI_OPERATORS:
++        if len(vi_keys) > 1 and vi_keys[0] in VI_OPERATORS:
 +            for motion in VI_MOTIONS:
-+                if cmd[1:].startswith(motion):
-+                    yield functools.partial(do_operator, cmd[:len(motion) + 1])
-+                    yield from self.get_cmd_actions(cmd[len(motion) + 1:])
++                if vi_keys[1:].startswith(motion):
++                    yield functools.partial(do_operator,
++                                            vi_keys[:len(motion) + 1])
++                    yield from self.parse(vi_keys[len(motion) + 1:])
 +                    return
 +
-+        match = re.match(command_pttrn, lcmd)
++        match = re.match(command_pttrn, lower_vi_keys)
 +        if match:
 +            end = match.end()
-+            yield functools.partial(do_command, '/{}'.format(cmd[1:end - 4]))
-+            yield from self.get_cmd_actions(cmd[end:])
++            yield functools.partial(do_command,
++                                    '/{}'.format(vi_keys[1:end - 4]))
++            yield from self.parse(vi_keys[end:])
 +            return
 +
-+        if cmd[0] in (':', '/'):
-+            debug_print('/command [options]', cmd)
-+            self.bad_sequence += cmd
++        if vi_keys[0] in (':', '/'):
++            self.bad_sequence += vi_keys
 +            return
 +
-+        self.bad_sequence += cmd[0]
-+        yield from self.get_cmd_actions(cmd[1:])
++        self.bad_sequence += vi_keys[0]
++        yield from self.parse(vi_keys[1:])
 +
 +    def insert_input_action(self, new_input):
 +        """Factory for Action that Sends Input to Command-Line"""
@@ -303,7 +292,7 @@ index 06f9c28..d695d10 100755
  
  # Key handling.
  # =============
-@@ -1298,21 +1473,13 @@ def cb_key_combo_default(data, signal, signal_data):
+@@ -1298,21 +1462,13 @@ def cb_key_combo_default(data, signal, signal_data):
          if vi_keys not in ['u', '\x01R']:
              add_undo_history(buf, input_line)
          if isinstance(VI_KEYS[vi_keys], str):
@@ -327,7 +316,7 @@ index 06f9c28..d695d10 100755
      # It's an operator + motion (e.g. "dw") — call `motion_X()` (where X is
      # the motion), then we call `operator_Y()` (where Y is the operator)
      # with the position `motion_X()` returned. `operator_Y()` should then
-@@ -1320,19 +1487,7 @@ def cb_key_combo_default(data, signal, signal_data):
+@@ -1320,19 +1476,7 @@ def cb_key_combo_default(data, signal, signal_data):
      elif (len(vi_keys) > 1 and
            vi_keys[0] in VI_OPERATORS and
            vi_keys[1:] in VI_MOTIONS):
@@ -348,7 +337,7 @@ index 06f9c28..d695d10 100755
      else:
          return weechat.WEECHAT_RC_OK_EAT
  
-@@ -1462,6 +1617,8 @@ def load_user_mappings():
+@@ -1462,6 +1606,8 @@ def load_user_mappings():
      if vimode_settings['user_mappings']:
          mappings.update(json.loads(vimode_settings['user_mappings']))
      vimode_settings['user_mappings'] = mappings
@@ -357,7 +346,7 @@ index 06f9c28..d695d10 100755
  
  
  # Command-line execution.
-@@ -1582,6 +1739,35 @@ def cb_vimode_cmd(data, buf, args):
+@@ -1582,6 +1728,35 @@ def cb_vimode_cmd(data, buf, args):
  
  # Motions/keys helpers.
  # ---------------------
@@ -393,7 +382,7 @@ index 06f9c28..d695d10 100755
  
  def get_pos(data, regex, cur, ignore_cur=False, count=0):
      """Return the position of `regex` match in `data`, starting at `cur`.
-@@ -1695,9 +1881,6 @@ def get_keys_and_count(combo):
+@@ -1695,9 +1870,6 @@ def get_keys_and_count(combo):
                  break
          combo = combo.replace(count, "", 1)
          count = int(count)
@@ -403,18 +392,11 @@ index 06f9c28..d695d10 100755
      # It's a WeeChat command.
      if not matched and combo.startswith("/"):
          matched = True
-@@ -1746,6 +1929,14 @@ def get_keys_and_count(combo):
+@@ -1746,7 +1918,6 @@ def get_keys_and_count(combo):
  
  # Other helpers.
  # --------------
-+def debug_print(name, value):
-+    """Prints the Name and Value of a Variable
-+
-+    Toggle the DEBUGGING_ENABLED to enable/disable debug output.
-+    """
-+    DEBUGGING_ENABLED = False
-+    if DEBUGGING_ENABLED:
-+        print('[DEBUG] {} = {}'.format(name, value))
- 
+-
  def set_mode(arg):
      """Set the current mode and update the bar mode indicator."""
+     global mode
