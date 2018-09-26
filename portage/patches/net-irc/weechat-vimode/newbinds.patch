@@ -83,7 +83,7 @@ index cce0d81..492164c 100644
  # History:
  * version 0.1:      initial release
 diff --git a/vimode.py b/vimode.py
-index 06f9c28..346b7e1 100755
+index 06f9c28..5538002 100755
 --- a/vimode.py
 +++ b/vimode.py
 @@ -21,7 +21,10 @@
@@ -155,7 +155,7 @@ index 06f9c28..346b7e1 100755
              weechat.config_set_plugin('user_mappings', json.dumps(mappings))
              vimode_settings['user_mappings'] = mappings
          else:
-@@ -974,75 +1000,292 @@ def key_ctrl_r(buf, input_line, cur, count):
+@@ -974,75 +1000,311 @@ def key_ctrl_r(buf, input_line, cur, count):
  
  # String values will be executed as normal WeeChat commands.
  # For functions, see `key_base()` for reference.
@@ -394,11 +394,22 @@ index 06f9c28..346b7e1 100755
 +                    return action, len(motion) + 1
 +
 +        # >>> WEECHAT COMMAND
-+        match = re.match('[:/].*?<cr>', vi_keys.lower())
++        match = re.search('^[:/](.*?)<cr>', vi_keys.lower())
 +        if match:
 +            end = match.end()
-+            action = functools.partial(do_command,
-+                                       '/{}'.format(vi_keys[1:end - 4]))
++            group = match.groups()[0]
++            cmd_list = group.split(maxsplit=1)
++            cmd = cmd_list[0]
++            args = cmd_list[1] if len(cmd_list) == 2 else ''
++            if cmd in VI_COMMANDS and vi_keys[0] == ':':
++                if isinstance(VI_COMMANDS[cmd], str):
++                    action = functools.partial(do_command,
++                                               VI_COMMANDS[cmd])
++                else:
++                    action = self.vi_cmd_action(cmd, args)
++            else:
++                action = functools.partial(do_command,
++                                           '/{}'.format(vi_keys[1:end - 4]))
 +            return action, end
 +
 +        # >>> PARSING ERROR
@@ -408,6 +419,12 @@ index 06f9c28..346b7e1 100755
 +        else:
 +            self.bad_sequence += vi_keys[0]
 +            return None, 1
++
++    def vi_cmd_action(self, cmd, args):
++        """Factory for VI_COMMAND Action"""
++        def action(buf, input_line, cur, count):
++            VI_COMMANDS[cmd](args)
++        return action
 +
 +    def imode_capture(self, new_input, *, enter=False):
 +        """Factory for Action that Captures Input and Sends it to Command-Line
@@ -483,9 +500,11 @@ index 06f9c28..346b7e1 100755
 +        Protects against infinite recursion which could be triggered by
 +        defining a mapping in terms of itself, for example.
 +        """
-+        self.locked = True
-+        yield
-+        self.locked = False
++        try:
++            self.locked = True
++            yield
++        finally:
++            self.locked = False
 +
 +    def process_count(self, count):
 +        """Checks for a special count tag of the form #{N} where N is some integer.
@@ -514,7 +533,7 @@ index 06f9c28..346b7e1 100755
  
  
  # Key handling.
-@@ -1298,21 +1541,13 @@ def cb_key_combo_default(data, signal, signal_data):
+@@ -1298,21 +1560,13 @@ def cb_key_combo_default(data, signal, signal_data):
          if vi_keys not in ['u', '\x01R']:
              add_undo_history(buf, input_line)
          if isinstance(VI_KEYS[vi_keys], str):
@@ -538,7 +557,7 @@ index 06f9c28..346b7e1 100755
      # It's an operator + motion (e.g. "dw") — call `motion_X()` (where X is
      # the motion), then we call `operator_Y()` (where Y is the operator)
      # with the position `motion_X()` returned. `operator_Y()` should then
-@@ -1320,19 +1555,7 @@ def cb_key_combo_default(data, signal, signal_data):
+@@ -1320,19 +1574,7 @@ def cb_key_combo_default(data, signal, signal_data):
      elif (len(vi_keys) > 1 and
            vi_keys[0] in VI_OPERATORS and
            vi_keys[1:] in VI_MOTIONS):
@@ -559,7 +578,7 @@ index 06f9c28..346b7e1 100755
      else:
          return weechat.WEECHAT_RC_OK_EAT
  
-@@ -1462,6 +1685,8 @@ def load_user_mappings():
+@@ -1462,6 +1704,8 @@ def load_user_mappings():
      if vimode_settings['user_mappings']:
          mappings.update(json.loads(vimode_settings['user_mappings']))
      vimode_settings['user_mappings'] = mappings
@@ -568,7 +587,7 @@ index 06f9c28..346b7e1 100755
  
  
  # Command-line execution.
-@@ -1582,6 +1807,35 @@ def cb_vimode_cmd(data, buf, args):
+@@ -1582,6 +1826,35 @@ def cb_vimode_cmd(data, buf, args):
  
  # Motions/keys helpers.
  # ---------------------
@@ -604,7 +623,7 @@ index 06f9c28..346b7e1 100755
  
  def get_pos(data, regex, cur, ignore_cur=False, count=0):
      """Return the position of `regex` match in `data`, starting at `cur`.
-@@ -1695,9 +1949,6 @@ def get_keys_and_count(combo):
+@@ -1695,9 +1968,6 @@ def get_keys_and_count(combo):
                  break
          combo = combo.replace(count, "", 1)
          count = int(count)
@@ -614,7 +633,7 @@ index 06f9c28..346b7e1 100755
      # It's a WeeChat command.
      if not matched and combo.startswith("/"):
          matched = True
-@@ -1746,7 +1997,6 @@ def get_keys_and_count(combo):
+@@ -1746,7 +2016,6 @@ def get_keys_and_count(combo):
  
  # Other helpers.
  # --------------
