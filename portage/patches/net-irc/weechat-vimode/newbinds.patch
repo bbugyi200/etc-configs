@@ -83,18 +83,20 @@ index cce0d81..492164c 100644
  # History:
  * version 0.1:      initial release
 diff --git a/vimode.py b/vimode.py
-index 06f9c28..13eabb7 100755
+index 06f9c28..192d3c2 100755
 --- a/vimode.py
 +++ b/vimode.py
-@@ -22,6 +22,7 @@
+@@ -21,7 +21,9 @@
+ #
  
  
++from abc import ABCMeta, abstractproperty
  import csv
 +import functools
  import json
  import os
  import re
-@@ -30,8 +31,8 @@ try:
+@@ -30,8 +32,8 @@ try:
      from StringIO import StringIO
  except ImportError:
      from io import StringIO
@@ -104,7 +106,7 @@ index 06f9c28..13eabb7 100755
  
  import weechat
  
-@@ -190,13 +191,30 @@ def cmd_nmap(args):
+@@ -190,13 +192,30 @@ def cmd_nmap(args):
      See Also:
          `cmd_unmap()`.
      """
@@ -139,69 +141,18 @@ index 06f9c28..13eabb7 100755
          else:
              weechat.prnt("", "nmap: no mapping found.")
      elif " " not in args:
-@@ -1044,6 +1062,185 @@ VI_KEYS = {'j': "/window scroll_down",
+@@ -1044,6 +1063,196 @@ VI_KEYS = {'j': "/window scroll_down",
  for i in range(10, 99):
      VI_KEYS['\x01[j%s' % i] = "/buffer %s" % i
  
-+class UserMapping:
-+    """Wraps User Mapping Defined by :nmap Command"""
-+    def __init__(self, lhs, rhs):
-+        self.lhs = lhs
-+        self.rhs = rhs
++class UMParser(metaclass=ABCMeta):
++    """User Mapping Parser
 +
-+    def __call__(self, buf, input_line, cur, count):
-+        rhs, count = self.process_count(count)
-+        self.count = 0
-+        self.bad_sequence = ""
-+        for _ in range(count):
-+            bad_seq_list = []
-+            for action in self.parse(rhs):
-+                if self.bad_sequence:
-+                    bad_seq_list.append(self.bad_sequence)
-+
-+                action(buf, input_line, cur, self.count)
-+
-+                # Reset count unless last key triggers
-+                # INSERT mode ('i', 'a', 'I', 'A', ...).
-+                if mode != 'INSERT':
-+                    self.count = 0
-+
-+                self.bad_sequence = ""
-+
-+                buf = weechat.current_buffer()
-+                input_line = weechat.buffer_get_string(buf, "input")
-+                cur = weechat.buffer_get_integer(buf, "input_pos")
-+
-+            if self.bad_sequence:
-+                bad_seq_list.append(self.bad_sequence)
-+                self.bad_sequence = ""
-+
-+            self.report_errors(bad_seq_list)
-+
-+    def process_count(self, count):
-+        """Checks for a special count tag of the form #{N} where N is some integer.
-+
-+        If a count tag is found, consume the count by substituting it in place
-+        of the tag.
-+        """
-+        if re.search('#{\d+}', self.rhs) is not None:
-+            if count:
-+                rhs = re.sub('#{\d+}', str(count), self.rhs)
-+            else:
-+                rhs = re.sub('#{(\d+)}', r'\1', self.rhs)
-+            new_count = 1
-+        else:
-+            rhs = self.rhs
-+            new_count = max(count, 1)
-+        return rhs, new_count
-+
-+    def report_errors(self, bad_seq_list):
-+        """Alert user about any parsing errors that occurred."""
-+        for bad_seq in bad_seq_list:
-+            error_msg = 'Failed to parse "{}" sequence ' \
-+                'in the following user mapping: ' \
-+                '("{}", "{}").'.format(bad_seq, self.lhs, self.rhs)
-+            print_warning(error_msg)
++    Handles parsing for UserMapping class.
++    """
++    @abstractproperty
++    def count(self):
++        """Required Attribute"""
 +
 +    def parse(self, vi_keys):
 +        """Vi_Keys parser that generates callable actions.
@@ -230,9 +181,9 @@ index 06f9c28..13eabb7 100755
 +        """
 +        index = 0
 +        while index < len(vi_keys):
++            # >>> COUNT
 +            match = re.match('^[1-9][0-9]*', vi_keys[index:])
 +            if match:
-+                # >>> COUNT
 +                end = match.end() + index
 +                self.count += int(vi_keys[index:end])
 +                index += match.end()
@@ -288,7 +239,7 @@ index 06f9c28..13eabb7 100755
 +                                               vi_keys[:len(motion) + 1])
 +                    return action, len(motion) + 1
 +
-+        # >>> COMMAND
++        # >>> WEECHAT COMMAND
 +        match = re.match('[:/].*?<cr>', vi_keys.lower())
 +        if match:
 +            end = match.end()
@@ -322,10 +273,72 @@ index 06f9c28..13eabb7 100755
 +                    do_command('/input return', buf, input_line, cur, 0)
 +        return action
 +
++class UserMapping(UMParser):
++    """Wraps User Mapping Defined by :nmap Command"""
++    count = 0
++
++    def __init__(self, lhs, rhs):
++        self.lhs = lhs
++        self.rhs = rhs
++
++    def __call__(self, buf, input_line, cur, count):
++        rhs, count = self.process_count(count)
++        self.bad_sequence = ""
++        for _ in range(count):
++            bad_seq_list = []
++            for action in self.parse(rhs):
++                if self.bad_sequence:
++                    bad_seq_list.append(self.bad_sequence)
++
++                action(buf, input_line, cur, self.count)
++
++                # Reset count unless last key triggers
++                # INSERT mode ('i', 'a', 'I', 'A', ...).
++                if mode != 'INSERT':
++                    self.count = 0
++
++                self.bad_sequence = ""
++
++                buf = weechat.current_buffer()
++                input_line = weechat.buffer_get_string(buf, "input")
++                cur = weechat.buffer_get_integer(buf, "input_pos")
++
++            self.count = 0
++            if self.bad_sequence:
++                bad_seq_list.append(self.bad_sequence)
++                self.bad_sequence = ""
++
++            self.report_errors(bad_seq_list)
++
++    def process_count(self, count):
++        """Checks for a special count tag of the form #{N} where N is some integer.
++
++        If a count tag is found, consume the count by substituting it in place
++        of the tag.
++        """
++        if re.search('#{\d+}', self.rhs) is not None:
++            if count:
++                rhs = re.sub('#{\d+}', str(count), self.rhs)
++            else:
++                rhs = re.sub('#{(\d+)}', r'\1', self.rhs)
++            new_count = 1
++        else:
++            rhs = self.rhs
++            new_count = max(count, 1)
++        return rhs, new_count
++
++    def report_errors(self, bad_seq_list):
++        """Alert user about any parsing errors that occurred."""
++        for bad_seq in bad_seq_list:
++            error_msg = 'Failed to parse "{}" sequence ' \
++                'in the following user mapping: ' \
++                '("{}", "{}").'.format(bad_seq, self.lhs, self.rhs)
++            print_warning(error_msg)
++
  
  # Key handling.
  # =============
-@@ -1298,21 +1495,13 @@ def cb_key_combo_default(data, signal, signal_data):
+@@ -1298,21 +1507,13 @@ def cb_key_combo_default(data, signal, signal_data):
          if vi_keys not in ['u', '\x01R']:
              add_undo_history(buf, input_line)
          if isinstance(VI_KEYS[vi_keys], str):
@@ -349,7 +362,7 @@ index 06f9c28..13eabb7 100755
      # It's an operator + motion (e.g. "dw") — call `motion_X()` (where X is
      # the motion), then we call `operator_Y()` (where Y is the operator)
      # with the position `motion_X()` returned. `operator_Y()` should then
-@@ -1320,19 +1509,7 @@ def cb_key_combo_default(data, signal, signal_data):
+@@ -1320,19 +1521,7 @@ def cb_key_combo_default(data, signal, signal_data):
      elif (len(vi_keys) > 1 and
            vi_keys[0] in VI_OPERATORS and
            vi_keys[1:] in VI_MOTIONS):
@@ -370,7 +383,7 @@ index 06f9c28..13eabb7 100755
      else:
          return weechat.WEECHAT_RC_OK_EAT
  
-@@ -1462,6 +1639,8 @@ def load_user_mappings():
+@@ -1462,6 +1651,8 @@ def load_user_mappings():
      if vimode_settings['user_mappings']:
          mappings.update(json.loads(vimode_settings['user_mappings']))
      vimode_settings['user_mappings'] = mappings
@@ -379,7 +392,7 @@ index 06f9c28..13eabb7 100755
  
  
  # Command-line execution.
-@@ -1582,6 +1761,35 @@ def cb_vimode_cmd(data, buf, args):
+@@ -1582,6 +1773,35 @@ def cb_vimode_cmd(data, buf, args):
  
  # Motions/keys helpers.
  # ---------------------
@@ -415,7 +428,7 @@ index 06f9c28..13eabb7 100755
  
  def get_pos(data, regex, cur, ignore_cur=False, count=0):
      """Return the position of `regex` match in `data`, starting at `cur`.
-@@ -1695,9 +1903,6 @@ def get_keys_and_count(combo):
+@@ -1695,9 +1915,6 @@ def get_keys_and_count(combo):
                  break
          combo = combo.replace(count, "", 1)
          count = int(count)
@@ -425,7 +438,7 @@ index 06f9c28..13eabb7 100755
      # It's a WeeChat command.
      if not matched and combo.startswith("/"):
          matched = True
-@@ -1746,7 +1951,6 @@ def get_keys_and_count(combo):
+@@ -1746,7 +1963,6 @@ def get_keys_and_count(combo):
  
  # Other helpers.
  # --------------
