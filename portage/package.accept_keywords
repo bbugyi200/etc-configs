@@ -7,6 +7,7 @@ app-shells/gentoo-zsh-completions ~amd64
 app-shells/localalias **
 app-shells/localalias ~amd64
 app-vim/fugitive **
+dev-python/pytest ~amd64
 net-libs/nodejs ~amd64
 net-misc/dropbox ~amd64
 
@@ -368,3 +369,18 @@ net-misc/dropbox ~amd64
 =app-vim/vim-instant-markdown-9999 **
 # required by xprintidle (argument)
 =x11-misc/xprintidle-2.1 ~amd64
+# required by dev-python/pytest-3.8.0::gentoo
+# required by @shared
+# required by @selected
+# required by @world (argument)
+=dev-python/attrs-18.1.0 ~amd64
+# required by dev-python/pytest-3.8.0::gentoo
+# required by @shared
+# required by @selected
+# required by @world (argument)
+=dev-python/py-1.5.4 ~amd64
+# required by dev-python/pytest-3.8.0::gentoo
+# required by @shared
+# required by @selected
+# required by @world (argument)
+=dev-python/pluggy-0.7.1 ~amd64
