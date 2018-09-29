@@ -8,6 +8,8 @@ app-shells/localalias **
 app-shells/localalias ~amd64
 app-vim/fugitive **
 dev-python/pytest ~amd64
+# need debuginfo.patch (e2760888)
+dev-util/valgrind ~amd64
 net-libs/nodejs ~amd64
 net-misc/dropbox ~amd64
 

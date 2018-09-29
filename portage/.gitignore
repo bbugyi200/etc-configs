@@ -2,6 +2,9 @@
 
 !.gitignore
 !bashrc
+!env/
+!env/*
+!package.env
 !package.use
 !package.accept_keywords
 !make.shared
