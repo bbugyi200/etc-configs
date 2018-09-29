@@ -68,6 +68,7 @@ app-vim/vim-superman
 app-vim/vim-taskwarrior
 app-vim/vim-unimpaired
 app-vim/vimux
+dev-cpp/gtest
 dev-haskell/hostname
 dev-python/beautifulsoup
 dev-python/beautifulsoup:python-2
