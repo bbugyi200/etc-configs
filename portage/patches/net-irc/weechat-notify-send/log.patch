@@ -1,21 +1,39 @@
 diff --git a/notify_send.py b/notify_send.py
-index 6349da1..90ea8bc 100644
+index 6349da1..a350fe6 100644
 --- a/notify_send.py
 +++ b/notify_send.py
-@@ -236,6 +236,16 @@ def message_printed_callback(data, buffer, date, tags, is_displayed,
+@@ -29,6 +29,7 @@
+ 
+ from __future__ import print_function
+ 
++import datetime as dt
+ import os
+ import re
+ import subprocess
+@@ -236,6 +237,17 @@ def message_printed_callback(data, buffer, date, tags, is_displayed,
      nick = nick_that_sent_message(tags, prefix)
  
      if notification_should_be_sent(buffer, tags, nick, is_displayed, is_highlight, message):
 +        # log notification
-+        import datetime as dt
 +        with open('/home/bryan/.weechat/notifications.log', 'a+') as f:
 +            now = dt.datetime.now()
-+            fmt = '[{}] ({}) @{}: {}\n'
-+            f.write(fmt.format(now.strftime('%Y-%m-%d %H:%M:%S'),
-+                               weechat.buffer_get_string(buffer, 'short_name'),
-+                               nick,
-+                               message))
++            delta = now - startup_dt
++            if delta.seconds > 10:
++                fmt = '[{}] ({}) @{}: {}\n'
++                f.write(fmt.format(now.strftime('%Y-%m-%d %H:%M:%S'),
++                                   weechat.buffer_get_string(buffer, 'short_name'),
++                                   nick,
++                                   message))
 +
          notification = prepare_notification(buffer, nick, message)
          send_notification(notification)
  
+@@ -674,6 +686,8 @@ def send_notification(notification):
+ 
+ 
+ if __name__ == '__main__':
++    startup_dt = dt.datetime.now()
++
+     # Registration.
+     weechat.register(
+         SCRIPT_NAME,
