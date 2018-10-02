@@ -1,5 +1,5 @@
 diff --git a/notify_send.py b/notify_send.py
-index 6349da1..1149e78 100644
+index 6349da1..b7ae7cc 100644
 --- a/notify_send.py
 +++ b/notify_send.py
 @@ -290,7 +290,7 @@ def notification_should_be_sent_disregarding_time(buffer, tags, nick,
@@ -25,7 +25,7 @@ index 6349da1..1149e78 100644
      message_patterns = split_option_value('notify_on_messages_that_match')
      for pattern in message_patterns:
 -        if re.search(pattern, message):
-+        if re.search(pattern, notification, re.IGNORECASE):
++        if re.search(pattern, notification):
              return True
  
      return False
