@@ -1,0 +1,31 @@
+diff --git a/notify_send.py b/notify_send.py
+index 6349da1..55e7239 100644
+--- a/notify_send.py
++++ b/notify_send.py
+@@ -290,7 +290,7 @@ def notification_should_be_sent_disregarding_time(buffer, tags, nick,
+     if is_highlight:
+         return notify_on_highlights()
+ 
+-    if notify_on_messages_that_match(message):
++    if notify_on_messages_that_match(buffer, nick, message):
+         return True
+ 
+     if notify_on_all_messages_in_buffer(buffer):
+@@ -500,13 +500,15 @@ def ignored_nick_prefixes():
+         yield prefix
+ 
+ 
+-def notify_on_messages_that_match(message):
++def notify_on_messages_that_match(buffer, nick, message):
+     """Should we send a notification for the given message, provided it matches
+     any of the requested patterns?
+     """
++    notification = '{} @{}: {}'.format(buffer, nick, message)
++
+     message_patterns = split_option_value('notify_on_messages_that_match')
+     for pattern in message_patterns:
+-        if re.search(pattern, message):
++        if re.search(pattern, notification):
+             return True
+ 
+     return False
