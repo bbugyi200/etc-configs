@@ -404,3 +404,8 @@ net-misc/dropbox ~amd64
 # required by dev-util/cookiecutter-1.6.0::gentoo
 # required by cookiecutter (argument)
 =dev-python/arrow-0.12.1 ~amd64
+# required by pdftk (argument)
+=app-text/pdftk-3.0.0 ~amd64
+# required by app-text/pdftk-3.0.0::gentoo
+# required by pdftk (argument)
+=dev-java/commons-lang-3.6 ~amd64
