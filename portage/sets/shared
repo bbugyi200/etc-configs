@@ -158,6 +158,7 @@ sys-fs/ncdu
 sys-kernel/gentoo-sources
 sys-process/cronie
 sys-process/htop
+sys-process/lsof
 www-client/elinks
 www-client/google-chrome
 www-client/qutebrowser
