@@ -1,5 +1,5 @@
 diff --git a/vimode.py b/vimode.py
-index 3c3f869..206acc4 100755
+index 3c3f869..031acb6 100755
 --- a/vimode.py
 +++ b/vimode.py
 @@ -1296,11 +1296,20 @@ class UserMapping(UMParser):
@@ -7,7 +7,7 @@ index 3c3f869..206acc4 100755
          of the tag.
          """
 -        if re.search('#{\d+}', self.rhs) is not None:
-+        count_tag_pattern = '#{(\d+)(:[+-]\d+)?}'
++        count_tag_pattern = '#{([-]?\d+)(:[+-]\d+)?}'
 +        match = re.search(count_tag_pattern, self.rhs)
 +        if match is not None:
              if count:
