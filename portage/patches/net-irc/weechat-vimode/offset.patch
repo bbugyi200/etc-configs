@@ -1,0 +1,28 @@
+diff --git a/vimode.py b/vimode.py
+index 3c3f869..206acc4 100755
+--- a/vimode.py
++++ b/vimode.py
+@@ -1296,11 +1296,20 @@ class UserMapping(UMParser):
+         If a count tag is found, consume the count by substituting it in place
+         of the tag.
+         """
+-        if re.search('#{\d+}', self.rhs) is not None:
++        count_tag_pattern = '#{(\d+)(:[+-]\d+)?}'
++        match = re.search(count_tag_pattern, self.rhs)
++        if match is not None:
+             if count:
+-                rhs = re.sub('#{\d+}', str(count), self.rhs)
++                options = match.groups()[1]
++
++                if options is not None:
++                    offset = int(options[1:])
++                else:
++                    offset = 0
++
++                rhs = re.sub(count_tag_pattern, str(count + offset), self.rhs)
+             else:
+-                rhs = re.sub('#{(\d+)}', r'\1', self.rhs)
++                rhs = re.sub(count_tag_pattern, r'\1', self.rhs)
+             new_count = 1
+         else:
+             rhs = self.rhs
