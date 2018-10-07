@@ -165,6 +165,7 @@ www-client/qutebrowser
 x11-apps/xlsfonts
 x11-apps/xmodmap
 x11-apps/xrandr
+x11-base/xorg-server
 x11-misc/clipster
 x11-misc/dmenu
 x11-misc/dunst
