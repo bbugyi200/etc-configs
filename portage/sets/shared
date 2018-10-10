@@ -5,6 +5,7 @@ app-admin/stow
 app-admin/sudo
 app-admin/sysklogd
 app-crypt/pinentry
+app-doc/cppman
 app-editors/nano
 app-misc/anki
 app-misc/bugwarrior

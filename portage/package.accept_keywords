@@ -409,3 +409,5 @@ net-misc/dropbox ~amd64
 # required by app-text/pdftk-3.0.0::gentoo
 # required by pdftk (argument)
 =dev-java/commons-lang-3.6 ~amd64
+# required by cppman (argument)
+=app-doc/cppman-0.4.8 ~amd64
