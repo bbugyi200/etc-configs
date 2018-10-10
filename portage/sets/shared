@@ -129,7 +129,6 @@ media-gfx/feh
 media-gfx/imagemagick
 media-gfx/imv
 media-gfx/scrot
-media-gfx/wkhtmltopdf
 media-sound/alsa-utils
 media-video/mpv
 net-irc/weechat
