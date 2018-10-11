@@ -1,262 +1,172 @@
 #################
 #  LIVE Builds  #
 #################
+=app-portage/euscan-9999 **
+=app-shells/localalias-9999 **
+=app-shells/oh-my-zsh-9999 **
 =app-shells/zsh-autosuggestions-9999 **
-=app-vim/nvim-yarp-9999 **
-=app-vim/vim-hug-neovim-rpc-9999 **
-=app-vim/taskwiki-9999 **
-=app-vim/vim-taskwarrior-9999 **
-=app-vim/vimproc-9999 **
-=app-vim/neco-ghc-9999 **
-=app-vim/haskell-vim-9999 **
-=app-vim/rename-9999 **
-=app-vim/vim-livedown-9999 **
 =app-vim/clang_complete-9999 **
-=app-vim/delimitMate-9999 **
-=app-vim/vim-colors-solarized-9999 **
 =app-vim/ctrlsf-9999 **
-=app-vim/vim-localvimrc-9999 **
+=app-vim/delimitMate-9999 **
+=app-vim/fugitive-9999 **
+=app-vim/haskell-vim-9999 **
+=app-vim/neco-ghc-9999 **
+=app-vim/nvim-yarp-9999 **
+=app-vim/rename-9999 **
 =app-vim/riv-9999 **
-=app-vim/vim-buftabline-9999 **
-=app-vim/vim-python-pep8-indent-9999 **
-=app-vim/vim-cmake-syntax-9999 **
-=app-vim/vim-easytags-9999 **
+=app-vim/taskwiki-9999 **
 =app-vim/ultisnips-9999 **
+=app-vim/vim-buftabline-9999 **
+=app-vim/vim-cmake-syntax-9999 **
+=app-vim/vim-colors-solarized-9999 **
+=app-vim/vim-easytags-9999 **
+=app-vim/vim-hug-neovim-rpc-9999 **
+=app-vim/vim-instant-markdown-9999 **
+=app-vim/vim-livedown-9999 **
+=app-vim/vim-localvimrc-9999 **
+=app-vim/vim-python-pep8-indent-9999 **
 =app-vim/vim-snippets-9999 **
 =app-vim/vim-superman-9999 **
+=app-vim/vim-taskwarrior-9999 **
+=app-vim/vimproc-9999 **
 =app-vim/vimux-9999 **
-=net-irc/weechat-go-9999 **
 =net-irc/weechat-autosort-9999 **
-=net-irc/weechat-buffer-autoclose-9999 **
-=net-irc/weechat-vimode-9999 **
-=net-irc/weechat-notify-send-9999 **
 =net-irc/weechat-buddylist-9999 **
+=net-irc/weechat-buffer-autoclose-9999 **
 =net-irc/weechat-colorize-lines-9999 **
+=net-irc/weechat-go-9999 **
 =net-irc/weechat-highmon-9999 **
 =net-irc/weechat-iset-9999 **
+=net-irc/weechat-notify-send-9999 **
+=net-irc/weechat-vimode-9999 **
 =net-irc/weechat-zerotab-9999 **
-=app-vim/vim-instant-markdown-9999 **
-app-portage/euscan **
-app-shells/localalias **
-app-vim/fugitive **
-=app-shells/oh-my-zsh-9999 **
 
 #####################
 #  UNSTABLE Builds  #
 #####################
-# drops unnecessary openrc blocker (a44f9462) 
-app-shells/gentoo-zsh-completions ~amd64
+=app-admin/stow-2.2.2-r1 ~amd64
+=app-doc/cppman-0.4.8 ~amd64
+=app-editors/neovim-0.3.1 ~amd64
+=app-emacs/ghc-mod-5.7.0.0 ~amd64
+=app-misc/anki-2.1.0_beta27 ~amd64
+=app-misc/bugwarrior-1.6.0 ~amd64
+=app-misc/jrnl-9999 ~amd64
+=app-misc/khal-0.9.9-r1 ~amd64
+=app-misc/livedown-2.1.1 ~amd64 # required by: app-vim/vim-livedown-9999::bbugyi200
+=app-misc/livedown-2.1.1-r1 ~amd64
+=app-misc/sunwait-20041208 ~amd64
+=app-misc/timew-1.1.1 ~amd64
+=app-misc/torrench-9999 ~amd64
+=app-misc/weather-2.3 ~amd64
+=app-text/pdftk-3.0.0 ~amd64
+=app-vim/ctrlsf-2.1.2 ~amd64
+=app-vim/deoplete-4.0 ~amd64
+=app-vim/deoplete-9999 ~amd64 # required by: app-vim/deoplete-4.0::bbugyi200
+=app-vim/ghcmod-vim-1.3.1 ~amd64
+=app-vim/jedi-0.8_p20171015 ~amd64
+=app-vim/neoinclude-9999 ~amd64 # required by: app-vim/deoplete-4.0::bbugyi200
+=app-vim/vim-commentary-1.3_p20180530 ~amd64
+=app-vim/vim-localvimrc-3.0.1 ~amd64
+=app-vim/vim-unimpaired-2.0 ~amd64
+=app-vim/vimwiki-2.3 ~amd64 # required by: app-vim/taskwiki-9999::bbugyi200
+=app-vim/youcompleteme-20130910 ~amd64
+=dev-db/mycli-1.15.0-r2 ~amd64
+=dev-haskell/cabal-helper-0.7.3.0 ~amd64 # required by: app-emacs/ghc-mod-5.7.0.0::gentoo
+=dev-haskell/cpphs-1.20.2 ~amd64 # required by: dev-haskell/hlint-1.9.35::gentoo, app-emacs/ghc-mod-5.7.0.0::gentoo
+=dev-haskell/djinn-ghc-0.0.2.3 ~amd64 # required by: app-emacs/ghc-mod-5.7.0.0::gentoo
+=dev-haskell/djinn-lib-0.0.1.2 ~amd64 # required by: dev-haskell/djinn-ghc-0.0.2.3::gentoo, app-emacs/ghc-mod-5.7.0.0::gentoo
+=dev-haskell/either-4.4.1.1 ~amd64 # required by: dev-haskell/monad-journal-0.7.2::gentoo, app-emacs/ghc-mod-5.7.0.0::gentoo
+=dev-haskell/fclabels-2.0.3.1 ~amd64 # required by: app-emacs/ghc-mod-5.7.0.0::gentoo
+=dev-haskell/ghc-syb-utils-0.2.3 ~amd64 # required by: app-emacs/ghc-mod-5.7.0.0::gentoo
+=dev-haskell/haskell-src-exts-1.17.1 ~amd64 # required by: dev-haskell/hlint-1.9.35::gentoo, app-emacs/ghc-mod-5.7.0.0::gentoo
+=dev-haskell/hlint-1.9.35 ~amd64 # required by: app-emacs/ghc-mod-5.7.0.0::gentoo
+=dev-haskell/monad-journal-0.7.2 ~amd64 # required by: app-emacs/ghc-mod-5.7.0.0::gentoo
+=dev-haskell/monadrandom-0.4.2.3 ~amd64 # required by: dev-haskell/either-4.4.1.1::gentoo, dev-haskell/monad-journal-0.7.2::gentoo, app-emacs/ghc-mod-5.7.0.0::gentoo
+=dev-haskell/pipes-4.1.9 ~amd64 # required by: app-emacs/ghc-mod-5.7.0.0::gentoo
+=dev-haskell/refact-0.3.0.2 ~amd64 # required by: dev-haskell/hlint-1.9.35::gentoo, app-emacs/ghc-mod-5.7.0.0::gentoo
+=dev-haskell/syb-0.5.1 ~amd64 # required by: app-emacs/ghc-mod-5.7.0.0::gentoo
+=dev-haskell/utf8-string-1.0.1.1 ~amd64 # required by: dev-haskell/cabal-helper-0.7.3.0::gentoo, app-emacs/ghc-mod-5.7.0.0::gentoo
+=dev-java/commons-lang-3.6 ~amd64 # required by: app-text/pdftk-3.0.0::gentoo
+=dev-libs/icu-62.1 ~amd64 # required by: net-libs/nodejs-9.11.2::gentoo[icu]
+=dev-libs/libsodium-1.0.13 ~amd64 # required by: dev-python/pynacl-1.1.2::gentoo, dev-python/paramiko-2.4.1::gentoo, dev-db/mysql-workbench-6.3.4-r1::gentoo
+=dev-libs/libsodium-1.0.14 ~amd64 # required by: dev-python/pynacl-1.1.2::gentoo, dev-python/paramiko-2.4.1::gentoo, dev-db/mysql-workbench-6.3.4-r1::gentoo
+=dev-libs/msgpack-1.1.0 ~amd64 # required by: app-editors/neovim-0.3.1::gentoo
+=dev-nodejs/body-parser-1.9.2 ~amd64 # required by: app-misc/livedown-2.1.1::bbugyi200
+=dev-nodejs/chokidar-1.6.1 ~amd64 # required by: app-misc/livedown-2.1.1::bbugyi200
+=dev-nodejs/express-4.10.2 ~amd64 # required by: app-misc/livedown-2.1.1::bbugyi200
+=dev-nodejs/markdown-it-8.3.1 ~amd64 # required by: app-misc/livedown-2.1.1::bbugyi200
+=dev-nodejs/markdown-it-emoji-1.4.0 ~amd64 # required by: app-misc/livedown-2.1.1::bbugyi200
+=dev-nodejs/markdown-it-github-headings-1.0.1 ~amd64 # required by: app-misc/livedown-2.1.1::bbugyi200
+=dev-nodejs/markdown-it-task-checkbox-1.0.4 ~amd64 # required by: app-misc/livedown-2.1.1::bbugyi200
+=dev-nodejs/minimist-1.1.0 ~amd64 # required by: app-misc/livedown-2.1.1::bbugyi200
+=dev-nodejs/opn-5.1.0 ~amd64 # required by: app-misc/livedown-2.1.1::bbugyi200
+=dev-nodejs/request-2.48.0 ~amd64 # required by: app-misc/livedown-2.1.1::bbugyi200
+=dev-nodejs/socketio-2.0.3 ~amd64 # required by: app-misc/livedown-2.1.1::bbugyi200
+=dev-python/arrow-0.12.1 ~amd64 # required by: dev-python/jinja2-time-0.2.0::gentoo, dev-util/cookiecutter-1.6.0::gentoo
+=dev-python/attrs-18.1.0 ~amd64 # required by: dev-python/pytest-3.8.0::gentoo
+=dev-python/backports-csv-1.0.5 ~amd64 # required by: dev-python/cli_helpers-1.0.1::gentoo, dev-db/mycli-1.15.0-r2::gentoo
+=dev-python/binaryornot-0.4.3 ~amd64 # required by: dev-util/cookiecutter-1.6.0::gentoo
+=dev-python/cli_helpers-1.0.1 ~amd64 # required by: dev-db/mycli-1.15.0-r2::gentoo
+=dev-python/click-log-0.3.2 ~amd64 # required by: app-misc/khal-0.9.9-r1::gentoo
+=dev-python/click-threading-0.4.4 ~amd64 # required by: dev-python/vdirsyncer-0.16.7::gentoo
+=dev-python/flake8-per-file-ignores-0.6 ~amd64
+=dev-python/icalendar-3.11.7 ~amd64 # required by: app-misc/khal-0.9.9-r1::gentoo
+=dev-python/jinja2-time-0.2.0 ~amd64 # required by: dev-util/cookiecutter-1.6.0::gentoo
+=dev-python/keyrings_alt-2.3 ~amd64 # required by: app-misc/jrnl-9999::local
+=dev-python/kitchen-1.2.5 ~amd64 # required by: dev-python/taskw-1.2.0::bbugyi200, app-misc/bugwarrior-1.6.0::bbugyi200
+=dev-python/msgpack-0.5.6 ~amd64 # required by: dev-python/neovim-python-client-0.2.6::gentoo, app-editors/neovim-0.3.1::gentoo[python]
+=dev-python/neovim-python-client-0.2.6 ~amd64 # required by: app-editors/neovim-0.3.1::gentoo[python]
+=dev-python/parse-1.6.6 ~amd64 # required by: dev-python/pockyt-1.2::bbugyi200
+=dev-python/pluggy-0.7.1 ~amd64 # required by: dev-python/pytest-3.8.0::gentoo
+=dev-python/pockyt-1.2 ~amd64
+=dev-python/poyo-0.4.1 ~amd64 # required by: dev-util/cookiecutter-1.6.0::gentoo
+=dev-python/py-1.5.4 ~amd64 # required by: dev-python/pytest-3.8.0::gentoo
+=dev-python/py-pathmatch-0.2.1 ~amd64 # required by: dev-python/flake8-per-file-ignores-0.6::bbugyi200
+=dev-python/pynacl-1.2.1 ~amd64 # required by: dev-python/paramiko-2.4.1::gentoo, dev-db/mysql-workbench-6.3.4-r1::gentoo
+=dev-python/pypeg2-2.15.2 ~amd64 # required by: www-client/qutebrowser-1.4.1::gentoo
+=dev-python/requests-file-1.4.3 ~amd64 # required by: dev-python/tldextract-2.2.0::local
+=dev-python/tabulate-0.8.1 ~amd64 # required by: dev-python/cli_helpers-1.0.1::gentoo, dev-db/mycli-1.15.0-r2::gentoo
+=dev-python/tasklib-1.0.0 ~amd64
+=dev-python/tasklib-1.1.0 ~amd64
+=dev-python/taskw-1.2.0 ~amd64 # required by: app-misc/bugwarrior-1.6.0::bbugyi200
+=dev-python/terminaltables-3.1.0 ~amd64 # required by: dev-python/cli_helpers-1.0.1::gentoo, dev-db/mycli-1.15.0-r2::gentoo
+=dev-python/tldextract-2.2.0 ~amd64
+=dev-python/tldr-0.4.4 ~amd64
+=dev-python/tldr-python-client-0.4.4 ~amd64
+=dev-python/twilio-3.6.9 ~amd64
+=dev-python/vdirsyncer-0.16.7 ~amd64
+=dev-python/whichcraft-0.4.1 ~amd64 # required by: dev-util/cookiecutter-1.6.0::gentoo
+=dev-ruby/mail-2.7.0 ~amd64 # required by: dev-ruby/twmail-0.0.6::bbugyi200[ruby_targets_ruby23]
+=dev-ruby/pygments_rb-1.2.1 ~amd64 # required by: dev-vcs/ghi-1.2.0::bbugyi200[ruby_targets_ruby23]
+=dev-ruby/tmuxinator-0.12.0 ~amd64
+=dev-ruby/twmail-0.0.5 ~amd64
+=dev-ruby/twmail-0.0.6 ~amd64
+=dev-ruby/xdg-2.2.3 ~amd64 # required by: dev-ruby/tmuxinator-0.12.0::bbugyi200[ruby_targets_ruby23]
+=dev-util/bumpversion-0.5.3 ~amd64
+=dev-util/cookiecutter-1.6.0 ~amd64
+=dev-util/ix-1.0 ~amd64
+=dev-util/shellcheck-0.5.0-r1 ~amd64
+=dev-vcs/ghi-1.2.0 ~amd64
+=dev-vcs/hub-2.2.9 ~amd64
+=media-fonts/fontawesome-5.1.0 ~amd64
+=media-gfx/imv-2.1.3 ~amd64
+=media-gfx/wkhtmltopdf-0.12.4-r1 ~amd64
+=media-video/castnow-0.6.0 ~amd64
+=net-irc/weechat-notify-send-9999 ~amd64
+=net-p2p/transmission-remote-cli-1.7.1 ~amd64
+=sys-apps/safe-rm-0.8 ~amd64
+=sys-apps/shell-safe-rm-1.0.7 ~amd64
+=x11-misc/clipster-2.0.1 ~amd64
+=x11-misc/xprintidle-2.1 ~amd64
+app-shells/gentoo-zsh-completions ~amd64 # drops unnecessary openrc blocker (a44f9462) 
 app-shells/localalias ~amd64
 dev-python/pytest ~amd64
-# need debuginfo.patch (e2760888)
-dev-util/valgrind ~amd64
+dev-util/valgrind ~amd64 # need debuginfo.patch (e2760888)
 net-libs/nodejs ~amd64
 net-misc/dropbox ~amd64
 www-client/qutebrowser ~amd64
 www-plugins/pdfjs ~amd64
-# required by www-client/qutebrowser-1.4.1::gentoo
-=dev-python/pypeg2-2.15.2 ~amd64
-=app-admin/stow-2.2.2-r1 ~amd64
-=media-fonts/fontawesome-5.1.0 ~amd64
-=app-misc/khal-0.9.9-r1 ~amd64
-# required by app-misc/khal-0.9.9-r1::gentoo
-=dev-python/icalendar-3.11.7 ~amd64
-# required by app-misc/khal-0.9.9-r1::gentoo
-=dev-python/click-log-0.3.2 ~amd64
-=app-misc/timew-1.1.1 ~amd64
-=sys-apps/safe-rm-0.8 ~amd64
-=app-misc/sunwait-20041208 ~amd64
-=dev-python/tldextract-2.2.0 ~amd64
-=x11-misc/clipster-2.0.1 ~amd64
-# required by dev-python/tldextract-2.2.0::local
-=dev-python/requests-file-1.4.3 ~amd64
-=app-misc/jrnl-9999 ~amd64
-# required by app-misc/jrnl-9999::local
-=dev-python/keyrings_alt-2.3 ~amd64
-=dev-util/shellcheck-0.5.0-r1 ~amd64
-# required by app-emacs/ghc-mod-5.7.0.0::gentoo
-=dev-haskell/cabal-helper-0.7.3.0 ~amd64
-# required by dev-haskell/monad-journal-0.7.2::gentoo
-# required by app-emacs/ghc-mod-5.7.0.0::gentoo
-=dev-haskell/either-4.4.1.1 ~amd64
-# required by dev-haskell/djinn-ghc-0.0.2.3::gentoo
-# required by app-emacs/ghc-mod-5.7.0.0::gentoo
-=dev-haskell/djinn-lib-0.0.1.2 ~amd64
-# required by dev-haskell/cabal-helper-0.7.3.0::gentoo
-# required by app-emacs/ghc-mod-5.7.0.0::gentoo
-=dev-haskell/utf8-string-1.0.1.1 ~amd64
-# required by dev-haskell/either-4.4.1.1::gentoo
-# required by dev-haskell/monad-journal-0.7.2::gentoo
-# required by app-emacs/ghc-mod-5.7.0.0::gentoo
-=dev-haskell/monadrandom-0.4.2.3 ~amd64
-=app-emacs/ghc-mod-5.7.0.0 ~amd64
-# required by app-emacs/ghc-mod-5.7.0.0::gentoo
-=dev-haskell/pipes-4.1.9 ~amd64
-# required by dev-haskell/hlint-1.9.35::gentoo
-# required by app-emacs/ghc-mod-5.7.0.0::gentoo
-=dev-haskell/haskell-src-exts-1.17.1 ~amd64
-# required by app-emacs/ghc-mod-5.7.0.0::gentoo
-=dev-haskell/hlint-1.9.35 ~amd64
-# required by app-emacs/ghc-mod-5.7.0.0::gentoo
-=dev-haskell/syb-0.5.1 ~amd64
-# required by app-emacs/ghc-mod-5.7.0.0::gentoo
-=dev-haskell/djinn-ghc-0.0.2.3 ~amd64
-# required by dev-haskell/hlint-1.9.35::gentoo
-# required by app-emacs/ghc-mod-5.7.0.0::gentoo
-=dev-haskell/refact-0.3.0.2 ~amd64
-# required by app-emacs/ghc-mod-5.7.0.0::gentoo
-=dev-haskell/ghc-syb-utils-0.2.3 ~amd64
-# required by app-emacs/ghc-mod-5.7.0.0::gentoo
-=dev-haskell/monad-journal-0.7.2 ~amd64
-# required by dev-haskell/hlint-1.9.35::gentoo
-# required by app-emacs/ghc-mod-5.7.0.0::gentoo
-=dev-haskell/cpphs-1.20.2 ~amd64
-# required by app-emacs/ghc-mod-5.7.0.0::gentoo
-=dev-haskell/fclabels-2.0.3.1 ~amd64
-=app-misc/weather-2.3 ~amd64
-=dev-util/ix-1.0 ~amd64
-=dev-util/bumpversion-0.5.3 ~amd64
-=sys-apps/shell-safe-rm-1.0.7 ~amd64
-=dev-python/flake8-per-file-ignores-0.6 ~amd64
-=net-p2p/transmission-remote-cli-1.7.1 ~amd64
-=dev-ruby/twmail-0.0.6 ~amd64
-# required by dev-ruby/twmail-0.0.6::bbugyi200[ruby_targets_ruby23]
-=dev-ruby/mail-2.7.0 ~amd64
-=media-gfx/wkhtmltopdf-0.12.4-r1 ~amd64
-=dev-ruby/twmail-0.0.5 ~amd64
-# required by dev-python/flake8-per-file-ignores-0.6::bbugyi200
-=dev-python/py-pathmatch-0.2.1 ~amd64
-=dev-ruby/tmuxinator-0.12.0 ~amd64
-# required by dev-ruby/tmuxinator-0.12.0::bbugyi200[ruby_targets_ruby23]
-=dev-ruby/xdg-2.2.3 ~amd64
-=dev-python/tldr-0.4.4 ~amd64
-=dev-python/tldr-python-client-0.4.4 ~amd64
-=media-video/castnow-0.6.0 ~amd64
-=app-misc/bugwarrior-1.6.0 ~amd64
-# required by app-misc/bugwarrior-1.6.0::bbugyi200
-=dev-python/taskw-1.2.0 ~amd64
-# required by dev-python/taskw-1.2.0::bbugyi200
-# required by app-misc/bugwarrior-1.6.0::bbugyi200
-=dev-python/kitchen-1.2.5 ~amd64
-=dev-vcs/ghi-1.2.0 ~amd64
-# required by dev-vcs/ghi-1.2.0::bbugyi200[ruby_targets_ruby23]
-=dev-ruby/pygments_rb-1.2.1 ~amd64
-=dev-python/twilio-3.6.9 ~amd64
-=dev-python/vdirsyncer-0.16.7 ~amd64
-# required by dev-python/vdirsyncer-0.16.7::gentoo
-=dev-python/click-threading-0.4.4 ~amd64
-=dev-python/tasklib-1.1.0 ~amd64
-# required by dev-python/pockyt-1.2::bbugyi200
-=dev-python/parse-1.6.6 ~amd64
-=dev-python/pockyt-1.2 ~amd64
-=dev-python/tasklib-1.0.0 ~amd64
-# required by app-editors/neovim-0.3.1::gentoo
-=dev-libs/msgpack-1.1.0 ~amd64
-=app-editors/neovim-0.3.1 ~amd64
-# required by app-editors/neovim-0.3.1::gentoo[python]
-# required by @shared
-# required by @selected
-=dev-python/neovim-python-client-0.2.6 ~amd64
-# required by dev-python/neovim-python-client-0.2.6::gentoo
-# required by app-editors/neovim-0.3.1::gentoo[python]
-# required by @shared
-# required by @selected
-=dev-python/msgpack-0.5.6 ~amd64
-=app-vim/youcompleteme-20130910 ~amd64
-=app-vim/vim-commentary-1.3_p20180530 ~amd64
-=app-vim/vim-unimpaired-2.0 ~amd64
-=app-vim/deoplete-4.0 ~amd64
-# required by app-vim/deoplete-4.0::bbugyi200
-=app-vim/neoinclude-9999 ~amd64
-# required by app-vim/deoplete-4.0::bbugyi200
-=app-vim/deoplete-9999 ~amd64
-# required by app-vim/taskwiki-9999::bbugyi200
-=app-vim/vimwiki-2.3 ~amd64
-=app-vim/ghcmod-vim-1.3.1 ~amd64
-# required by app-vim/vim-livedown-9999::bbugyi200
-=app-misc/livedown-2.1.1 ~amd64
-=app-vim/jedi-0.8_p20171015 ~amd64
-=app-vim/vim-localvimrc-3.0.1 ~amd64
-=app-vim/ctrlsf-2.1.2 ~amd64
-=media-gfx/imv-2.1.3 ~amd64
-# required by dev-python/pynacl-1.1.2::gentoo
-# required by dev-python/paramiko-2.4.1::gentoo
-# required by dev-db/mysql-workbench-6.3.4-r1::gentoo
-=dev-libs/libsodium-1.0.14 ~amd64
-# required by dev-python/pynacl-1.1.2::gentoo
-# required by dev-python/paramiko-2.4.1::gentoo
-# required by dev-db/mysql-workbench-6.3.4-r1::gentoo
-=dev-libs/libsodium-1.0.13 ~amd64
-# required by dev-python/paramiko-2.4.1::gentoo
-# required by dev-db/mysql-workbench-6.3.4-r1::gentoo
-=dev-python/pynacl-1.2.1 ~amd64
-# required by dev-python/cli_helpers-1.0.1::gentoo
-# required by dev-db/mycli-1.15.0-r2::gentoo
-=dev-python/terminaltables-3.1.0 ~amd64
-# required by dev-python/cli_helpers-1.0.1::gentoo
-# required by dev-db/mycli-1.15.0-r2::gentoo
-=dev-python/tabulate-0.8.1 ~amd64
-# required by dev-python/cli_helpers-1.0.1::gentoo
-# required by dev-db/mycli-1.15.0-r2::gentoo
-=dev-python/backports-csv-1.0.5 ~amd64
-=dev-db/mycli-1.15.0-r2 ~amd64
-# required by dev-db/mycli-1.15.0-r2::gentoo
-=dev-python/cli_helpers-1.0.1 ~amd64
-=app-misc/anki-2.1.0_beta27 ~amd64
-=net-irc/weechat-notify-send-9999 ~amd64
-=dev-vcs/hub-2.2.9 ~amd64
-=app-misc/torrench-9999 ~amd64
-=app-misc/livedown-2.1.1-r1 ~amd64
-# required by app-misc/livedown-2.1.1::bbugyi200
-=dev-nodejs/request-2.48.0 ~amd64
-# required by app-misc/livedown-2.1.1::bbugyi200
-=dev-nodejs/markdown-it-task-checkbox-1.0.4 ~amd64
-# required by app-misc/livedown-2.1.1::bbugyi200
-=dev-nodejs/markdown-it-emoji-1.4.0 ~amd64
-# required by app-misc/livedown-2.1.1::bbugyi200
-=dev-nodejs/opn-5.1.0 ~amd64
-# required by app-misc/livedown-2.1.1::bbugyi200
-=dev-nodejs/markdown-it-github-headings-1.0.1 ~amd64
-# required by app-misc/livedown-2.1.1::bbugyi200
-=dev-nodejs/socketio-2.0.3 ~amd64
-# required by app-misc/livedown-2.1.1::bbugyi200
-=dev-nodejs/chokidar-1.6.1 ~amd64
-# required by app-misc/livedown-2.1.1::bbugyi200
-=dev-nodejs/express-4.10.2 ~amd64
-# required by app-misc/livedown-2.1.1::bbugyi200
-=dev-nodejs/markdown-it-8.3.1 ~amd64
-# required by app-misc/livedown-2.1.1::bbugyi200
-=dev-nodejs/minimist-1.1.0 ~amd64
-# required by app-misc/livedown-2.1.1::bbugyi200
-=dev-nodejs/body-parser-1.9.2 ~amd64
-# required by net-libs/nodejs-9.11.2::gentoo[icu]
-=dev-libs/icu-62.1 ~amd64
-=x11-misc/xprintidle-2.1 ~amd64
-# required by dev-python/pytest-3.8.0::gentoo
-# required by @shared
-# required by @selected
-=dev-python/attrs-18.1.0 ~amd64
-# required by dev-python/pytest-3.8.0::gentoo
-# required by @shared
-# required by @selected
-=dev-python/py-1.5.4 ~amd64
-# required by dev-python/pytest-3.8.0::gentoo
-# required by @shared
-# required by @selected
-=dev-python/pluggy-0.7.1 ~amd64
-# required by dev-util/cookiecutter-1.6.0::gentoo
-=dev-python/poyo-0.4.1 ~amd64
-=dev-util/cookiecutter-1.6.0 ~amd64
-# required by dev-util/cookiecutter-1.6.0::gentoo
-=dev-python/whichcraft-0.4.1 ~amd64
-# required by dev-util/cookiecutter-1.6.0::gentoo
-=dev-python/jinja2-time-0.2.0 ~amd64
-# required by dev-util/cookiecutter-1.6.0::gentoo
-=dev-python/binaryornot-0.4.3 ~amd64
-# required by dev-python/jinja2-time-0.2.0::gentoo
-# required by dev-util/cookiecutter-1.6.0::gentoo
-=dev-python/arrow-0.12.1 ~amd64
-=app-text/pdftk-3.0.0 ~amd64
-# required by app-text/pdftk-3.0.0::gentoo
-=dev-java/commons-lang-3.6 ~amd64
-=app-doc/cppman-0.4.8 ~amd64
+
+#######################################
+#  Automatically Generated by Emerge  #
+#######################################
