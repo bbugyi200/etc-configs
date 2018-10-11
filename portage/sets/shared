@@ -9,6 +9,7 @@ app-doc/cppman
 app-editors/nano
 app-misc/anki
 app-misc/bugwarrior
+app-misc/colordiff
 app-misc/jrnl
 app-misc/khal
 app-misc/ranger
@@ -162,6 +163,7 @@ sys-process/lsof
 www-client/elinks
 www-client/google-chrome
 www-client/qutebrowser
+www-plugins/pdfjs
 x11-apps/xlsfonts
 x11-apps/xmodmap
 x11-apps/xrandr

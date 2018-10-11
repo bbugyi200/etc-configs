@@ -13,6 +13,7 @@ dev-util/valgrind ~amd64
 net-libs/nodejs ~amd64
 net-misc/dropbox ~amd64
 www-client/qutebrowser ~amd64
+www-plugins/pdfjs ~amd64
 
 ###################################################################
 #  Automatically Generated Per-Package ACCEPT_KEYWORD Statements  #
