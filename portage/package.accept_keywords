@@ -12,12 +12,11 @@ dev-python/pytest ~amd64
 dev-util/valgrind ~amd64
 net-libs/nodejs ~amd64
 net-misc/dropbox ~amd64
+www-client/qutebrowser ~amd64
 
 ###################################################################
 #  Automatically Generated Per-Package ACCEPT_KEYWORD Statements  #
 ###################################################################
-# package.accept_keywords# required by qutebrowser (argument)
-=www-client/qutebrowser-1.4.1 ~amd64
 # required by www-client/qutebrowser-1.4.1::gentoo
 # required by qutebrowser (argument)
 =dev-python/pypeg2-2.15.2 ~amd64
@@ -411,8 +410,3 @@ net-misc/dropbox ~amd64
 =dev-java/commons-lang-3.6 ~amd64
 # required by cppman (argument)
 =app-doc/cppman-0.4.8 ~amd64
-# required by media-sound/spotify-1.0.89::gentoo
-# required by spotify (argument)
-=dev-util/patchelf-0.9_p20180129 ~amd64
-# required by spotify (argument)
-=media-sound/spotify-1.0.89 ~amd64

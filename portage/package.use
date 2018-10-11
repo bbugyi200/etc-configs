@@ -47,3 +47,14 @@ x11-terms/rxvt-unicode 256-color secondary-wheel unicode3 -vanilla wcwidth xft
 # required by sys-power/suspend-1.0_p20150810::gentoo[lzo]
 # required by sys-power/suspend (argument)
 >=dev-libs/lzo-2.10 static-libs
+# required by www-client/qutebrowser-1.5.1::gentoo
+# required by @shared
+# required by @selected
+# required by @world (argument)
+>=dev-python/PyQt5-5.10.1-r1 multimedia
+# required by dev-python/PyQt5-5.10.1-r1::gentoo[multimedia]
+# required by www-client/qutebrowser-1.5.1::gentoo
+# required by @shared
+# required by @selected
+# required by @world (argument)
+>=dev-qt/qtmultimedia-5.9.6 widgets
