@@ -92,6 +92,7 @@ dev-texlive/texlive-fontsrecommended
 dev-texlive/texlive-latexextra
 dev-util/bumpversion
 dev-util/cookiecutter
+dev-util/cppcheck
 dev-util/ctags
 dev-util/ix
 dev-util/shellcheck
