@@ -411,3 +411,8 @@ net-misc/dropbox ~amd64
 =dev-java/commons-lang-3.6 ~amd64
 # required by cppman (argument)
 =app-doc/cppman-0.4.8 ~amd64
+# required by media-sound/spotify-1.0.89::gentoo
+# required by spotify (argument)
+=dev-util/patchelf-0.9_p20180129 ~amd64
+# required by spotify (argument)
+=media-sound/spotify-1.0.89 ~amd64

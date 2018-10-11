@@ -6,6 +6,7 @@ dev-db/mysql
 dev-python/requests-oauthlib
 dev-python/vdirsyncer
 dev-ruby/twmail
+media-sound/spotify
 net-dns/bind-tools
 net-mail/fetchmail
 net-p2p/transmission
