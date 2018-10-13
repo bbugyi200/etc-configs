@@ -126,7 +126,6 @@
 =dev-python/pypeg2-2.15.2 ~amd64 # required by: www-client/qutebrowser-1.4.1::gentoo
 =dev-python/requests-file-1.4.3 ~amd64 # required by: dev-python/tldextract-2.2.0::local
 =dev-python/tabulate-0.8.1 ~amd64 # required by: dev-python/cli_helpers-1.0.1::gentoo, dev-db/mycli-1.15.0-r2::gentoo
-=dev-python/tasklib-1.0.0 ~amd64
 =dev-python/tasklib-1.1.0 ~amd64
 =dev-python/taskw-1.2.0 ~amd64 # required by: app-misc/bugwarrior-1.6.0::bbugyi200
 =dev-python/terminaltables-3.1.0 ~amd64 # required by: dev-python/cli_helpers-1.0.1::gentoo, dev-db/mycli-1.15.0-r2::gentoo
@@ -160,6 +159,7 @@
 =x11-misc/xprintidle-2.1 ~amd64
 app-shells/gentoo-zsh-completions ~amd64 # drops unnecessary openrc blocker (a44f9462) 
 app-shells/localalias ~amd64
+dev-python/line_profiler ~amd64
 dev-python/pytest ~amd64
 dev-util/valgrind ~amd64 # need debuginfo.patch (e2760888)
 net-libs/nodejs ~amd64

@@ -3,6 +3,7 @@ app-office/unoconv
 app-text/pdftk
 dev-db/mycli
 dev-db/mysql
+dev-python/line_profiler
 dev-python/requests-oauthlib
 dev-python/vdirsyncer
 dev-ruby/twmail
