@@ -12,6 +12,6 @@ net-dns/bind-tools
 net-mail/fetchmail
 net-p2p/transmission
 net-vpn/openvpn
-x11-misc/qt5ct
+x11-misc/qt5ct  # fixes: missing okular icons
 xfce-base/xfce4-meta
 xfce-base/xfwm4
