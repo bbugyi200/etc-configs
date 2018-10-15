@@ -44,7 +44,6 @@ app-vim/clang_complete
 app-vim/ctrlp
 app-vim/ctrlsf
 app-vim/delimitMate
-app-vim/deoplete
 app-vim/fugitive
 app-vim/ghcmod-vim
 app-vim/gnupg
