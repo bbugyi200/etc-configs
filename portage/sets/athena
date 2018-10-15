@@ -8,6 +8,7 @@ dev-python/requests-oauthlib
 dev-python/vdirsyncer
 dev-ruby/twmail
 kde-apps/okular
+kde-frameworks/oxygen-icons
 net-dns/bind-tools
 net-mail/fetchmail
 net-p2p/transmission
