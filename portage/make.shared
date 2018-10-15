@@ -16,4 +16,6 @@ EMERGE_DEFAULT_OPTS="--ask-enter-invalid"
 
 CLEAN_DELAY=0
 
+PORTAGE_NICENESS=15
+
 GENTOO_MIRRORS="http://gentoo.mirrors.pair.com/ http://mirrors.rit.edu/gentoo/ http://gentoo.mirrors.tds.net/gentoo"
