@@ -5,6 +5,7 @@ app-editors/vim lua python terminal vim-pager
 app-portage/layman sync-plugin-portage git
 app-text/poppler -qt5
 dev-python/ipython -nbconvert -notebook -qt5
+kde-apps/okular djvu epub
 mail-client/neomutt sasl
 mail-mta/sendmail mbox
 media-video/ffmpeg openssl
