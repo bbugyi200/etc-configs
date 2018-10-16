@@ -1,5 +1,5 @@
 diff --git a/notify_send.py b/notify_send.py
-index 6349da1..a350fe6 100644
+index 7a6ef67..c12a657 100644
 --- a/notify_send.py
 +++ b/notify_send.py
 @@ -29,6 +29,7 @@
@@ -10,25 +10,31 @@ index 6349da1..a350fe6 100644
  import os
  import re
  import subprocess
-@@ -236,6 +237,17 @@ def message_printed_callback(data, buffer, date, tags, is_displayed,
+@@ -241,8 +242,21 @@ def message_printed_callback(data, buffer, date, tags, is_displayed,
      nick = nick_that_sent_message(tags, prefix)
  
      if notification_should_be_sent(buffer, tags, nick, is_displayed, is_highlight, message):
+-        notification = prepare_notification(buffer, nick, message)
+-        send_notification(notification)
 +        # log notification
-+        with open('/home/bryan/.weechat/notifications.log', 'a+') as f:
-+            now = dt.datetime.now()
-+            delta = now - startup_dt
-+            if delta.seconds > 10:
-+                fmt = '[{}] ({}) @{}: {}\n'
-+                f.write(fmt.format(now.strftime('%Y-%m-%d %H:%M:%S'),
-+                                   weechat.buffer_get_string(buffer, 'short_name'),
-+                                   nick,
-+                                   message))
++        now = dt.datetime.now()
++        delta = now - startup_dt
 +
-         notification = prepare_notification(buffer, nick, message)
-         send_notification(notification)
++        # don't show any notifications during the first 10 seconds after loading WeeChat
++        if delta.seconds > 10:
++            with open('/home/bryan/.weechat/notifications.log', 'a+') as f:
++                    fmt = '[{}] ({}) @{}: {}\n'
++                    f.write(fmt.format(now.strftime('%Y-%m-%d %H:%M:%S'),
++                                       weechat.buffer_get_string(buffer, 'short_name'),
++                                       nick,
++                                       message))
++
++            notification = prepare_notification(buffer, nick, message)
++            send_notification(notification)
  
-@@ -674,6 +686,8 @@ def send_notification(notification):
+     return weechat.WEECHAT_RC_OK
+ 
+@@ -696,6 +710,8 @@ def send_notification(notification):
  
  
  if __name__ == '__main__':
