@@ -160,6 +160,7 @@ sys-kernel/gentoo-sources
 sys-process/cronie
 sys-process/htop
 sys-process/lsof
+sys-process/time
 www-client/elinks
 www-client/google-chrome
 www-client/qutebrowser
