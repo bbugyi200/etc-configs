@@ -14,8 +14,10 @@ FEATURES=""
 
 EMERGE_DEFAULT_OPTS="--ask-enter-invalid"
 
+# no delay before unmerging packages
 CLEAN_DELAY=0
 
+# makes sure that package updates do not slow down my usage
 PORTAGE_NICENESS=15
 
 GENTOO_MIRRORS="http://gentoo.mirrors.pair.com/ http://mirrors.rit.edu/gentoo/ http://gentoo.mirrors.tds.net/gentoo"
