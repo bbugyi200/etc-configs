@@ -48,6 +48,7 @@
 =app-doc/cppman-0.4.8 ~amd64
 =app-editors/neovim-0.3.1 ~amd64
 =app-emacs/ghc-mod-5.7.0.0 ~amd64
+=app-misc/anki-2.0.52 ~amd64
 =app-misc/bugwarrior-1.6.0 ~amd64
 =app-misc/jrnl-9999 ~amd64
 =app-misc/khal-0.9.9-r1 ~amd64
