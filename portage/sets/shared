@@ -158,7 +158,7 @@ sys-boot/grub:2
 sys-devel/gdb
 sys-fs/ncdu
 sys-kernel/gentoo-sources
-sys-process/cronie
+sys-process/fcron
 sys-process/htop
 sys-process/lsof
 sys-process/time
