@@ -149,7 +149,6 @@ net-misc/dropbox-cli
 net-misc/ntp
 net-misc/youtube-dl
 net-print/epson-inkjet-printer
-sys-apps/lm_sensors
 sys-apps/mlocate
 sys-apps/shell-safe-rm
 sys-apps/the_silver_searcher
