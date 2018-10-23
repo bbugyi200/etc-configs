@@ -99,6 +99,7 @@ dev-util/valgrind
 dev-vcs/ghi
 dev-vcs/git
 dev-vcs/hub
+kde-apps/okular
 mail-client/neomutt
 mail-mta/sendmail
 media-fonts/arphicfonts
