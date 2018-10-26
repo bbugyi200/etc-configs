@@ -6,12 +6,12 @@ index 3c3f869..031acb6 100755
          If a count tag is found, consume the count by substituting it in place
          of the tag.
          """
--        if re.search('#{\d+}', self.rhs) is not None:
+-        if re.search(r'#{\d+}', self.rhs) is not None:
 +        count_tag_pattern = '#{([-]?\d+)(:[+-]\d+)?}'
 +        match = re.search(count_tag_pattern, self.rhs)
 +        if match is not None:
              if count:
--                rhs = re.sub('#{\d+}', str(count), self.rhs)
+-                rhs = re.sub(r'#{\d+}', str(count), self.rhs)
 +                options = match.groups()[1]
 +
 +                if options is not None:
@@ -21,7 +21,7 @@ index 3c3f869..031acb6 100755
 +
 +                rhs = re.sub(count_tag_pattern, str(count + offset), self.rhs)
              else:
--                rhs = re.sub('#{(\d+)}', r'\1', self.rhs)
+-                rhs = re.sub(r'#{(\d+)}', r'\1', self.rhs)
 +                rhs = re.sub(count_tag_pattern, r'\1', self.rhs)
              new_count = 1
          else:
