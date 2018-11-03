@@ -2,9 +2,8 @@
 #  Gentoo make.conf Configurations that are Shared by Multiple Machines  #
 ##########################################################################
 
-# luajit:: neovim
-# icu:: qtwebengine
-USE="alsa icu luajit sqlite -qt5 unicode vim-syntax webchannel xinerama zsh-completion $USE"
+# icu required by: qtwebengine
+USE="alsa icu sqlite -qt5 unicode vim-syntax webchannel xinerama zsh-completion $USE"
 
 # Logging
 PORTAGE_ELOG_CLASSES="warn error log"
@@ -17,7 +16,7 @@ EMERGE_DEFAULT_OPTS="--ask-enter-invalid"
 # no delay before unmerging packages
 CLEAN_DELAY=0
 
-# makes sure that package updates do not slow down my usage
+# makes sure that package updates do not slow down regular usage
 PORTAGE_NICENESS=15
 
 GENTOO_MIRRORS="http://gentoo.mirrors.pair.com/ http://mirrors.rit.edu/gentoo/ http://gentoo.mirrors.tds.net/gentoo"

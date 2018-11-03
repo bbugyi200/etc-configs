@@ -136,7 +136,6 @@
 =dev-python/whichcraft-0.4.1 ~amd64 # required by: dev-util/cookiecutter-1.6.0::gentoo
 =dev-ruby/mail-2.7.0 ~amd64 # required by: dev-ruby/twmail-0.0.6::bbugyi200[ruby_targets_ruby23]
 =dev-ruby/pygments_rb-1.2.1 ~amd64 # required by: dev-vcs/ghi-1.2.0::bbugyi200[ruby_targets_ruby23]
-=dev-ruby/tmuxinator-0.12.0 ~amd64
 =dev-ruby/twmail-0.0.5 ~amd64
 =dev-ruby/twmail-0.0.6 ~amd64
 =dev-ruby/xdg-2.2.3 ~amd64 # required by: dev-ruby/tmuxinator-0.12.0::bbugyi200[ruby_targets_ruby23]
@@ -161,6 +160,7 @@ app-shells/gentoo-zsh-completions ~amd64 # drops unnecessary openrc blocker (a44
 app-shells/localalias ~amd64
 dev-python/line_profiler ~amd64
 dev-python/pytest ~amd64
+dev-ruby/tmuxinator ~amd64
 dev-util/valgrind ~amd64 # need debuginfo.patch (e2760888)
 net-libs/nodejs ~amd64
 net-misc/dropbox ~amd64
