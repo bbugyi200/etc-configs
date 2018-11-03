@@ -13,7 +13,7 @@ net-firewall/ipset -modules
 net-p2p/transmission -gtk -qt5
 net-vpn/openvpn examples
 sys-apps/portage doc gentoo-dev
-x11-base/xorg-server suid
+x11-base/xorg-server suid  # suid fixes: Gentoo Bug #635102
 x11-misc/xmobar xft xpm
 x11-terms/rxvt-unicode 256-color secondary-wheel unicode3 -vanilla wcwidth xft
 
