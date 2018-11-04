@@ -41,9 +41,9 @@
 =net-irc/weechat-vimode-9999 **
 =net-irc/weechat-zerotab-9999 **
 
-#####################
-#  UNSTABLE Builds  #
-#####################
+####################################
+#  UNSTABLE Builds (all versions)  #
+####################################
 app-misc/anki ~amd64
 app-shells/gentoo-zsh-completions ~amd64 # drops unnecessary openrc blocker (a44f9462) 
 app-shells/localalias ~amd64
@@ -56,9 +56,9 @@ net-misc/dropbox ~amd64
 www-client/qutebrowser ~amd64
 www-plugins/pdfjs ~amd64
 
-#################################
-#  UNSTABLE Builds (versioned)  #
-#################################
+######################################
+#  UNSTABLE Builds (single version)  #
+######################################
 =app-admin/stow-2.2.2-r1 ~amd64
 =app-doc/cppman-0.4.8 ~amd64
 =app-editors/neovim-0.3.1 ~amd64
