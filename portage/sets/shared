@@ -86,6 +86,7 @@ dev-python/tldextract
 dev-python/twilio
 dev-python/virtualenvwrapper
 dev-ruby/tmuxinator
+dev-scheme/racket
 dev-texlive/texlive-fontsextra
 dev-texlive/texlive-fontsrecommended
 dev-texlive/texlive-latexextra
