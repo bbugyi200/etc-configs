@@ -7,6 +7,7 @@ dev-python/line_profiler
 dev-python/requests-oauthlib
 dev-python/vdirsyncer
 dev-ruby/twmail
+net-analyzer/wireshark
 net-dns/bind-tools
 net-mail/fetchmail
 net-p2p/transmission
