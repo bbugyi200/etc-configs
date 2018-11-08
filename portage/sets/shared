@@ -27,6 +27,7 @@ app-portage/layman
 app-portage/mirrorselect
 app-portage/repoman
 app-portage/smart-live-rebuild
+app-shells/bashlibs
 app-shells/gentoo-zsh-completions
 app-shells/localalias
 app-shells/oh-my-zsh
@@ -94,6 +95,7 @@ dev-util/bumpversion
 dev-util/cookiecutter
 dev-util/ctags
 dev-util/ix
+dev-util/rookie-cookiecutter
 dev-util/shellcheck
 dev-util/valgrind
 dev-vcs/ghi
