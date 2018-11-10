@@ -8,7 +8,7 @@ dev-python/ipython -nbconvert -notebook -qt5
 kde-apps/okular djvu epub
 mail-client/neomutt sasl
 mail-mta/sendmail mbox
-media-video/ffmpeg openssl
+media-video/ffmpeg openssl vpx  # vpx required by: media-video/peek
 net-firewall/ipset -modules
 net-p2p/transmission -gtk -qt5
 net-vpn/openvpn examples
