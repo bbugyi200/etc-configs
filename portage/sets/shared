@@ -151,6 +151,7 @@ net-misc/dhcpcd
 net-misc/dropbox
 net-misc/dropbox-cli
 net-misc/ntp
+net-misc/whois
 net-misc/youtube-dl
 net-print/epson-inkjet-printer
 sys-apps/mlocate
