@@ -135,6 +135,7 @@ media-gfx/scrot
 media-gfx/wkhtmltopdf
 media-sound/alsa-utils
 media-video/mpv
+media-video/peek
 net-analyzer/nmap
 net-irc/weechat
 net-irc/weechat-autosort
