@@ -84,6 +84,7 @@ dev-python/pytest
 dev-python/pytest-cov
 dev-python/tldextract
 dev-python/twilio
+dev-python/twine
 dev-python/virtualenvwrapper
 dev-ruby/tmuxinator
 dev-scheme/racket

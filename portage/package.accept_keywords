@@ -51,6 +51,7 @@ app-shells/gentoo-zsh-completions ~amd64 # drops unnecessary openrc blocker (a44
 app-shells/localalias ~amd64
 dev-python/line_profiler ~amd64
 dev-python/pytest ~amd64
+dev-python/twine ~amd64
 dev-ruby/tmuxinator ~amd64
 dev-util/valgrind ~amd64 # need debuginfo.patch (e2760888)
 media-video/peek ~amd64
@@ -138,10 +139,12 @@ www-plugins/pdfjs ~amd64
 =dev-python/pockyt-1.2 ~amd64
 =dev-python/poyo-0.4.1 ~amd64 # required by: dev-util/cookiecutter-1.6.0::gentoo
 =dev-python/py-1.5.4 ~amd64 # required by: dev-python/pytest-3.8.0::gentoo
+=dev-python/pkginfo-1.4.2 ~amd64 # required by: dev-python/twine-1.11.0::gentoo
 =dev-python/py-pathmatch-0.2.1 ~amd64 # required by: dev-python/flake8-per-file-ignores-0.6::bbugyi200
 =dev-python/pynacl-1.2.1 ~amd64 # required by: dev-python/paramiko-2.4.1::gentoo, dev-db/mysql-workbench-6.3.4-r1::gentoo
 =dev-python/pypeg2-2.15.2 ~amd64 # required by: www-client/qutebrowser-1.4.1::gentoo
 =dev-python/requests-file-1.4.3 ~amd64 # required by: dev-python/tldextract-2.2.0::local
+=dev-python/setuptools-38.6.1 ~amd64
 =dev-python/tabulate-0.8.1 ~amd64 # required by: dev-python/cli_helpers-1.0.1::gentoo, dev-db/mycli-1.15.0-r2::gentoo
 =dev-python/tasklib-1.1.0 ~amd64
 =dev-python/taskw-1.2.0 ~amd64 # required by: app-misc/bugwarrior-1.6.0::bbugyi200
