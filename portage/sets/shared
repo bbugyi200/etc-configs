@@ -29,7 +29,6 @@ app-portage/repoman
 app-portage/smart-live-rebuild
 app-shells/bashlibs
 app-shells/gentoo-zsh-completions
-app-shells/localalias
 app-shells/oh-my-zsh
 app-shells/zsh
 app-shells/zsh-autosuggestions
