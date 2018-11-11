@@ -3,7 +3,7 @@
 #################
 =app-portage/euscan-9999 **
 =app-shells/bashlibs-9999 **
-=app-shells/localalias-9999 **
+=app-shells/funky-9999 **
 =app-shells/oh-my-zsh-9999 **
 =app-shells/zsh-autosuggestions-9999 **
 =app-vim/clang_complete-9999 **
