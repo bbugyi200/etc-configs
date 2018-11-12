@@ -83,6 +83,7 @@ dev-python/pockyt
 dev-python/pytest
 dev-python/pytest-cov
 dev-python/tldextract
+dev-python/tldr-python-client
 dev-python/twilio
 dev-python/twine
 dev-python/virtualenvwrapper
@@ -173,6 +174,7 @@ sys-process/time
 www-client/elinks
 www-client/google-chrome
 www-client/qutebrowser
+www-client/w3m
 www-plugins/pdfjs
 x11-apps/xlsfonts
 x11-apps/xmodmap
