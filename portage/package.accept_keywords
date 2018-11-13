@@ -53,6 +53,7 @@ dev-python/line_profiler ~amd64
 dev-python/pytest ~amd64
 dev-python/twine ~amd64
 dev-ruby/tmuxinator ~amd64
+dev-util/kcov ~amd64
 dev-util/valgrind ~amd64 # need debuginfo.patch (e2760888)
 media-video/peek ~amd64
 net-libs/nodejs ~amd64
