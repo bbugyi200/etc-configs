@@ -176,6 +176,7 @@ www-client/google-chrome
 www-client/qutebrowser
 www-client/w3m
 www-plugins/pdfjs
+x11-apps/xev
 x11-apps/xlsfonts
 x11-apps/xmodmap
 x11-apps/xrandr
