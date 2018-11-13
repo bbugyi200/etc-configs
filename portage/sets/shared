@@ -98,6 +98,7 @@ dev-util/cookiecutter
 dev-util/ctags
 dev-util/ix
 dev-util/shellcheck
+dev-util/shunit2
 dev-util/valgrind
 dev-vcs/ghi
 dev-vcs/git
