@@ -96,7 +96,6 @@ dev-util/bumpversion
 dev-util/cookie
 dev-util/ctags
 dev-util/ix
-dev-util/kcov
 dev-util/shellcheck
 dev-util/shunit2
 dev-util/valgrind
