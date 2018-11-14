@@ -50,6 +50,7 @@ app-misc/anki ~amd64
 app-shells/gentoo-zsh-completions ~amd64 # drops unnecessary openrc blocker (a44f9462) 
 app-shells/localalias ~amd64
 dev-python/line_profiler ~amd64
+dev-python/praw ~amd64
 dev-python/pytest ~amd64
 dev-python/twine ~amd64
 dev-ruby/tmuxinator ~amd64
