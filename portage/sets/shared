@@ -34,7 +34,6 @@ app-shells/oh-my-zsh
 app-shells/zsh
 app-shells/zsh-autosuggestions
 app-shells/zsh-completions
-app-text/apvlv
 app-text/texlive
 app-text/wgetpaste
 app-text/zathura
