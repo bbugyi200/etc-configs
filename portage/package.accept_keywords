@@ -31,6 +31,9 @@
 =app-vim/vim-taskwarrior-9999 **
 =app-vim/vimproc-9999 **
 =app-vim/vimux-9999 **
+=dev-python/praw-9999 **
+=dev-python/update_checker-9999 ** # required by: dev-python/praw-9999::bbugyi200
+=dev-python/prawcore-9999 ** # required by: dev-python/praw-9999::bbugyi200
 =dev-util/cookie-9999 **
 =net-irc/weechat-autosort-9999 **
 =net-irc/weechat-buddylist-9999 **
