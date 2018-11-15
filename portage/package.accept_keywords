@@ -62,6 +62,7 @@ dev-util/valgrind ~amd64 # need debuginfo.patch (e2760888)
 media-video/peek ~amd64
 net-libs/nodejs ~amd64
 net-misc/dropbox ~amd64
+www-apps/hugo ~amd64
 www-client/qutebrowser ~amd64
 www-plugins/pdfjs ~amd64
 
