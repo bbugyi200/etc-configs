@@ -158,6 +158,7 @@ net-misc/dropbox-cli
 net-misc/ntp
 net-misc/whois
 net-misc/youtube-dl
+net-news/newsboat
 net-print/epson-inkjet-printer
 sys-apps/mlocate
 sys-apps/shell-safe-rm
