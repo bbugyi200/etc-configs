@@ -60,6 +60,7 @@ dev-ruby/tmuxinator ~amd64
 dev-util/heroku-cli ~amd64
 dev-util/kcov ~amd64
 dev-util/valgrind ~amd64 # need debuginfo.patch (e2760888)
+media-gfx/gifski ~amd64
 media-video/peek ~amd64
 net-libs/nodejs ~amd64
 net-misc/dropbox ~amd64
