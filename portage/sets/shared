@@ -27,7 +27,6 @@ app-portage/layman
 app-portage/mirrorselect
 app-portage/repoman
 app-portage/smart-live-rebuild
-app-shells/funky
 app-shells/gentoo-zsh-completions
 app-shells/oh-my-zsh
 app-shells/zsh
