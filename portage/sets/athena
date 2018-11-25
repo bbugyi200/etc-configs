@@ -4,9 +4,11 @@ app-text/pdftk
 dev-db/mycli
 dev-db/mysql
 dev-python/line_profiler
+dev-python/praw
 dev-python/requests-oauthlib
 dev-python/vdirsyncer
 dev-ruby/twmail
+media-gfx/gimp
 media-gfx/icoutils
 net-analyzer/wireshark
 net-dns/bind-tools

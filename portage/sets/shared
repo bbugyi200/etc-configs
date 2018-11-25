@@ -79,7 +79,6 @@ dev-python/ipdb
 dev-python/ipython
 dev-python/pip
 dev-python/pockyt
-dev-python/praw
 dev-python/pytest
 dev-python/pytest-cov
 dev-python/tldextract
@@ -132,7 +131,6 @@ media-fonts/terminus-font
 media-fonts/ttf-bitstream-vera
 media-fonts/unifont
 media-gfx/feh
-media-gfx/gimp
 media-gfx/imagemagick
 media-gfx/imv
 media-gfx/scrot
