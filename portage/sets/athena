@@ -10,6 +10,7 @@ dev-python/vdirsyncer
 dev-ruby/twmail
 media-gfx/gimp
 media-gfx/icoutils
+media-sound/spotify
 net-analyzer/wireshark
 net-dns/bind-tools
 net-mail/fetchmail
