@@ -66,6 +66,7 @@ app-vim/vim-easytags
 app-vim/vim-instant-markdown
 app-vim/vim-localvimrc
 app-vim/vim-python-pep8-indent
+app-vim/vim-pythonx
 app-vim/vim-superman
 app-vim/vim-taskwarrior
 app-vim/vim-unimpaired
