@@ -6,6 +6,7 @@
 =app-shells/funky-9999 **
 =app-shells/oh-my-zsh-9999 **
 =app-shells/zsh-autosuggestions-9999 **
+=app-shells/zsh-syntax-highlighting-9999 **
 =app-vim/clang_complete-9999 **
 =app-vim/ctrlsf-9999 **
 =app-vim/delimitMate-9999 **

@@ -33,6 +33,7 @@ app-shells/oh-my-zsh
 app-shells/zsh
 app-shells/zsh-autosuggestions
 app-shells/zsh-completions
+app-shells/zsh-syntax-highlighting
 app-text/texlive
 app-text/wgetpaste
 app-text/zathura
