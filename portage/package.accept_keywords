@@ -99,6 +99,7 @@ www-plugins/pdfjs ~amd64
 =app-vim/vimwiki-2.3 ~amd64 # required by: app-vim/taskwiki-9999::bbugyi200
 =app-vim/youcompleteme-20130910 ~amd64
 =dev-db/mycli-1.15.0-r2 ~amd64
+=dev-libs/libuv-1.24.0 ~amd64 # required by: net-libs/nodejs-8.14.0::gentoo
 =dev-haskell/cabal-helper-0.7.3.0 ~amd64 # required by: app-emacs/ghc-mod-5.7.0.0::gentoo
 =dev-haskell/cpphs-1.20.2 ~amd64 # required by: dev-haskell/hlint-1.9.35::gentoo, app-emacs/ghc-mod-5.7.0.0::gentoo
 =dev-haskell/djinn-ghc-0.0.2.3 ~amd64 # required by: app-emacs/ghc-mod-5.7.0.0::gentoo
