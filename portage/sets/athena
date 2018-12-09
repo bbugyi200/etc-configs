@@ -12,6 +12,7 @@ dev-ruby/twmail
 media-gfx/gimp
 media-gfx/icoutils
 media-sound/spotify
+media-tv/plex-media-server
 net-analyzer/wireshark
 net-dns/bind-tools
 net-mail/fetchmail
