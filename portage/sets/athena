@@ -2,6 +2,7 @@ app-office/libreoffice
 app-office/unoconv
 app-text/pandoc
 app-text/pdftk
+dev-db/mongodb
 dev-db/mycli
 dev-db/mysql
 dev-python/line_profiler
