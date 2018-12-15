@@ -155,7 +155,7 @@ www-plugins/pdfjs ~amd64
 =dev-python/pynacl-1.2.1 ~amd64 # required by: dev-python/paramiko-2.4.1::gentoo, dev-db/mysql-workbench-6.3.4-r1::gentoo
 =dev-python/pypeg2-2.15.2 ~amd64 # required by: www-client/qutebrowser-1.4.1::gentoo
 =dev-python/requests-file-1.4.3 ~amd64 # required by: dev-python/tldextract-2.2.0::local
-=dev-python/setuptools-38.6.1 ~amd64
+=dev-python/setuptools-40.6.3 ~amd64
 =dev-python/tabulate-0.8.1 ~amd64 # required by: dev-python/cli_helpers-1.0.1::gentoo, dev-db/mycli-1.15.0-r2::gentoo
 =dev-python/tasklib-1.1.0 ~amd64
 =dev-python/taskw-1.2.0 ~amd64 # required by: app-misc/bugwarrior-1.6.0::bbugyi200
