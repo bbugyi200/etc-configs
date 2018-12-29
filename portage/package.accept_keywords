@@ -117,6 +117,7 @@ www-plugins/pdfjs ~amd64
 =dev-haskell/utf8-string-1.0.1.1 ~amd64 # required by dev-haskell/cabal-helper-0.7.3.0::gentoo, app-emacs/ghc-mod-5.7.0.0::gentoo
 =dev-java/commons-lang-3.6 ~amd64 # required by app-text/pdftk-3.0.0::gentoo
 =net-libs/http-parser-2.9.0-r1 ~amd64 # required by net-libs/nodejs-11.6.0::gentoo
+=dev-libs/icu-62.1 ~amd64 # required by dev-qt/qtwebengine-5.11.1::gentoo, app-misc/anki-2.1.4::bbugyi200
 =dev-libs/icu-63.1-r1 ~amd64 # required by net-libs/nodejs-11.6.0::gentoo[icu]
 =dev-libs/libsodium-1.0.13 ~amd64 # required by dev-python/pynacl-1.1.2::gentoo, dev-python/paramiko-2.4.1::gentoo, dev-db/mysql-workbench-6.3.4-r1::gentoo
 =dev-libs/libuv-1.24.1 ~amd64 # required by net-libs/nodejs-11.6.0::gentoo
