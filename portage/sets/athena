@@ -3,7 +3,6 @@ app-office/unoconv
 app-text/pandoc
 app-text/pdftk
 dev-db/mongodb
-dev-db/mycli
 dev-python/line_profiler
 dev-python/praw
 dev-python/requests-oauthlib
