@@ -4,7 +4,6 @@ app-text/pandoc
 app-text/pdftk
 dev-db/mongodb
 dev-db/mycli
-dev-db/mysql
 dev-python/line_profiler
 dev-python/praw
 dev-python/requests-oauthlib

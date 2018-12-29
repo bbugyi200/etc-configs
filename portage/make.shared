@@ -19,4 +19,6 @@ CLEAN_DELAY=0
 # makes sure that package updates do not slow down regular usage
 PORTAGE_NICENESS=15
 
+RUBY_TARGETS="ruby24"
+
 GENTOO_MIRRORS="http://gentoo.mirrors.pair.com/ http://mirrors.rit.edu/gentoo/ http://gentoo.mirrors.tds.net/gentoo"
