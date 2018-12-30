@@ -54,6 +54,7 @@
 app-misc/anki ~amd64
 app-shells/gentoo-zsh-completions ~amd64 # drops unnecessary openrc blocker (a44f9462) 
 app-shells/localalias ~amd64
+dev-python/flake8-per-file-ignores ~amd64
 dev-python/line_profiler ~amd64
 dev-python/praw ~amd64
 dev-python/pytest ~amd64
@@ -136,7 +137,6 @@ www-plugins/pdfjs ~amd64
 =dev-python/cli_helpers-1.0.1 ~amd64 # required by dev-db/mycli-1.15.0-r2::gentoo
 =dev-python/click-log-0.3.2 ~amd64 # required by app-misc/khal-0.9.9-r1::gentoo
 =dev-python/click-threading-0.4.4 ~amd64 # required by dev-python/vdirsyncer-0.16.7::gentoo
-=dev-python/flake8-per-file-ignores-0.6 ~amd64
 =dev-python/icalendar-3.11.7 ~amd64 # required by app-misc/khal-0.9.9-r1::gentoo
 =dev-python/jinja2-time-0.2.0 ~amd64 # required by dev-util/cookiecutter-1.6.0::gentoo
 =dev-python/keyrings_alt-2.3 ~amd64 # required by app-misc/jrnl-9999::local
