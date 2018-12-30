@@ -64,7 +64,6 @@ dev-util/kcov ~amd64
 dev-util/valgrind ~amd64 # need debuginfo.patch (e2760888)
 media-gfx/gifski ~amd64
 media-video/peek ~amd64
-net-libs/nodejs ~amd64
 net-misc/dropbox ~amd64
 www-apps/hugo ~amd64
 www-client/qutebrowser ~amd64
@@ -99,7 +98,6 @@ www-plugins/pdfjs ~amd64
 =app-vim/vimwiki-2.3 ~amd64 # required by app-vim/taskwiki-9999::bbugyi200
 =app-vim/youcompleteme-20130910 ~amd64
 =dev-db/mycli-1.15.0-r2 ~amd64
-=dev-libs/libuv-1.24.0 ~amd64 # required by net-libs/nodejs-8.14.0::gentoo
 =dev-haskell/cabal-helper-0.7.3.0 ~amd64 # required by app-emacs/ghc-mod-5.7.0.0::gentoo
 =dev-haskell/cpphs-1.20.2 ~amd64 # required by dev-haskell/hlint-1.9.35::gentoo, app-emacs/ghc-mod-5.7.0.0::gentoo
 =dev-haskell/djinn-ghc-0.0.2.3 ~amd64 # required by app-emacs/ghc-mod-5.7.0.0::gentoo
@@ -116,15 +114,10 @@ www-plugins/pdfjs ~amd64
 =dev-haskell/syb-0.5.1 ~amd64 # required by app-emacs/ghc-mod-5.7.0.0::gentoo
 =dev-haskell/utf8-string-1.0.1.1 ~amd64 # required by dev-haskell/cabal-helper-0.7.3.0::gentoo, app-emacs/ghc-mod-5.7.0.0::gentoo
 =dev-java/commons-lang-3.6 ~amd64 # required by app-text/pdftk-3.0.0::gentoo
-=net-libs/http-parser-2.9.0-r1 ~amd64 # required by net-libs/nodejs-11.6.0::gentoo
 =dev-libs/icu-62.1 ~amd64 # required by dev-qt/qtwebengine-5.11.1::gentoo, app-misc/anki-2.1.4::bbugyi200
-=dev-libs/icu-63.1-r1 ~amd64 # required by net-libs/nodejs-11.6.0::gentoo[icu]
 =dev-libs/libsodium-1.0.13 ~amd64 # required by dev-python/pynacl-1.1.2::gentoo, dev-python/paramiko-2.4.1::gentoo, dev-db/mysql-workbench-6.3.4-r1::gentoo
-=dev-libs/libuv-1.24.1 ~amd64 # required by net-libs/nodejs-11.6.0::gentoo
 =dev-libs/libsodium-1.0.14 ~amd64 # required by dev-python/pynacl-1.1.2::gentoo, dev-python/paramiko-2.4.1::gentoo, dev-db/mysql-workbench-6.3.4-r1::gentoo
 =dev-libs/msgpack-1.1.0 ~amd64 # required by app-editors/neovim-0.3.1::gentoo
-=net-libs/nghttp2-1.35.1 ~amd64 # required by net-libs/nodejs-11.6.0::gentoo
-=dev-libs/openssl-1.1.0j ~amd64 # required by net-libs/nodejs-11.6.0::gentoo[ssl]
 =dev-nodejs/body-parser-1.9.2 ~amd64 # required by app-misc/livedown-2.1.1::bbugyi200
 =dev-nodejs/chokidar-1.6.1 ~amd64 # required by app-misc/livedown-2.1.1::bbugyi200
 =dev-nodejs/express-4.10.2 ~amd64 # required by app-misc/livedown-2.1.1::bbugyi200
@@ -189,7 +182,6 @@ www-plugins/pdfjs ~amd64
 =media-gfx/wkhtmltopdf-0.12.4-r1 ~amd64
 =media-sound/spotify-1.0.92 ~amd64
 =media-video/castnow-0.6.0 ~amd64
-=net-dns/c-ares-1.15.0 ~amd64 # required by net-libs/nodejs-11.6.0::gentoo
 =net-irc/weechat-notify-send-9999 ~amd64
 =net-p2p/transmission-remote-cli-1.7.1 ~amd64
 =sys-apps/safe-rm-0.8 ~amd64
