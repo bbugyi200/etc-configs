@@ -14,6 +14,7 @@ net-p2p/transmission -gtk -qt5
 net-vpn/openvpn examples
 sys-apps/portage doc gentoo-dev
 x11-base/xorg-server suid  # suid fixes: Gentoo Bug #635102
+>=x11-libs/libdrm-2.4.96 video_cards_radeon # required by media-libs/mesa-18.2.8::gentoo[-video_cards_r600,-video_cards_r300,-video_cards_r200,-video_cards_r100,-video_cards_radeon,video_cards_radeonsi], virtual/opengl-7.0-r2::gentoo, media-libs/freeglut-3.0.0::gentoo, dev-python/pyopengl-3.1.0::gentoo, dev-python/wxpython-3.0.2.0::gentoo, dev-python/ipython-5.4.1-r2::gentoo
 x11-misc/xmobar xft xpm
 x11-terms/rxvt-unicode 256-color secondary-wheel unicode3 -vanilla wcwidth xft
 
