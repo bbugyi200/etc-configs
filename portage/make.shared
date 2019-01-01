@@ -3,7 +3,7 @@
 ##########################################################################
 
 # icu required by: qtwebengine
-USE="alsa icu sqlite -qt5 unicode vim-syntax webchannel xinerama zsh-completion $USE"
+USE="alsa icu sqlite unicode vim-syntax webchannel xinerama zsh-completion $USE"
 
 # Logging
 PORTAGE_ELOG_CLASSES="warn error log"
