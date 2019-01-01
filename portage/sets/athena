@@ -1,4 +1,5 @@
 app-emulation/virtualbox
+app-emulation/virtualbox-extpack-oracle
 app-misc/radeontop
 app-office/libreoffice
 app-office/unoconv
