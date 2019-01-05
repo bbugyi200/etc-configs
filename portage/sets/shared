@@ -8,6 +8,7 @@ app-crypt/pinentry
 app-doc/cppman
 app-doc/doxygen
 app-editors/nano
+app-emacs/ghc-mod  # required by: 'neco-ghc' vim plugin
 app-misc/anki
 app-misc/bugwarrior
 app-misc/colordiff
