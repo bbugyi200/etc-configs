@@ -58,7 +58,7 @@ dev-python/pockyt
 dev-python/pygtk  # required by: net-misc/dropbox-cli (`dropbox-cli start -i`)
 dev-python/pytest
 dev-python/pytest-cov
-dev-python/tldextract
+dev-python/tldextract  # needed to use 'pass' with qutbrowser
 dev-python/tldr-python-client
 dev-python/twilio
 dev-python/twine
@@ -140,6 +140,7 @@ sys-apps/shell-safe-rm
 sys-apps/the_silver_searcher
 sys-apps/usbutils
 sys-boot/grub:2
+sys-devel/clang  # required by 'clang_complete' vim plugin
 sys-devel/gdb
 sys-fs/ncdu
 sys-kernel/gentoo-sources
