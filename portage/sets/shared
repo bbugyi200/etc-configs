@@ -40,6 +40,10 @@ app-text/zathura
 app-text/zathura-djvu
 app-text/zathura-pdf-mupdf
 app-text/zathura-ps
+app-vim/eselect-syntax
+app-vim/eselect-syntax-20070506
+app-vim/gentoo-syntax
+app-vim/gentoo-syntax-20181023
 dev-cpp/gtest
 dev-haskell/hostname
 dev-python/beautifulsoup
