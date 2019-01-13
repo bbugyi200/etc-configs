@@ -51,6 +51,7 @@
 ####################################
 #  UNSTABLE Builds (all versions)  #
 ####################################
+app-emulation/playonlinux ~amd64
 app-misc/anki ~amd64
 app-misc/radeontop ~amd64
 app-shells/gentoo-zsh-completions ~amd64 # drops unnecessary openrc blocker (a44f9462) 
