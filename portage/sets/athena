@@ -10,6 +10,7 @@ dev-python/line_profiler
 dev-python/praw
 dev-python/requests-oauthlib
 dev-python/vdirsyncer
+dev-python/websocket-client  # required by: dev-python/praw
 dev-ruby/twmail
 media-gfx/gimp
 media-gfx/icoutils
