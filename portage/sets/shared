@@ -138,6 +138,7 @@ net-misc/youtube-dl
 net-news/newsboat
 net-print/epson-inkjet-printer
 sys-apps/hdparm
+sys-apps/hwinfo
 sys-apps/mlocate
 sys-apps/shell-safe-rm
 sys-apps/the_silver_searcher
