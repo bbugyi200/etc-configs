@@ -1,3 +1,4 @@
+app-accessibility/espeak
 app-admin/lastpass-cli
 app-admin/logrotate
 app-admin/pass
@@ -113,6 +114,7 @@ media-gfx/imv
 media-gfx/scrot
 media-gfx/wkhtmltopdf
 media-sound/alsa-utils
+media-sound/pulseaudio
 media-video/mpv
 media-video/peek
 net-analyzer/nmap

@@ -33,6 +33,7 @@ x11-terms/rxvt-unicode 256-color secondary-wheel unicode3 -vanilla wcwidth xft
 >=dev-qt/qtwebchannel-5.9.6 qml # required by dev-qt/qtwebengine-5.9.6-r1::gentoo, dev-python/PyQt5-5.10.1-r1::gentoo[webengine], www-client/qutebrowser-1.4.1::gentoo
 >=dev-qt/qtwebengine-5.9.6-r1 widgets # required by dev-python/PyQt5-5.10.1-r1::gentoo[webengine], www-client/qutebrowser-1.4.1::gentoo
 >=media-gfx/exiv2-0.26_p20180811-r3 xmp  # required by kde-apps/libkexiv2-18.04.3::gentoo, kde-apps/okular-18.04.3-r1::gentoo[image-backend]
+>=media-plugins/alsa-plugins-1.1.6 pulseaudio # required by media-sound/pulseaudio-12.2::gentoo[alsa,alsa-plugin]
 >=sys-libs/zlib-1.2.11-r2 minizip # required by dev-qt/qtwebengine-5.9.6-r1::gentoo, dev-python/PyQt5-5.10.1-r1::gentoo[webengine], www-client/qutebrowser-1.4.1::gentoo
 
 #############################################
