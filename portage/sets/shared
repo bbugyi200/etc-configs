@@ -115,6 +115,7 @@ media-gfx/scrot
 media-gfx/wkhtmltopdf
 media-sound/alsa-utils
 media-sound/pulseaudio
+media-video/mplayer
 media-video/mpv
 media-video/peek
 net-analyzer/nmap
