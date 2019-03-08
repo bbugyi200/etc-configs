@@ -3,7 +3,8 @@
 ##########################################################################
 
 # icu required by: qtwebengine
-USE="alsa icu sqlite unicode vim-syntax webchannel xinerama zsh-completion $USE"
+# pulseaudio required by: espeak
+USE="alsa icu sqlite pulseaudio unicode vim-syntax webchannel xinerama zsh-completion $USE"
 
 # Logging
 PORTAGE_ELOG_CLASSES="warn error log"
