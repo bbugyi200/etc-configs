@@ -5,6 +5,7 @@ app-admin/pass
 app-admin/stow
 app-admin/sudo
 app-admin/sysklogd
+app-admin/syslog-ng
 app-crypt/pinentry
 app-doc/cppman
 app-doc/doxygen
