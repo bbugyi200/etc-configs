@@ -53,6 +53,7 @@ dev-python/flake8
 dev-python/flake8-per-file-ignores
 dev-python/ipdb
 dev-python/ipython
+dev-python/matplotlib
 dev-python/pip
 dev-python/pockyt
 dev-python/pygtk  # required by: net-misc/dropbox-cli (`dropbox-cli start -i`)
