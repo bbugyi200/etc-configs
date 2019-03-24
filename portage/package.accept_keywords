@@ -145,11 +145,11 @@ www-plugins/pdfjs ~amd64
 =dev-python/msgpack-0.5.6 ~amd64 # required by dev-python/neovim-python-client-0.2.6::gentoo, app-editors/neovim-0.3.1::gentoo[python]
 =dev-python/neovim-python-client-0.2.6 ~amd64 # required by app-editors/neovim-0.3.1::gentoo[python]
 =dev-python/parse-1.6.6 ~amd64 # required by dev-python/pockyt-1.2::bbugyi200
+=dev-python/pkginfo-1.4.2 ~amd64 # required by dev-python/twine-1.11.0::gentoo
 =dev-python/pluggy-0.7.1 ~amd64 # required by dev-python/pytest-3.8.0::gentoo
 =dev-python/pockyt-1.2 ~amd64
 =dev-python/poyo-0.4.1 ~amd64 # required by dev-util/cookiecutter-1.6.0::gentoo
 =dev-python/py-1.5.4 ~amd64 # required by dev-python/pytest-3.8.0::gentoo
-=dev-python/pkginfo-1.4.2 ~amd64 # required by dev-python/twine-1.11.0::gentoo
 =dev-python/py-pathmatch-0.2.1 ~amd64 # required by dev-python/flake8-per-file-ignores-0.6::bbugyi200
 =dev-python/pynacl-1.2.1 ~amd64 # required by dev-python/paramiko-2.4.1::gentoo, dev-db/mysql-workbench-6.3.4-r1::gentoo
 =dev-python/pypeg2-2.15.2 ~amd64 # required by www-client/qutebrowser-1.4.1::gentoo
@@ -173,6 +173,7 @@ www-plugins/pdfjs ~amd64
 =dev-util/bumpversion-0.5.3 ~amd64
 =dev-util/cookiecutter-1.6.0 ~amd64
 =dev-util/ix-1.0 ~amd64
+=dev-util/lldb-8.0.0 ~amd64 # required by lldb (argument)
 =dev-util/patchelf-0.9_p20180129 ~amd64 # required by media-sound/spotify-1.0.92::gentoo
 =dev-util/shellcheck-0.5.0-r1 ~amd64
 =dev-util/shunit2-2.1.7 ~amd64
@@ -187,6 +188,12 @@ www-plugins/pdfjs ~amd64
 =net-p2p/transmission-remote-cli-1.7.1 ~amd64
 =sys-apps/safe-rm-0.8 ~amd64
 =sys-apps/shell-safe-rm-1.0.7 ~amd64
+=sys-devel/clang-8.0.0 ~amd64 # required by dev-util/lldb-8.0.0::gentoo, lldb (argument)
+=sys-devel/clang-runtime-8.0.0 ~amd64 # required by sys-devel/clang-8.0.0::gentoo, sys-libs/compiler-rt-8.0.0::gentoo[clang]
+=sys-devel/llvm-8.0.0 ~amd64 # required by sys-devel/clang-8.0.0::gentoo, sys-libs/compiler-rt-8.0.0::gentoo[clang], sys-devel/clang-runtime-8.0.0::gentoo[compiler-rt]
+=sys-libs/compiler-rt-8.0.0 ~amd64 # required by sys-devel/clang-runtime-8.0.0::gentoo[compiler-rt], sys-devel/clang-8.0.0::gentoo, sys-libs/compiler-rt-sanitizers-8.0.0::gentoo[clang]
+=sys-libs/compiler-rt-sanitizers-8.0.0 ~amd64 # required by sys-devel/clang-runtime-8.0.0::gentoo[sanitize,compiler-rt], sys-devel/clang-8.0.0::gentoo, sys-libs/compiler-rt-8.0.0::gentoo[clang]
+=sys-libs/libomp-8.0.0 ~amd64 # required by sys-devel/clang-runtime-8.0.0::gentoo[openmp], sys-devel/clang-8.0.0::gentoo, sys-libs/compiler-rt-8.0.0::gentoo[clang]
 =x11-misc/clipster-2.0.1 ~amd64
 =x11-misc/xprintidle-2.1 ~amd64
 
