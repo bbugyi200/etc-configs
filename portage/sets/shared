@@ -75,6 +75,7 @@ dev-util/cookie
 dev-util/cookiecutter
 dev-util/ctags
 dev-util/ix
+dev-util/lldb
 dev-util/shellcheck
 dev-util/shunit2
 dev-util/strace
