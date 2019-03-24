@@ -148,6 +148,7 @@ sys-apps/mlocate
 sys-apps/shell-safe-rm
 sys-apps/the_silver_searcher
 sys-apps/usbutils
+sys-apps/x86info
 sys-boot/grub:2
 sys-devel/clang  # required by 'clang_complete' vim plugin
 sys-devel/gdb
