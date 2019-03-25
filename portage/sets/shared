@@ -181,6 +181,7 @@ x11-misc/wmctrl
 x11-misc/xbindkeys
 x11-misc/xclip
 x11-misc/xdotool
+x11-misc/xflux
 x11-misc/xmobar
 x11-misc/xprintidle
 x11-terms/rxvt-unicode
