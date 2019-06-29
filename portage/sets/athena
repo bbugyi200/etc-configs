@@ -14,7 +14,6 @@ dev-python/websocket-client  # required by: dev-python/praw
 dev-ruby/twmail
 media-gfx/gimp
 media-gfx/icoutils
-media-sound/spotify
 media-tv/plex-media-server
 net-analyzer/wireshark
 net-dns/bind-tools

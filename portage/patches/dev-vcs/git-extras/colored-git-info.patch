@@ -1,0 +1,130 @@
+diff --git a/Commands.md b/Commands.md
+index a4cb6b9..a7f2ff5 100644
+--- a/Commands.md
++++ b/Commands.md
+@@ -737,6 +737,26 @@ If you wish to omit the config section, you may use `--no-config`:
+ $ git info --no-config
+ ```
+ 
++By default, the output is colored to make it easier on the eyes. When this is not desired (if piping the output of `git info` to another command, for example), the `--no-color` option may be used:
++
++```bash
++$ git info --no-color
++```
++
++You can select the number of previous commits to show by using the `-c <N>` option (where `<N>` is any integer). It is important to note, however, that `-c` **must be the FIRST option** you pass to `git info`. For example:
++
++```bash
++$ git info -c 5 --no-config
++```
++
++will display the 5 most recent commits as apart of its output (and omit the configuration section), but
++
++```bash
++$ git info --no-config -c 5
++```
++
++will NOT recognize that the `-c` option was used. Consequently, the output will contain only the single most recent commit (the default action). 
++
+ ## git create-branch
+ 
+ Create local branch `name`:
+diff --git a/bin/git-info b/bin/git-info
+index 2fdee71..8841c3f 100755
+--- a/bin/git-info
++++ b/bin/git-info
+@@ -1,47 +1,64 @@
+ #!/usr/bin/env bash
+ 
+-get_config() {
+-  git config --list
+-}
++clear
+ 
+-most_recent_commit() {
+-  git log --max-count=1 --pretty=short
+-}
+ 
+-local_branches() {
+-  git branch
+-}
++max_count=1
++if [[ "$1" == "-c" ]]; then
++    shift
++    max_count="$1"; shift
++fi
+ 
+-remote_branches() {
+-  git branch -r
+-}
++color="--color=always"
++no_color="--no-color"
++if [[ "$1" == "${no_color}" ]]; then
++    color="$1"; shift
++else
++    if [[ "$2" == "${no_color}" ]]; then
++        color="$2"
++    fi
++fi
+ 
+-remote_urls() {
+-  git remote -v
++
++header() {
++    if [[ "${color}" != "${no_color}" ]]; then
++        tput setaf 242
++    fi
++
++    printf "### $1\n"
++
++    if [[ "${color}" != "${no_color}" ]]; then
++        tput sgr0
++    fi
+ }
+ 
+-echon() {
+-    echo "$@"
+-    echo
++git_cmd() {
++    eval "$1"
++    printf "\n"
+ }
+ 
++
+ # Show info similar to svn
+ 
+-echo
+-echon "## Remote URLs:"
+-echon "$(remote_urls)"
++header "Remote URLs:"
++git_cmd "git remote -v"
++
++header "Remote Branches:"
++git_cmd "git branch -r ${color}"
+ 
+-echon "## Remote Branches:"
+-echon "$(remote_branches)"
++header "Local Branches:"
++git_cmd "git branch ${color}"
+ 
+-echon "## Local Branches:"
+-echon "$(local_branches)"
++if [[ "${max_count}" -ne 1 ]]; then
++    header="Top ${max_count} Commits:"
++else
++    header="Most Recent Commit:"
++fi
+ 
+-echon "## Most Recent Commit:"
+-echon "$(most_recent_commit)"
+-echon "Type 'git log' for more commits, or 'git show <commit id>' for full commit details."
++header "${header}"
++git_cmd "git --no-pager log --max-count=${max_count} --pretty=short ${color}"
+ 
+-if test "$1" != "--no-config"; then
+-  echon "## Configuration (.git/config):"
+-  echon "$(get_config)"
++if [[ "$1" != "--no-config" ]]; then
++  header "Configuration (.git/config):"
++  git --no-pager config --list
+ fi

@@ -1,6 +1,7 @@
 #################
 #  LIVE Builds  #
 #################
+=app-misc/geeknote-9999 **
 =app-portage/euscan-9999 **
 =app-shells/bashlibs-9999 **
 =app-shells/funky-9999 **
@@ -27,16 +28,22 @@
 =app-vim/vim-livedown-9999 **
 =app-vim/vim-localvimrc-9999 **
 =app-vim/vim-python-pep8-indent-9999 **
-=app-vim/vim-snippets-9999 **
 =app-vim/vim-pythonx-9999 **
+=app-vim/vim-snippets-9999 **
 =app-vim/vim-superman-9999 **
 =app-vim/vim-taskwarrior-9999 **
 =app-vim/vimproc-9999 **
 =app-vim/vimux-9999 **
+=dev-python/ansimarkup-9999 ** # required by dev-python/loguru-9999::bbugyi200
+=dev-python/evernote-sdk-python-9999 ** # required by app-misc/geeknote-9999::bbugyi200
+=dev-python/loguru-9999 **
 =dev-python/praw-9999 **
-=dev-python/update_checker-9999 ** # required by dev-python/praw-9999::bbugyi200
 =dev-python/prawcore-9999 ** # required by dev-python/praw-9999::bbugyi200
+=dev-python/update_checker-9999 ** # required by dev-python/praw-9999::bbugyi200
 =dev-util/cookie-9999 **
+=dev-util/voltron-9999 **
+=media-gfx/imv-9999 **
+=net-irc/hexchat-9999 **
 =net-irc/weechat-autosort-9999 **
 =net-irc/weechat-buddylist-9999 **
 =net-irc/weechat-buffer-autoclose-9999 **
@@ -52,24 +59,40 @@
 #  UNSTABLE Builds (all versions)  #
 ####################################
 app-misc/anki ~amd64
+app-misc/icdiff ~amd64
+app-misc/nixnote ~amd64
 app-misc/radeontop ~amd64
+app-misc/tusk ~amd64
 app-shells/gentoo-zsh-completions ~amd64 # drops unnecessary openrc blocker (a44f9462) 
 app-shells/localalias ~amd64
 dev-python/flake8-per-file-ignores ~amd64
+dev-python/keyrings_alt ~amd64 # required by app-misc/jrnl-9999::local
 dev-python/line_profiler ~amd64
+dev-python/pipenv ~amd64
+dev-python/pluggy ~amd64 # required by dev-python/pytest-3.8.0::gentoo
 dev-python/praw ~amd64
 dev-python/pytest ~amd64
+dev-python/tasklib ~amd64
+dev-python/tldextract ~amd64
 dev-python/twine ~amd64
 dev-ruby/tmuxinator ~amd64
+dev-ruby/xdg ~amd64 # required by dev-ruby/tmuxinator-0.12.0::bbugyi200[ruby_targets_ruby23]
 dev-util/heroku-cli ~amd64
 dev-util/kcov ~amd64
 dev-util/valgrind ~amd64 # need debuginfo.patch (e2760888)
+dev-vcs/git-extras ~amd64
 media-gfx/gifski ~amd64
+media-tv/plex-media-player ~amd64
+media-video/mpv ~amd64
 media-video/peek ~amd64
+net-im/slack-bin ~amd64
 net-misc/dropbox ~amd64
+net-misc/youtube-dl ~amd64
+sys-process/glances ~amd64
 www-apps/hugo ~amd64
 www-client/qutebrowser ~amd64
 www-plugins/pdfjs ~amd64
+x11-misc/clipster ~amd64
 
 ######################################
 #  UNSTABLE Builds (single version)  #
@@ -132,46 +155,63 @@ www-plugins/pdfjs ~amd64
 =dev-nodejs/request-2.48.0 ~amd64 # required by app-misc/livedown-2.1.1::bbugyi200
 =dev-nodejs/socketio-2.0.3 ~amd64 # required by app-misc/livedown-2.1.1::bbugyi200
 =dev-python/arrow-0.12.1 ~amd64 # required by dev-python/jinja2-time-0.2.0::gentoo, dev-util/cookiecutter-1.6.0::gentoo
+=dev-python/astroid-1.6.5 ~amd64 # required by dev-python/pylint-1.8.4::gentoo
 =dev-python/attrs-18.1.0 ~amd64 # required by dev-python/pytest-3.8.0::gentoo
 =dev-python/backports-csv-1.0.5 ~amd64 # required by dev-python/cli_helpers-1.0.1::gentoo, dev-db/mycli-1.15.0-r2::gentoo
 =dev-python/binaryornot-0.4.3 ~amd64 # required by dev-util/cookiecutter-1.6.0::gentoo
+=dev-python/blessed-1.15.0 ~amd64 # required by dev-util/voltron-9999::bbugyi200
 =dev-python/cli_helpers-1.0.1 ~amd64 # required by dev-db/mycli-1.15.0-r2::gentoo
 =dev-python/click-log-0.3.2 ~amd64 # required by app-misc/khal-0.9.9-r1::gentoo
 =dev-python/click-threading-0.4.4 ~amd64 # required by dev-python/vdirsyncer-0.16.7::gentoo
+=dev-python/distro-1.0.4 ~amd64 # required by dev-util/conan-1.0.4::gentoo
 =dev-python/icalendar-3.11.7 ~amd64 # required by app-misc/khal-0.9.9-r1::gentoo
 =dev-python/jinja2-time-0.2.0 ~amd64 # required by dev-util/cookiecutter-1.6.0::gentoo
-=dev-python/keyrings_alt-2.3 ~amd64 # required by app-misc/jrnl-9999::local
 =dev-python/kitchen-1.2.5 ~amd64 # required by dev-python/taskw-1.2.0::bbugyi200, app-misc/bugwarrior-1.6.0::bbugyi200
 =dev-python/msgpack-0.5.6 ~amd64 # required by dev-python/neovim-python-client-0.2.6::gentoo, app-editors/neovim-0.3.1::gentoo[python]
+=dev-python/mypy-0.700 ~amd64
+=dev-python/mypy_extensions-0.4.1 ~amd64 # required by dev-python/mypy-0.700::gentoo
 =dev-python/neovim-python-client-0.2.6 ~amd64 # required by app-editors/neovim-0.3.1::gentoo[python]
+=dev-python/node-semver-0.2.0 ~amd64 # required by dev-util/conan-1.0.4::gentoo
 =dev-python/parse-1.6.6 ~amd64 # required by dev-python/pockyt-1.2::bbugyi200
+=dev-python/pew-1.1.1 ~amd64 # required by dev-python/pipenv-9.0.0-r2::gentoo
 =dev-python/pkginfo-1.4.2 ~amd64 # required by dev-python/twine-1.11.0::gentoo
-=dev-python/pluggy-0.7.1 ~amd64 # required by dev-python/pytest-3.8.0::gentoo
+=dev-python/pluggy-0.9.0 ~amd64 # required by dev-python/pytest-4.4.0::gentoo
+=dev-python/pluginbase-0.5 ~amd64 # required by dev-util/conan-1.0.4::gentoo
 =dev-python/pockyt-1.2 ~amd64
 =dev-python/poyo-0.4.1 ~amd64 # required by dev-util/cookiecutter-1.6.0::gentoo
+=dev-python/pudb-2018.1 ~amd64
 =dev-python/py-1.5.4 ~amd64 # required by dev-python/pytest-3.8.0::gentoo
 =dev-python/py-pathmatch-0.2.1 ~amd64 # required by dev-python/flake8-per-file-ignores-0.6::bbugyi200
+=dev-python/pylint-1.8.4 ~amd64 # required by dev-util/conan-1.0.4::gentoo
 =dev-python/pynacl-1.2.1 ~amd64 # required by dev-python/paramiko-2.4.1::gentoo, dev-db/mysql-workbench-6.3.4-r1::gentoo
 =dev-python/pypeg2-2.15.2 ~amd64 # required by www-client/qutebrowser-1.4.1::gentoo
+=dev-python/pysigset-0.3.2 ~amd64 # required by dev-util/voltron-9999::bbugyi200
+=dev-python/pythonz-bd-1.11.4 ~amd64 # required by dev-python/pew-1.1.1::gentoo
 =dev-python/requests-file-1.4.3 ~amd64 # required by dev-python/tldextract-2.2.0::local
+=dev-python/requests-unixsocket-0.1.5 ~amd64 # required by dev-util/voltron-9999::bbugyi200
+=dev-python/resumable-urlretrieve-0.1.5 ~amd64 # required by dev-python/pythonz-bd-1.11.4::gentoo[-python_targets_python3_5,python_targets_python3_6,-python_targets_python3_7]
+=dev-python/scruffington-0.3.7 ~amd64 # required by dev-util/voltron-9999::bbugyi200
 =dev-python/setuptools-40.6.3 ~amd64
+=dev-python/shutilwhich-1.1.0 ~amd64 # required by dev-python/pew-1.1.1::gentoo
 =dev-python/tabulate-0.8.1 ~amd64 # required by dev-python/cli_helpers-1.0.1::gentoo, dev-db/mycli-1.15.0-r2::gentoo
-=dev-python/tasklib-1.1.0 ~amd64
 =dev-python/taskw-1.2.0 ~amd64 # required by app-misc/bugwarrior-1.6.0::bbugyi200
 =dev-python/terminaltables-3.1.0 ~amd64 # required by dev-python/cli_helpers-1.0.1::gentoo, dev-db/mycli-1.15.0-r2::gentoo
-=dev-python/tldextract-2.2.0 ~amd64
+=dev-python/thrift-0.11.0 ~amd64 # required by dev-python/evernote-sdk-python-9999::bbugyi200
 =dev-python/tldr-0.4.4 ~amd64
 =dev-python/tldr-python-client-0.4.4 ~amd64
 =dev-python/twilio-3.6.9 ~amd64
+=dev-python/typed-ast-1.3.1 ~amd64 # required by dev-python/mypy-0.700::gentoo
 =dev-python/vdirsyncer-0.16.7 ~amd64
 =dev-python/whichcraft-0.4.1 ~amd64 # required by dev-util/cookiecutter-1.6.0::gentoo
 =dev-ruby/mail-2.7.0 ~amd64 # required by dev-ruby/twmail-0.0.6::bbugyi200[ruby_targets_ruby23]
 =dev-ruby/pygments_rb-1.2.1 ~amd64 # required by dev-vcs/ghi-1.2.0::bbugyi200[ruby_targets_ruby23]
 =dev-ruby/twmail-0.0.5 ~amd64
 =dev-ruby/twmail-0.0.6 ~amd64
-=dev-ruby/xdg-2.2.3 ~amd64 # required by dev-ruby/tmuxinator-0.12.0::bbugyi200[ruby_targets_ruby23]
+=dev-scheme/termite-0.15-r1 ~amd64
 =dev-util/bumpversion-0.5.3 ~amd64
+=dev-util/conan-1.0.4 ~amd64 # required by media-tv/plex-media-player-9999::bbugyi200
 =dev-util/cookiecutter-1.6.0 ~amd64
+=dev-util/google-breakpad-9999 ~amd64 # required by media-tv/plex-media-player-9999::bbugyi200
 =dev-util/ix-1.0 ~amd64
 =dev-util/lldb-8.0.0 ~amd64 # required by lldb (argument)
 =dev-util/patchelf-0.9_p20180129 ~amd64 # required by media-sound/spotify-1.0.92::gentoo
@@ -180,10 +220,11 @@ www-plugins/pdfjs ~amd64
 =dev-vcs/ghi-1.2.0 ~amd64
 =dev-vcs/hub-2.2.9 ~amd64
 =media-fonts/fontawesome-5.1.0 ~amd64
-=media-gfx/imv-2.1.3 ~amd64
 =media-gfx/wkhtmltopdf-0.12.4-r1 ~amd64
 =media-sound/spotify-1.0.92 ~amd64
+=media-sound/spotify-1.1.0 ~amd64
 =media-video/castnow-0.6.0 ~amd64
+=media-video/ffmpeg-4.1.3 ~amd64 # required by media-video/mpv-0.29.1-r1::gentoo
 =net-irc/weechat-notify-send-9999 ~amd64
 =net-p2p/transmission-remote-cli-1.7.1 ~amd64
 =sys-apps/safe-rm-0.8 ~amd64
@@ -194,7 +235,6 @@ www-plugins/pdfjs ~amd64
 =sys-libs/compiler-rt-8.0.0 ~amd64 # required by sys-devel/clang-runtime-8.0.0::gentoo[compiler-rt], sys-devel/clang-8.0.0::gentoo, sys-libs/compiler-rt-sanitizers-8.0.0::gentoo[clang]
 =sys-libs/compiler-rt-sanitizers-8.0.0 ~amd64 # required by sys-devel/clang-runtime-8.0.0::gentoo[sanitize,compiler-rt], sys-devel/clang-8.0.0::gentoo, sys-libs/compiler-rt-8.0.0::gentoo[clang]
 =sys-libs/libomp-8.0.0 ~amd64 # required by sys-devel/clang-runtime-8.0.0::gentoo[openmp], sys-devel/clang-8.0.0::gentoo, sys-libs/compiler-rt-8.0.0::gentoo[clang]
-=x11-misc/clipster-2.0.1 ~amd64
 =x11-misc/xprintidle-2.1 ~amd64
 
 #######################################
