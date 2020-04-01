@@ -1,3 +1,5 @@
+app-misc/abduco ~amd64
+=app-misc/dvtm-9999 **
 =app-admin/stow-2.2.2-r1 ~amd64
 =app-doc/cppman-0.4.8 ~amd64
 =app-editors/neovim-0.3.1 ~amd64
@@ -238,6 +240,7 @@ dev-util/watchexec ~amd64
 =dev-vcs/ghi-1.2.0 ~amd64
 dev-vcs/git-extras ~amd64
 =dev-vcs/hub-2.2.9 ~amd64
+dev-python/scikit-build ~amd64
 =media-fonts/fontawesome-5.1.0 ~amd64
 media-gfx/gifski ~amd64
 media-gfx/imv ~amd64
@@ -250,7 +253,7 @@ media-tv/plex-media-player ~amd64
 media-video/mpv ~amd64
 media-video/peek ~amd64
 net-im/zoom ~amd64
-net-im/slack-bin ~amd64
+net-im/slack ~amd64
 =net-irc/hexchat-9999 **
 =net-irc/weechat-autosort-9999 **
 =net-irc/weechat-buddylist-9999 **

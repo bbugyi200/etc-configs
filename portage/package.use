@@ -4,6 +4,7 @@
 app-editors/vim lua python terminal vim-pager
 app-emulation/docker btrfs device-mapper
 app-emulation/qemu spice usbredir
+app-misc/dvtm savedconfig
 app-misc/jrnl -crypt
 app-portage/layman sync-plugin-portage git
 app-text/poppler -qt5

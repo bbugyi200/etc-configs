@@ -1,3 +1,4 @@
+=app-portage/euscan-9999::bbugyi200
 app-accessibility/espeak
 app-admin/lastpass-cli
 app-admin/logrotate
@@ -18,8 +19,11 @@ app-emulation/libvirt
 app-emulation/qemu
 app-emulation/virt-manager
 app-emulation/virt-viewer
+app-eselect/eselect-repository
 app-i18n/unicode-emoji
+app-misc/abduco
 app-misc/colordiff
+app-misc/dvtm
 app-misc/nixnote
 app-misc/radeontop
 app-misc/ranger
@@ -35,7 +39,6 @@ app-portage/elogv
 app-portage/euscan
 app-portage/genlop
 app-portage/gentoolkit
-app-portage/layman
 app-portage/mirrorselect
 app-portage/repoman
 app-portage/smart-live-rebuild
@@ -148,8 +151,8 @@ media-fonts/intlfonts
 media-fonts/kochi-substitute
 media-fonts/liberation-fonts
 media-fonts/powerline-symbols
+media-fonts/quivira
 media-fonts/source-pro
-media-fonts/symbola
 media-fonts/terminus-font
 media-fonts/ttf-bitstream-vera
 media-fonts/unifont
@@ -180,7 +183,7 @@ net-analyzer/nmap
 net-analyzer/vnstat
 net-analyzer/wireshark
 net-dns/bind-tools
-net-im/slack-bin
+net-im/slack
 net-irc/hexchat
 net-irc/weechat
 net-irc/weechat-autosort
