@@ -1,0 +1,13 @@
+diff --git a/dvtm.c b/dvtm.c
+index 2b7ebdc..4acb45f 100644
+--- a/dvtm.c
++++ b/dvtm.c
+@@ -1235,7 +1235,7 @@ focusprevnm(const char *args[]) {
+ 
+ static void
+ focuslast(const char *args[]) {
+-	if (lastsel)
++	if (lastsel && isvisible(lastsel))
+ 		focus(lastsel);
+ }
+ 

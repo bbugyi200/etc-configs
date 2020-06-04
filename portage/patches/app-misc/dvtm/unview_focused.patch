@@ -1,0 +1,44 @@
+diff --git a/dvtm.c b/dvtm.c
+index 2b7ebdc..33d04c4 100644
+--- a/dvtm.c
++++ b/dvtm.c
+@@ -209,6 +209,8 @@ static void toggleminimize(const char *args[]);
+ static void togglemouse(const char *args[]);
+ static void togglerunall(const char *args[]);
+ static void toggletag(const char *args[]);
++static void unview_focused(const char *args[]);
++static void only_focused(const char *args[]);
+ static void toggleview(const char *args[]);
+ static void viewprevtag(const char *args[]);
+ static void view(const char *args[]);
+@@ -843,6 +845,30 @@ toggletag(const char *args[]) {
+ 	}
+ }
+ 
++static void
++unview_focused(const char *args[]) {
++    if (!sel)
++        return;
++    
++    unsigned int newtagset = tagset[seltags] ^ sel->tags;
++    if (newtagset) {
++		tagset[seltags] = newtagset;
++		tagschanged();
++    }
++}
++
++static void
++only_focused(const char *args[]) {
++    if (!sel)
++        return;
++
++    unsigned int newtagset = tagset[seltags] & sel->tags;
++    if (newtagset) {
++		tagset[seltags] = newtagset;
++		tagschanged();
++    }
++}
++
+ static void
+ toggleview(const char *args[]) {
+ 	unsigned int newtagset = tagset[seltags] ^ (bitoftag(args[0]) & TAGMASK);

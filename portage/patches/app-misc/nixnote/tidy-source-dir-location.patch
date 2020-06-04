@@ -1,0 +1,43 @@
+diff --git a/src/html/enmlformatter.cpp b/src/html/enmlformatter.cpp
+index 155db97d..42f8b699 100644
+--- a/src/html/enmlformatter.cpp
++++ b/src/html/enmlformatter.cpp
+@@ -34,13 +34,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ #include "src/logger/qslog.h"
+ #include "src/utilities/NixnoteStringUtils.h"
+ 
+-#ifdef Q_OS_MACOS
+ #include <tidy.h>
+ #include <tidybuffio.h>
+-#else
+-#include <tidy/tidy.h>
+-#include <tidy/tidybuffio.h>
+-#endif
+ 
+ #define ENML_MODULE_LOGPREFIX "enml-cleanup: "
+ 
+@@ -916,4 +911,4 @@ bool EnmlFormatter::isFormattingError() const {
+ void EnmlFormatter::setContent(QString &contentStr) {
+     this->content.clear();
+     this->content.append(contentStr.toUtf8());
+-}
+\ No newline at end of file
++}
+diff --git a/src/main.cpp b/src/main.cpp
+index c3d5035e..8f84483a 100644
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -46,13 +46,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ 
+ #include "src/application.h"
+ 
+-#ifdef Q_OS_MACOS
+ #include <tidy.h>
+ #include <tidybuffio.h>
+-#else
+-#include <tidy/tidy.h>
+-#include <tidy/tidybuffio.h>
+-#endif
+ 
+ 
+ NixNote *w;

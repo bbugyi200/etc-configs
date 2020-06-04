@@ -1,0 +1,59 @@
+diff --git a/dvtm.c b/dvtm.c
+index 2b7ebdc..794cc5a 100644
+--- a/dvtm.c
++++ b/dvtm.c
+@@ -179,7 +179,10 @@ typedef struct {
+ 
+ /* commands for use by keybindings */
+ static void create(const char *args[]);
++static void create_zoom(const char *args[]);
++static void create_zoom_tag(const char *args[]);
+ static void copymode(const char *args[]);
++static void foggleview(const char *args[]);
+ static void focusn(const char *args[]);
+ static void focusid(const char *args[]);
+ static void focusnext(const char *args[]);
+@@ -1096,6 +1099,24 @@ create(const char *args[]) {
+ 	arrange();
+ }
+ 
++static void
++create_zoom(const char *args[]) {
++    create(args);
++    zoom(NULL);
++    focuslast(NULL);
++}
++
++static void
++create_zoom_tag(const char *args[]) {
++    create_zoom(NULL);
++    tag(args);
++
++    unsigned int newtagset = tagset[seltags] | bitoftag(args[0]) & TAGMASK;
++    if (tagset[seltags] != newtagset) {
++        foggleview(args);
++    }
++}
++
+ static void
+ copymode(const char *args[]) {
+ 	if (!args || !args[0] || !sel || sel->editor)
+@@ -1147,6 +1168,18 @@ copymode(const char *args[]) {
+ 		vt_write(sel->editor, args[1], strlen(args[1]));
+ }
+ 
++static void
++foggleview(const char *args[]) {
++    toggleview(args);
++
++    for (Client *c = nextvisible(clients); c; c = nextvisible(c->next)) {
++        if (c->tags & (bitoftag(args[0]) & TAGMASK)) {
++            focus(c);
++            return;
++        }
++    }
++}
++
+ static void
+ focusn(const char *args[]) {
+ 	for (Client *c = nextvisible(clients); c; c = nextvisible(c->next)) {

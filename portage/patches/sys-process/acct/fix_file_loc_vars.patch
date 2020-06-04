@@ -1,0 +1,19 @@
+diff --git a/files.h.in b/files.h.in
+index 900ad29..8009eb5 100644
+--- a/files.h.in
++++ b/files.h.in
+@@ -30,10 +30,10 @@
+ 
+ #include <utmp.h>
+ 
+-#define WTMP_FILE_LOC "@WTMP_FILE_LOC@"
+-#define ACCT_FILE_LOC "@ACCT_FILE_LOC@"
+-#define SAVACCT_FILE_LOC "@SAVACCT_FILE_LOC@"
+-#define USRACCT_FILE_LOC "@USRACCT_FILE_LOC@"
++#define WTMP_FILE_LOC "/var/log/wtmp"
++#define ACCT_FILE_LOC "/var/account/pacct"
++#define SAVACCT_FILE_LOC "/var/account/savacct"
++#define USRACCT_FILE_LOC "/var/account/usracct"
+ 
+ /* Workaround for a kernel includes problem */
+ #if defined(__linux__) && defined(__alpha__)
