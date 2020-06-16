@@ -7,12 +7,14 @@ app-emulation/docker btrfs device-mapper
 app-emulation/qemu spice usbredir
 app-misc/dvtm savedconfig
 app-misc/jrnl -crypt
+app-office/libreoffice-bin PYTHON_SINGLE_TARGET: -* python3_7
 app-portage/layman sync-plugin-portage git
 app-text/poppler -qt5
 app-text/wdiff experimental
 dev-lang/rust-bin clippy doc rustfmt
 dev-python/ipython -nbconvert -notebook -qt5
 dev-python/requests socks5
+dev-ruby/pygments_rb python_single_target_python2_7
 dev-util/lldb python
 kde-apps/okular djvu epub
 mail-client/neomutt sasl

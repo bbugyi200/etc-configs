@@ -102,7 +102,7 @@ dev-ruby/tmuxinator
 dev-ruby/twmail
 dev-ruby/xdg
 dev-scheme/racket
-dev-tcltk/expect  # 2020-05-19
+dev-tcltk/expect  # 2020-06-11: For automating interactive applications
 dev-texlive/texlive-fontsextra
 dev-texlive/texlive-fontsrecommended
 dev-texlive/texlive-latexextra
@@ -122,9 +122,7 @@ dev-util/shellcheck
 dev-util/shunit2
 dev-util/strace
 dev-util/valgrind
-dev-util/voltron
 dev-util/watchexec
-dev-vcs/ghi
 dev-vcs/git
 dev-vcs/git-extras
 dev-vcs/hub
@@ -221,6 +219,7 @@ net-proxy/sshuttle
 net-vpn/openvpn
 sys-apps/bat
 sys-apps/collectl
+sys-apps/cpuid  # 2020-06-06: View CPU registers
 sys-apps/dmidecode
 sys-apps/exa
 sys-apps/fd
